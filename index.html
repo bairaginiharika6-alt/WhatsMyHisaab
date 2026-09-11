@@ -42,11 +42,23 @@
     min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px
   }
   .brand{display:flex;align-items:center;gap:12px;font-weight:850;letter-spacing:-.5px}
-  .brand-mark{
-    width:42px;height:42px;border-radius:14px;background:var(--navy);
-    display:grid;place-items:center;color:white;font-size:20px;
-    box-shadow:0 8px 20px rgba(12,35,64,.16)
-  }
+.brand-logo{
+  width:42px !important;
+  height:42px !important;
+  min-width:42px;
+  max-width:42px;
+  min-height:42px;
+  max-height:42px;
+  object-fit:contain;
+  display:block;
+  flex:0 0 42px;
+  border-radius:14px;
+  background:#ffffff;
+  border:1px solid var(--line);
+  padding:2px;
+  box-shadow:0 8px 20px rgba(12,35,64,.16);
+}
+
   .brand span{font-size:1.12rem}
   nav{display:flex;align-items:center;gap:28px}
   nav a{font-size:.94rem;font-weight:650;color:#506079;transition:.2s}
@@ -160,7 +172,7 @@
 <header>
   <div class="container nav">
     <a class="brand" href="#home" aria-label="WhatsMyHisaab home">
-      <div class="brand-mark">₹</div>
+      <img class="brand-logo" src="logo.jpg" alt="WhatsMyHisaab Logo">
       <span>Whats<span style="color:var(--green)">My</span>Hisaab</span>
     </a>
     <button class="menu-btn" aria-label="Open menu" onclick="toggleMenu()">☰</button>
