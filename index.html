@@ -99,6 +99,16 @@
     border:1px solid var(--line);border-radius:32px;padding:34px;box-shadow:var(--shadow)
   }
   .feature-list{display:grid;gap:12px}
+  
+  .feature-heading{
+  color:var(--navy);
+  font-size:1.35rem;
+  line-height:1.25;
+  font-weight:850;
+  letter-spacing:-.7px;
+  margin-bottom:8px;
+  padding:4px 4px 10px;
+}
   .feature-btn{
     display:flex;align-items:center;gap:14px;text-align:left;width:100%;
     padding:17px 18px;border:1px solid var(--line);background:#fff;border-radius:17px;
@@ -226,6 +236,11 @@
 
   <!-- LEFT SIDE: Feature buttons -->
   <div class="feature-list">
+    
+    <div class="feature-heading">
+  Your Business. Your Hisaab. Your WhatsApp.
+</div>
+    
     <button class="feature-btn" onclick="showToast('Sales & Purchase selected')">
       <span class="feature-icon">📒</span>
       <span data-i18n="sales">Sales & Purchase</span>
