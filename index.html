@@ -291,11 +291,11 @@
     }
 
     .quick-actions {
-      display: grid;
-      gap: 12px;
+    display: grid;
+    gap: 12px;
     }
 
-    .quick-btn {
+     .quick-btn {
       width: 100%;
       display: flex;
       align-items: center;
@@ -521,7 +521,7 @@
       100% { background-position: 100% 50%; }
     }
 
-    .caption {
+    .caption {2
       margin-top: 14px;
       background: rgba(12, 35, 64, 0.91);
       color: #fff;
@@ -818,8 +818,8 @@
       .quick-btn {
         padding: 12px 14px;
       }
-          /* ===== IMAGE POPUP CSS START ===== */
-
+     } 
+    
     .home-image-modal {
       position: fixed;
       inset: 0;
@@ -834,7 +834,6 @@
       display: flex;
     }
 
-    /* Black transparent background */
     .home-image-overlay {
       position: absolute;
       inset: 0;
@@ -843,7 +842,6 @@
       -webkit-backdrop-filter: blur(5px);
     }
 
-    /* White popup box */
     .home-image-popup {
       position: relative;
       z-index: 1;
@@ -857,7 +855,6 @@
       box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
     }
 
-    /* Image inside the popup */
     .home-image-popup img {
       display: block;
       width: 100%;
@@ -867,7 +864,6 @@
       background: #edf9f1;
     }
 
-    /* X close button */
     .home-image-close {
       position: absolute;
       top: -12px;
@@ -889,12 +885,10 @@
       background: #159451;
     }
 
-    /* Popup open hone par page scroll band */
     body.home-popup-open {
       overflow: hidden;
     }
 
-    /* Mobile screen ke liye */
     @media (max-width: 620px) {
       .home-image-modal {
         padding: 14px;
@@ -914,9 +908,6 @@
         top: -9px;
         right: -7px;
       }
-    }
-
-    /* ===== IMAGE POPUP CSS END ===== */
     }
   </style>
 </head>
@@ -988,7 +979,6 @@
     <span data-i18n="freeTry">Free Try</span>
   </a>
 
-  <!-- Voice Message: image click popup -->
   <button
     class="quick-btn"
     type="button"
@@ -998,7 +988,6 @@
     <span data-i18n="voiceMessage">Voice Message</span>
   </button>
 
-  <!-- Text Message: image click popup -->
   <button
     class="quick-btn"
     type="button"
@@ -1008,7 +997,6 @@
     <span data-i18n="textMessage">Text Message</span>
   </button>
 
-  <!-- PDF Generate: image click popup -->
   <button
     class="quick-btn"
     type="button"
@@ -1018,7 +1006,6 @@
     <span data-i18n="pdfGenerate">PDF Generate</span>
   </button>
 
-  <!-- Stock: image click popup -->
   <button
     class="quick-btn"
     type="button"
@@ -1158,26 +1145,32 @@
 
   <div class="toast" id="toast"></div>
   
-  <!-- ===== IMAGE POPUP HTML START ===== -->
   <div class="home-image-modal" id="homeImageModal" aria-hidden="true">
-    <!-- Dark background: is par click karne se popup close hoga -->
-    <div class="home-image-overlay" onclick="closeHomeImagePopup()"></div>
+    
+    <div
+      class="home-image-overlay" 
+      onclick="closeHomeImagePopup()">
+      </div>
 
-    <!-- Image popup box -->
-    <div class="home-image-popup" role="dialog" aria-modal="true" aria-label="Feature image preview">
+    <div
+      class="home-image-popup" 
+      role="dialog" 
+      aria-modal="true" 
+      aria-label="Feature image preview">
       <button
         class="home-image-close"
         type="button"
         onclick="closeHomeImagePopup()"
-        aria-label="Close popup"
-      >
+        aria-label="Close popup">
         ×
       </button>
 
-      <img id="homePopupImage" src="" alt="WhatsMyHisaab Feature Preview">
+      <img
+        id="homePopupImage" 
+        src=""
+        alt="WhatsMyHisaab Feature Preview">
     </div>
   </div>
-  <!-- ===== IMAGE POPUP HTML END ===== -->
   
   <script>
     const translations = {
@@ -1316,7 +1309,9 @@
         }
       });
 
-      document.getElementById("langBtn").textContent = lang === "en" ? "हिंदी" : "English";
+      document.getElementById("langBtn").textContent = 
+        lang === "en" ? "हिंदी" : "English";
+      
       document.documentElement.lang = lang;
     }
 
@@ -1341,7 +1336,6 @@
         toast.style.display = "none";
       }, 1800);
     }
-    /* ===== IMAGE POPUP JAVASCRIPT START ===== */
 
     function openHomeImagePopup(imagePath, imageAlt) {
       const modal = document.getElementById("homeImageModal");
@@ -1365,14 +1359,12 @@
       document.body.classList.remove("home-popup-open");
     }
 
-    /* Keyboard Esc press se popup close hoga */
     document.addEventListener("keydown", function (event) {
       if (event.key === "Escape") {
         closeHomeImagePopup();
       }
     });
 
-    /* ===== IMAGE POPUP JAVASCRIPT END ===== */
     document.querySelectorAll("nav a").forEach((link) => {
       link.addEventListener("click", () => {
         document.getElementById("nav").classList.remove("open");
