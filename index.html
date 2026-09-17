@@ -581,7 +581,7 @@
       100% { background-position: 100% 50%; }
     }
 
-    .caption {2
+    .caption {
       margin-top: 14px;
       background: rgba(12, 35, 64, 0.91);
       color: #fff;
@@ -1088,132 +1088,143 @@
           <p data-i18n="hisaabLead">Track what matters to your business. Keep every record organised and access it easily through WhatsApp.</p>
         </div>
 
-        <div class="hisaab-wrap">
-<button class="feature-btn" type="button"
-        onclick="toggleFeatureFlip(this)"
-        aria-pressed="false">
-  <span class="feature-card-inner">
-    <span class="feature-card-front">
-      <span class="feature-icon">📒</span>
-      <span data-i18n="sales">Sales Record</span>
-    </span>
+    <div class="hisaab-wrap">
 
-    <span class="feature-card-back">
-      <img src="./images/sales.jpg" alt="Sales Record">
-      <span class="feature-card-back-content">
-        <strong>Sales Record</strong>
-        <small>Customer, product, quantity, payment और due track करें.</small>
+  <div class="feature-list reveal">
+    <div class="feature-heading" data-i18n="featureHeading">
+      Your Business. Your Hisaab. Your WhatsApp.
+    </div>
+
+    <button class="feature-btn" type="button"
+            onclick="toggleFeatureFlip(this)"
+            aria-pressed="false">
+      <span class="feature-card-inner">
+        <span class="feature-card-front">
+          <span class="feature-icon">📒</span>
+          <span data-i18n="sales">Sales Record</span>
+        </span>
+
+        <span class="feature-card-back">
+          <img src="./images/sales.jpg" alt="Sales Record">
+          <span class="feature-card-back-content">
+            <strong>Sales Record</strong>
+            <small>Customer, product, quantity, payment और due track करें.</small>
+          </span>
+        </span>
       </span>
-    </span>
-  </span>
-</button>
+    </button>
 
-<button class="feature-btn" type="button"
-        onclick="toggleFeatureFlip(this)"
-        aria-pressed="false">
-  <span class="feature-card-inner">
-    <span class="feature-card-front">
-      <span class="feature-icon">🛒</span>
-      <span data-i18n="purchase">Purchase Record</span>
-    </span>
+    <button class="feature-btn" type="button"
+            onclick="toggleFeatureFlip(this)"
+            aria-pressed="false">
+      <span class="feature-card-inner">
+        <span class="feature-card-front">
+          <span class="feature-icon">🛒</span>
+          <span data-i18n="purchase">Purchase Record</span>
+        </span>
 
-    <span class="feature-card-back">
-      <img src="./images/purchase.jpg" alt="Purchase Record">
-      <span class="feature-card-back-content">
-        <strong>Purchase Record</strong>
-        <small>Supplier, bill, quantity और payment manage करें.</small>
+        <span class="feature-card-back">
+          <img src="./images/purchase.jpg" alt="Purchase Record">
+          <span class="feature-card-back-content">
+            <strong>Purchase Record</strong>
+            <small>Supplier, bill, quantity और payment manage करें.</small>
+          </span>
+        </span>
       </span>
-    </span>
-  </span>
-</button>
+    </button>
 
-<button class="feature-btn" type="button"
-        onclick="toggleFeatureFlip(this)"
-        aria-pressed="false">
-  <span class="feature-card-inner">
-    <span class="feature-card-front">
-      <span class="feature-icon">👥</span>
-      <span data-i18n="hisaab">Hisaab</span>
-    </span>
+    <button class="feature-btn" type="button"
+            onclick="toggleFeatureFlip(this)"
+            aria-pressed="false">
+      <span class="feature-card-inner">
+        <span class="feature-card-front">
+          <span class="feature-icon">👥</span>
+          <span data-i18n="hisaab">Hisaab</span>
+        </span>
 
-    <span class="feature-card-back">
-      <img src="./images/hisaab.jpg" alt="Hisaab">
-      <span class="feature-card-back-content">
-        <strong>Hisaab</strong>
-        <small>किस customer से कितना लेना है, आसानी से देखें.</small>
+        <span class="feature-card-back">
+          <img src="./images/hisaab.jpg" alt="Hisaab">
+          <span class="feature-card-back-content">
+            <strong>Hisaab</strong>
+            <small>किस customer से कितना लेना है, आसानी से देखें.</small>
+          </span>
+        </span>
       </span>
-    </span>
-  </span>
-</button>
+    </button>
 
-<button class="feature-btn" type="button"
-        onclick="toggleFeatureFlip(this)"
-        aria-pressed="false">
-  <span class="feature-card-inner">
-    <span class="feature-card-front">
-      <span class="feature-icon">💰</span>
-      <span data-i18n="cash">Cash Flow</span>
-    </span>
+    <button class="feature-btn" type="button"
+            onclick="toggleFeatureFlip(this)"
+            aria-pressed="false">
+      <span class="feature-card-inner">
+        <span class="feature-card-front">
+          <span class="feature-icon">💰</span>
+          <span data-i18n="cash">Cash Flow</span>
+        </span>
 
-    <span class="feature-card-back">
-      <img src="./images/cash flow.jpg" alt="Cash Flow">
-      <span class="feature-card-back-content">
-        <strong>Cash Flow</strong>
-        <small>Business में आने-जाने वाले पैसे का हिसाब रखें.</small>
+        <span class="feature-card-back">
+          <img src="./images/cash-flow.jpg" alt="Cash Flow">
+          <span class="feature-card-back-content">
+            <strong>Cash Flow</strong>
+            <small>Business में आने-जाने वाले पैसे का हिसाब रखें.</small>
+          </span>
+        </span>
       </span>
-    </span>
-  </span>
-</button>
+    </button>
 
-<button class="feature-btn" type="button"
-        onclick="toggleFeatureFlip(this)"
-        aria-pressed="false">
-  <span class="feature-card-inner">
-    <span class="feature-card-front">
-      <span class="feature-icon">📦</span>
-      <span data-i18n="management">Stock Management</span>
-    </span>
+    <button class="feature-btn" type="button"
+            onclick="toggleFeatureFlip(this)"
+            aria-pressed="false">
+      <span class="feature-card-inner">
+        <span class="feature-card-front">
+          <span class="feature-icon">📦</span>
+          <span data-i18n="management">Stock Management</span>
+        </span>
 
-    <span class="feature-card-back">
-      <img src="./images/stock-management.jpg" alt="Stock Management">
-      <span class="feature-card-back-content">
-        <strong>Stock Management</strong>
-        <small>Available stock और low-stock items देखें.</small>
+        <span class="feature-card-back">
+          <img src="./images/stock-management.jpg" alt="Stock Management">
+          <span class="feature-card-back-content">
+            <strong>Stock Management</strong>
+            <small>Available stock और low-stock items देखें.</small>
+          </span>
+        </span>
       </span>
-    </span>
-  </span>
-</button>
+    </button>
 
-<button class="feature-btn" type="button"
-        onclick="toggleFeatureFlip(this)"
-        aria-pressed="false">
-  <span class="feature-card-inner">
-    <span class="feature-card-front">
-      <span class="feature-icon">📈</span>
-      <span data-i18n="reports">Smart Reports</span>
-    </span>
+    <button class="feature-btn" type="button"
+            onclick="toggleFeatureFlip(this)"
+            aria-pressed="false">
+      <span class="feature-card-inner">
+        <span class="feature-card-front">
+          <span class="feature-icon">📈</span>
+          <span data-i18n="reports">Smart Reports</span>
+        </span>
 
-    <span class="feature-card-back">
-      <img src="./images/smart reports.jpg" alt="Smart Reports">
-      <span class="feature-card-back-content">
-        <strong>Smart Reports</strong>
-        <small>Sales, purchase, expense, stock और due reports देखें.</small>
+        <span class="feature-card-back">
+          <img src="./images/smart-reports.jpg" alt="Smart Reports">
+          <span class="feature-card-back-content">
+            <strong>Smart Reports</strong>
+            <small>Sales, purchase, expense, stock और due reports देखें.</small>
+          </span>
+        </span>
       </span>
-    </span>
-  </span>
-</button>         
-        </div>
+    </button>
 
-          <div class="reveal">
-            <div class="hisaab-visual">
-              <img src="./screenshot.jpg" alt="WhatsMyHisaab Screenshot">
-            </div>
-            <div class="caption" data-i18n="caption">Your business hisaab, connected with WhatsApp.</div>
-          </div>
-        </div>
-      </div>
+  </div>
+
+  <div class="reveal">
+    <div class="hisaab-visual">
+      <img src="./screenshot.jpg" alt="WhatsMyHisaab Screenshot">
+    </div>
+
+    <div class="caption" data-i18n="caption">
+      Your business hisaab, connected with WhatsApp.
+    </div>
+  </div>
+
+</div>
     </section>
-
+    
+  </div>
     <section id="about">
       <div class="container">
         <div class="section-head reveal">
