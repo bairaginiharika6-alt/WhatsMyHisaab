@@ -421,61 +421,121 @@
       transform: translateY(-55px);
     }
 
-    .feature-btn {
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      text-align: left;
-      width: 100%;
-      padding: 17px 18px;
-      border: 1px solid rgba(24, 169, 87, 0.23);
-      background: #fff;
-      border-radius: 17px;
-      font-size: 1rem;
-      font-weight: 820;
-      color: var(--navy);
-      box-shadow: 0 7px 18px rgba(16, 35, 63, 0.06);
-      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-    }
+    .feature-list {
+  display: grid;
+  gap: 12px;
+}
 
-    .feature-btn::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 17px;
-      padding: 1px;
-      background: linear-gradient(100deg, transparent, #52ce85, transparent);
-      background-size: 220% 100%;
-      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      opacity: 0.12;
-      animation: borderDraw 4.5s linear infinite;
-    }
+.feature-btn {
+  position: relative;
+  width: 100%;
+  height: 110px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  perspective: 1000px;
+  text-align: left;
+}
 
-    .feature-btn:hover {
-      border-color: #3abf70;
-      transform: translateX(4px) scale(1.01);
-      box-shadow: 0 11px 22px rgba(16, 35, 63, 0.10), 0 0 15px rgba(24, 169, 87, 0.14);
-    }
+.feature-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(.22, 1, .36, 1);
+}
 
-    .feature-btn:hover::before {
-      opacity: 0.72;
-    }
+.feature-btn.is-flipped .feature-card-inner {
+  transform: rotateY(180deg);
+}
 
-    .feature-icon {
-      width: 42px;
-      height: 42px;
-      flex: 0 0 42px;
-      border-radius: 13px;
-      background: var(--mint);
-      display: grid;
-      place-items: center;
-      font-size: 20px;
-      box-shadow: 0 0 10px rgba(24, 169, 87, 0.08);
-    }
+.feature-card-front,
+.feature-card-back {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 17px 18px;
+  border-radius: 17px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+  box-shadow: 0 7px 18px rgba(16, 35, 63, 0.09);
+}
+
+.feature-card-front {
+  background: #ffffff;
+  border: 1px solid rgba(24, 169, 87, 0.23);
+  color: var(--navy);
+}
+
+.feature-card-back {
+  transform: rotateY(180deg);
+  justify-content: center;
+  background: #102e50;
+  color: #ffffff;
+  border: 1px solid rgba(24, 169, 87, 0.40);
+}
+
+.feature-card-back img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+}
+
+.feature-card-back-content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 5px;
+  width: 90%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(12, 35, 64, 0.84);
+  text-align: center;
+}
+
+.feature-card-back-content strong {
+  font-size: 1rem;
+}
+
+.feature-card-back-content small {
+  color: #e1edf3;
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.feature-icon {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  border-radius: 13px;
+  background: var(--mint);
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+}
+
+.feature-btn:focus-visible {
+  outline: 3px solid #52ce85;
+  outline-offset: 4px;
+}
+
+@media (max-width: 620px) {
+  .feature-btn {
+    height: 105px;
+  }
+
+  .feature-card-front,
+  .feature-card-back {
+    padding: 14px;
+  }
+}
 
     @keyframes borderDraw {
       from { background-position: 200% 0; }
@@ -1029,15 +1089,119 @@
         </div>
 
         <div class="hisaab-wrap">
-          <div class="feature-list reveal">
-            <div class="feature-heading" data-i18n="featureHeading">Your Business. Your Hisaab. Your WhatsApp.</div>
-            <button class="feature-btn" onclick="showToast('Sales Record selected')"><span class="feature-icon">📒</span><span data-i18n="sales">Sales</span></button>
-            <button class="feature-btn" onclick="showToast('Purchase Record selected')"><span class="feature-icon">🛒</span><span data-i18n="purchase">Purchase</span></button>
-            <button class="feature-btn" onclick="showToast('Customer Due selected')"><span class="feature-icon">👥</span><span data-i18n="customer">Customer Due</span></button>
-            <button class="feature-btn" onclick="showToast('Cash Flow')"><span class="feature-icon">💰</span><span data-i18n="cash">Cash Flow</span></button>
-            <button class="feature-btn" onclick="showToast('Stock Management selected')"><span class="feature-icon">📦</span><span data-i18n="management">Stock Managment</span></button>
-            <button class="feature-btn" onclick="showToast('Smart Reports selected')"><span class="feature-icon">📈</span><span data-i18n="Reports">Smart Reports</span></button>
-          </div>
+<button class="feature-btn" type="button"
+        onclick="toggleFeatureFlip(this)"
+        aria-pressed="false">
+  <span class="feature-card-inner">
+    <span class="feature-card-front">
+      <span class="feature-icon">📒</span>
+      <span data-i18n="sales">Sales Record</span>
+    </span>
+
+    <span class="feature-card-back">
+      <img src="./images/sales.jpg" alt="Sales Record">
+      <span class="feature-card-back-content">
+        <strong>Sales Record</strong>
+        <small>Customer, product, quantity, payment और due track करें.</small>
+      </span>
+    </span>
+  </span>
+</button>
+
+<button class="feature-btn" type="button"
+        onclick="toggleFeatureFlip(this)"
+        aria-pressed="false">
+  <span class="feature-card-inner">
+    <span class="feature-card-front">
+      <span class="feature-icon">🛒</span>
+      <span data-i18n="purchase">Purchase Record</span>
+    </span>
+
+    <span class="feature-card-back">
+      <img src="./images/purchase.jpg" alt="Purchase Record">
+      <span class="feature-card-back-content">
+        <strong>Purchase Record</strong>
+        <small>Supplier, bill, quantity और payment manage करें.</small>
+      </span>
+    </span>
+  </span>
+</button>
+
+<button class="feature-btn" type="button"
+        onclick="toggleFeatureFlip(this)"
+        aria-pressed="false">
+  <span class="feature-card-inner">
+    <span class="feature-card-front">
+      <span class="feature-icon">👥</span>
+      <span data-i18n="hisaab">Hisaab</span>
+    </span>
+
+    <span class="feature-card-back">
+      <img src="./images/hisaab.jpg" alt="Hisaab">
+      <span class="feature-card-back-content">
+        <strong>Hisaab</strong>
+        <small>किस customer से कितना लेना है, आसानी से देखें.</small>
+      </span>
+    </span>
+  </span>
+</button>
+
+<button class="feature-btn" type="button"
+        onclick="toggleFeatureFlip(this)"
+        aria-pressed="false">
+  <span class="feature-card-inner">
+    <span class="feature-card-front">
+      <span class="feature-icon">💰</span>
+      <span data-i18n="cash">Cash Flow</span>
+    </span>
+
+    <span class="feature-card-back">
+      <img src="./images/cash-flow.jpg" alt="Cash Flow">
+      <span class="feature-card-back-content">
+        <strong>Cash Flow</strong>
+        <small>Business में आने-जाने वाले पैसे का हिसाब रखें.</small>
+      </span>
+    </span>
+  </span>
+</button>
+
+<button class="feature-btn" type="button"
+        onclick="toggleFeatureFlip(this)"
+        aria-pressed="false">
+  <span class="feature-card-inner">
+    <span class="feature-card-front">
+      <span class="feature-icon">📦</span>
+      <span data-i18n="management">Stock Management</span>
+    </span>
+
+    <span class="feature-card-back">
+      <img src="./images/stock-management.jpg" alt="Stock Management">
+      <span class="feature-card-back-content">
+        <strong>Stock Management</strong>
+        <small>Available stock और low-stock items देखें.</small>
+      </span>
+    </span>
+  </span>
+</button>
+
+<button class="feature-btn" type="button"
+        onclick="toggleFeatureFlip(this)"
+        aria-pressed="false">
+  <span class="feature-card-inner">
+    <span class="feature-card-front">
+      <span class="feature-icon">📈</span>
+      <span data-i18n="reports">Smart Reports</span>
+    </span>
+
+    <span class="feature-card-back">
+      <img src="./images/smart-reports.jpg" alt="Smart Reports">
+      <span class="feature-card-back-content">
+        <strong>Smart Reports</strong>
+        <small>Sales, purchase, expense, stock और due reports देखें.</small>
+      </span>
+    </span>
+  </span>
+</button>          </div>
 
           <div class="reveal">
             <div class="hisaab-visual">
@@ -1199,7 +1363,7 @@
         featureHeading: "Your Business. Your Hisaab. Your WhatsApp.",
         sales: "Sales Record",
         purchase: "Purchase Record",
-        customer: "Customer Due",
+        hisaab: "Hisaab",
         cash: "Cash Flow",
         management: "Stock Management",
         reports: "Smart Reports",
@@ -1260,7 +1424,7 @@
         featureHeading: "आपका  व्यापार । आपका हिसाब। आपका WhatsApp।",
         sales: "बिक्री",
         purchase: "खरीद",
-        customer: "ग्राहक का हिसाब",
+        hisaab: "ग्राहक का हिसाब",
         cash: "आमदनी और खर्च",
         management: "माल का हिसाब",
         reports: "हिसाब की रिपोर्ट",
@@ -1336,6 +1500,12 @@
         toast.style.display = "none";
       }, 1800);
     }
+    
+    function toggleFeatureFlip(button) {
+  const isFlipped = button.classList.toggle("is-flipped");
+
+  button.setAttribute("aria-pressed", String(isFlipped));
+}
 
     function openHomeImagePopup(imagePath, imageAlt) {
       const modal = document.getElementById("homeImageModal");
