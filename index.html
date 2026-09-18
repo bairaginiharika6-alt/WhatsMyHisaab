@@ -404,14 +404,14 @@
       padding: 34px;
       box-shadow: var(--shadow);
     }
-
  .feature-list {
-    display: grid;
+   display: grid;
     gap: 12px;
  }
 
 .feature-btn {
   position: relative;
+  display: block;
   width: 100%;
   height: 150px;
   padding: 0;
@@ -419,10 +419,12 @@
   background: transparent;
   cursor: pointer;
   perspective: 1000px;
+  text-align: left;
 }
 
 .feature-card-inner {
   position: relative;
+  display: block;
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
@@ -450,15 +452,16 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 17px 18px
+  padding: 17px 18px;
   background: #ffffff;
   border: 1px solid rgba(24, 169, 87, 0.23);
+  color: var(--navy);
 }
 
 .feature-card-back {
   transform: rotateY(180deg);
   display: flex;
-  align-item: center;
+  align-items: center;
   justify-content: center;
   padding: 0;
   background: #102e50;
@@ -469,30 +472,21 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  padding: 6px
   object-fit: contain;
   object-position: center;
+  padding: 6px;
   background: #102e50;
 }
 
 .feature-card-back-content {
   position: relative;
   z-index: 2;
-  width: 75%;
-  padding: 7px 10px;
+  width: 80%;
+  padding: 8px 10px;
   border-radius: 10px;
-  background: rgba(12, 35, 64, 0.78);
+  background: rgba(12, 35, 64, 0.82);
   color: #ffffff;
   text-align: center;
-}
-
-.feature-card-back-content strong {
-  font-size: 0.85rem;
-}
-
-.feature-card-back-content small {
-  font-size: 0.68rem;
-  line-height: 1.2;
 }
 
 .feature-icon {
@@ -507,12 +501,16 @@
 }
 
 @media (hover: hover) and (min-width: 701px) {
-  .feature-btn:hover .feature-card-inner,
+  .feature-btn:hover .feature-card-inner {
     transform: rotateY(180deg);
   }
 }
 
 @media (max-width: 700px) {
+  .feature-btn {
+    height: 150px;
+  }
+
   .feature-btn.is-flipped .feature-card-inner {
     transform: rotateY(180deg);
   }
@@ -1083,7 +1081,6 @@
           aria-pressed="false">
           
           <span class="feature-card-inner">
-           
              <span class="feature-card-front">
                 <span class="feature-icon">📒</span>
                 <span data-i18n="sales">Sales-Record</span>
@@ -1091,8 +1088,11 @@
 
             <span class="feature-card-back">
               <img src="./sales.jpg" alt="Sales-Record">
-            </span>
+              <span class="features-card-back-content">
+                Sales Record
+             </span>
           </span>
+       </span>
         </button>
 
         <button 
@@ -1102,14 +1102,16 @@
           aria-pressed="false">
           
           <span class="feature-card-inner">
-            
             <span class="feature-card-front">
                <span class="feature-icon">🛒</span>
-               <span data-i18n="purchase">Purchase Record</span>
+               <span>Purchase Record</span>
             </span>
 
              <span class="feature-card-back">
-                <img src="./purchase.jpg" alt="Purchase-Record">
+               <img src="./purchase.jpg" alt="Purchase-Record">
+               <span class="features-card-back-content">
+                 Purchase Record
+               </span>
             </span>       
           </span>
         </button>
@@ -1121,15 +1123,17 @@
           aria-pressed="false">
           
           <span class="feature-card-inner">
-           
             <span class="feature-card-front">
                <span class="feature-icon">👥</span>
-               <span data-i18n="hisab">Hisab</span>
+               <span>Hisab</Span>
             </span>
 
              <span class="feature-card-back">
-                <img src="./hisab.jpg" alt="Hisab">
-            </span>            
+              <img src="./hisab.jpg" alt="Hisab">
+              <span class="features-card-back-content">
+                Hisab
+             </span>
+           </span>
           </span>
         </button>
 
@@ -1139,16 +1143,18 @@
           onclick="toggleFeatureFlip(this)"
           aria-pressed="false">
          
-          <span class="feature-card-inner">
-           
+          <span class="feature-card-inner">         
             <span class="feature-card-front">
                <span class="feature-icon">💰</span>
-               <span data-i18n="cash">Cash-Flow</span>
+               <span>Cash-Flow</span>
             </span>
 
              <span class="feature-card-back">
-                <img src="./cash flow.jpg" alt="Cash-Flow">
-            </span>    
+               <img src="./cash flow.jpg" alt="Cash-Flow">
+               <span class="features-card-back-content'>
+                 Cash Flow
+               </span>
+             </span>
           </span>
         </button>
 
@@ -1159,15 +1165,17 @@
           aria-pressed="false">
            
           <span class="feature-card-inner">
-            
             <span class="feature-card-front">
                <span class="feature-icon">📦</span>
-               <span data-i18n="management">Stock-Management</span>
+               <span>Stock-Management</span>
             </span>
 
             <span class="feature-card-back">
                <img src="./stock management.jpg" alt="Stock-Management">
-            </span>        
+               <span class="feature-card-back-content">
+                 Stock Management
+             </span>
+            </span>
           </span>
         </button>
 
@@ -1178,14 +1186,16 @@
           aria-pressed="false">
         
           <span class="feature-card-inner">
-            
             <span class="feature-card-front">
                <span class="feature-icon">📈</span>
-               <span data-i18n="reports">Smart-Reports</span>
+               <span>Smart-Reports</span>
              </span>
 
              <span class="feature-card-back">
                 <img src="./smart reports.jpg" alt="Smart-Reports">
+               <span class="feature-card-back-content">
+                 Smart Reports
+               </span>
             </span>        
           </span>
         </button>
