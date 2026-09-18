@@ -404,22 +404,27 @@
       padding: 34px;
       box-shadow: var(--shadow);
     }
-        .feature-list {
-  display: grid;
-  gap: 12px;
-}
-
+  .feature-list {
+    display: grid;
+    gap: 12px;
+    align-content: start;
+ }
+    
 .feature-btn {
   position: relative;
-  display: block;
   width: 100%;
-  height: 150px;
+  height: 100px;
   padding: 0;
   border: 0;
   background: transparent;
   cursor: pointer;
   perspective: 1000px;
   text-align: left;
+  transition: height 0.5s ease;
+}
+
+.feature-btn.is-flipped {
+  height: 420px;
 }
 
 .feature-card-inner {
@@ -442,7 +447,7 @@
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  border-radius: 17px;
+  border-radius: 18px;
   overflow: hidden;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -452,10 +457,9 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 17px 18px;
+  padding: 16px;
   background: #ffffff;
-  border: 1px solid rgba(24, 169, 87, 0.23);
-  color: var(--navy);
+  border: 1px solid rgba(24, 169, 87, 0.25);
 }
 
 .feature-card-back {
@@ -472,7 +476,7 @@
   inset: 0;
   width: 100%;
   height: 100%;
-  padding: 2px;
+  padding: 8px;
   object-fit: contain;
   object-position: center;
   background: #102e50;
@@ -482,39 +486,31 @@
   position: relative;
   z-index: 2;
   width: 75%;
-  padding: 8px 10px;
+  padding: 8px;
   border-radius: 10px;
-  background: rgba(12, 35, 64, 0.75);
-  color: #ffffff;
+  background: rgba(12, 35, 64, 0.76);
+  color: white;
   text-align: center;
-}
-
-.feature-icon {
-  width: 42px;
-  height: 42px;
-  flex: 0 0 42px;
-  display: grid;
-  place-items: center;
-  border-radius: 13px;
-  background: var(--mint);
-  font-size: 20px;
-}
-
-@media (hover: hover) and (min-width: 701px) {
-  .feature-btn:hover .feature-card-inner {
-    transform: rotateY(180deg);
-  }
 }
 
 @media (max-width: 700px) {
   .feature-btn {
-    height: 150px;
+    height: 90px;
   }
 
-  .feature-btn.is-flipped .feature-card-inner {
-    transform: rotateY(180deg);
+  .feature-btn.is-flipped {
+    height: 330px;
   }
 }
+ @media (hover: hover) and (min-width: 701px) {
+   .feature-btn:hover {
+     height: 520px;
+   }
+
+   .feature-btn:hover .feature-card-inner {
+     transform: rotateY(180deg);
+   }
+ }
     @keyframes borderDraw {
       from { background-position: 200% 0; }
       to { background-position: -20% 0; }
@@ -1503,19 +1499,20 @@
         toast.style.display = "none";
       }, 1800);
     }
-  function toggleFeatureFlip(button) {
-  const isFlipped = button.classList.toggle("is-flipped");
+
+    function toggleFeatureFlip(button) {
+     const isFlipped = button.classList.contains("is-flipped");
 
   document.querySelectorAll(".feature-btn").forEach((card) => {
-    if (card !== button) {
-      card.classList.remove("is-flipped");
-      card.setAttribute("aria-pressed", "false");
-    }
+    card.classList.remove("is-flipped");
+    card.setAttribute("aria-pressed", "false");
   });
 
-  button.setAttribute("aria-pressed", String(isFlipped));
+  if (!isFlipped) {
+    button.classList.add("is-flipped");
+    button.setAttribute("aria-pressed", "true");
+  }
 }
-
     function openHomeImagePopup(imagePath, imageAlt) {
       const modal = document.getElementById("homeImageModal");
       const image = document.getElementById("homePopupImage");
