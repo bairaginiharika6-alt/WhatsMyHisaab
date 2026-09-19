@@ -3,965 +3,375 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="WhatsMyHisaab — Keep your daily business hisaab in one place." />
-  <title>WhatsMyHisaab — Business Hisaab on WhatsApp</title>
+  <title>WhatsMyHisaab - Your Business Hisaab, Simplified</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <style>
     :root {
-      --ink: #10233f;
-      --muted: #60708a;
-      --green: #159451;
-      --green-dark: #08783b;
-      --mint: #edf9f1;
-      --cream: #fbfaf6;
-      --white: #ffffff;
-      --line: #dce8e1;
-      --navy: #0c2340;
-      --shadow: 0 18px 50px rgba(16, 35, 63, 0.10);
+      --primary: #25D366;
+      --primary-dark: #128C7E;
+      --dark: #0f172a;
+      --gray: #64748b;
+      --light-bg: #f8fafc;
+      --card-border: #e2e8f0;
+      --radius: 16px;
     }
 
     * {
       box-sizing: border-box;
-      scroll-behavior: smooth;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
     body {
-      margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at 85% 12%, rgba(24, 169, 87, 0.055), transparent 24%),
-        radial-gradient(circle at 8% 32%, rgba(16, 35, 63, 0.035), transparent 22%),
-        var(--cream);
+      background-color: #ffffff;
+      color: var(--dark);
       line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
+      scroll-behavior: smooth;
     }
 
     .container {
-      width: min(1160px, 92%);
-      margin: auto;
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     header {
+      padding: 1.2rem 0;
+      border-bottom: 1px solid var(--card-border);
       position: sticky;
       top: 0;
-      z-index: 20;
-      backdrop-filter: blur(16px);
-      background: rgba(251, 250, 246, 0.92);
-      border-bottom: 1px solid rgba(223, 232, 227, 0.8);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      z-index: 100;
     }
 
-    .nav {
-      min-height: 76px;
+    .nav-wrapper {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      align-items: center;
     }
 
-    .brand {
+    .logo {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-weight: 850;
-      letter-spacing: -0.5px;
+      gap: 10px;
+      text-decoration: none;
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--dark);
     }
 
-    .brand-logo {
-      width: 42px;
-      height: 42px;
-      min-width: 42px;
-      object-fit: contain;
-      display: block;
-      flex: 0 0 42px;
-      border-radius: 14px;
-      background: #fff;
-      border: 1px solid var(--line);
-      padding: 2px;
-      box-shadow: 0 8px 18px rgba(12, 35, 64, 0.12);
+    .logo img {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      object-fit: cover;
     }
 
-    .brand span {
-      font-size: 1.12rem;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 28px;
+    .logo span span {
+      color: var(--primary-dark);
     }
 
     nav a {
-      font-size: 0.94rem;
-      font-weight: 650;
-      color: #506079;
-      transition: 0.2s;
+      text-decoration: none;
+      color: var(--gray);
+      font-weight: 600;
+      margin-left: 1.5rem;
+      transition: color 0.2s;
     }
 
     nav a:hover {
-      color: var(--green-dark);
-    }
-
-    .lang {
-      border: 1px solid var(--line);
-      background: #fff;
-      border-radius: 999px;
-      padding: 9px 14px;
-      font-weight: 800;
-      color: var(--navy);
-      cursor: pointer;
-    }
-
-    .menu-btn {
-      display: none;
-      border: 0;
-      background: transparent;
-      font-size: 25px;
-      cursor: pointer;
+      color: var(--primary-dark);
     }
 
     .hero {
-      padding: 82px 0 70px;
+      padding: 4rem 0;
+      background: radial-gradient(circle at top right, #e8f5e9, transparent 60%);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(300px, 390px);
-      gap: 54px;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
       align-items: center;
     }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: var(--mint);
-      color: var(--green-dark);
-      font-size: 0.82rem;
-      font-weight: 850;
-      border: 1px solid #cfead9;
-    }
-
-    h1,
-    .section-head h2,
-    .quick-panel-title,
-    .talk h2 {
-      color: var(--navy);
-      text-shadow: 0 2px 8px rgba(24, 169, 87, 0.08);
+    .badge {
+      display: inline-block;
+      background: #e6f7ed;
+      color: var(--primary-dark);
+      padding: 6px 14px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
     }
 
     h1 {
-      font-size: clamp(2.6rem, 5vw, 4.8rem);
-      line-height: 1.02;
-      letter-spacing: -3px;
-      margin: 20px 0;
-    }
-
-    h1 .accent {
-      color: var(--green);
-    }
-
-    .section-head h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.1;
-      letter-spacing: -1.6px;
-      margin: 10px 0;
-    }
-
-    .quick-panel-title {
-      font-size: 1.2rem;
+      font-size: 2.8rem;
       line-height: 1.2;
-      font-weight: 900;
+      font-weight: 800;
+      margin-bottom: 1.2rem;
     }
 
-    .talk h2 {
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      line-height: 1.1;
-      margin: 0 0 12px;
-      letter-spacing: -1.5px;
+    h1 span {
+      color: var(--primary-dark);
     }
 
-    .security h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.08;
-      margin: 30px 0 14px;
-      letter-spacing: -1.4px;
-      color: #fff;
-      text-shadow: 0 2px 12px rgba(85, 220, 145, 0.16);
+    p.lead {
+      font-size: 1.15rem;
+      color: var(--gray);
+      margin-bottom: 2rem;
     }
 
-    .lead {
-      font-size: 1.13rem;
-      color: var(--muted);
-      max-width: 640px;
-    }
-
-    .hero-actions {
+    .hero-btns {
       display: flex;
-      gap: 13px;
+      gap: 1rem;
       flex-wrap: wrap;
-      margin-top: 30px;
+      margin-bottom: 1.8rem;
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
+    .center-btns {
       justify-content: center;
-      gap: 9px;
-      border-radius: 999px;
-      padding: 13px 18px;
-      font-weight: 850;
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
     }
 
     .btn-primary {
-      background: var(--green);
-      color: #fff;
-      box-shadow: 0 10px 22px rgba(24, 169, 87, 0.20);
+      background-color: var(--primary);
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    .btn-primary:hover {
+      background-color: #20b859;
+      transform: translateY(-2px);
     }
 
     .btn-secondary {
-      background: #fff;
-      border-color: var(--line);
-      color: var(--navy);
+      background-color: #f1f5f9;
+      color: var(--dark);
+      padding: 12px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.2s;
     }
 
-    .hero-note {
+    .btn-secondary:hover {
+      background-color: #e2e8f0;
+    }
+
+    .feature-pills {
       display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-top: 23px;
-      color: #6b788b;
+      gap: 1rem;
+      color: var(--gray);
       font-size: 0.9rem;
+      font-weight: 600;
     }
 
-    .hero-note span {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
+    .qr-card {
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--card-border);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      text-align: center;
     }
 
-    .quick-panel {
-      position: relative;
-      overflow: hidden;
-      padding: 25px 22px 23px;
-      border: 1px solid #d1e6d8;
-      border-radius: 28px;
-      background: linear-gradient(145deg, #fff, #f4fbf6);
-      box-shadow: 0 16px 36px rgba(12, 35, 64, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.9);
-    }
-
-    .quick-panel::before {
-      content: "";
-      position: absolute;
+    .qr-card img {
       width: 170px;
       height: 170px;
-      right: -78px;
-      top: -86px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(24, 169, 87, 0.11), transparent 68%);
+      border-radius: 10px;
+      border: 1px solid #edf2f7;
+      padding: 8px;
     }
 
-    .quick-panel-title,
-    .quick-panel-text,
-    .quick-actions {
-      position: relative;
+    .qr-card h3 {
+      font-size: 1.2rem;
+      margin: 1rem 0 0.5rem;
     }
 
-    .quick-panel-title {
-      margin: 0 0 4px;
-    }
-
-    .quick-panel-text {
-      margin: 0 0 17px;
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
-
-    .quick-actions {
-      display: grid;
-      gap: 12px;
-    }
-
-     .quick-btn {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-align: left;
-      border: 1px solid #d8e7de;
-      cursor: pointer;
-      padding: 13px 15px;
-      border-radius: 999px;
-      background: #fdfefd;
-      color: var(--navy);
-      font: inherit;
-      font-weight: 850;
-      box-shadow: 0 5px 0 #d7e5dd, 0 10px 17px rgba(12, 35, 64, 0.075);
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
-    }
-
-    .quick-btn:hover {
-      transform: translateY(-3px) scale(1.018);
-      background: #f6fbf8;
-      box-shadow: 0 8px 0 #cde0d4, 0 17px 25px rgba(12, 35, 64, 0.12), 0 0 15px rgba(24, 169, 87, 0.10);
-    }
-
-    .quick-btn:active {
-      transform: translateY(2px) scale(0.995);
-      box-shadow: 0 3px 0 #cde0d4, 0 7px 11px rgba(12, 35, 64, 0.10);
-    }
-
-    .quick-btn-icon {
-      width: 38px;
-      height: 38px;
-      flex: 0 0 38px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-size: 18px;
-      background: var(--mint);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 4px 8px rgba(24, 169, 87, 0.08);
-    }
-
-    .quick-btn-free,
-    .quick-btn-free:hover,
-    .quick-btn-free:active {
-      color: #fff;
-      background: linear-gradient(135deg, #08783b, #159451);
-      border-color: #08783b;
-    }
-
-    .quick-btn-free {
-      box-shadow: 0 6px 0 #066432, 0 12px 22px rgba(24, 169, 87, 0.24), 0 0 13px rgba(24, 169, 87, 0.16);
-      animation: freeGlow 2.2s ease-in-out infinite;
-    }
-
-    .quick-btn-free:hover {
-      transform: translateY(-3px) scale(1.018);
-      box-shadow: 0 8px 0 #05592d, 0 18px 26px rgba(24, 169, 87, 0.31), 0 0 20px rgba(24, 169, 87, 0.24);
-    }
-
-    .quick-btn-free:active {
-      transform: translateY(2px) scale(0.995);
-      box-shadow: 0 3px 0 #05592d, 0 8px 13px rgba(24, 169, 87, 0.18);
-    }
-
-    .quick-btn-free .quick-btn-icon {
-      background: #fff;
-      color: #08783b;
-    }
-
-    .whatsapp-icon svg {
-      width: 22px;
-      height: 22px;
-      display: block;
-    }
-
-    @keyframes freeGlow {
-      0%, 100% {
-        box-shadow: 0 6px 0 #066432, 0 12px 22px rgba(24, 169, 87, 0.24), 0 0 13px rgba(24, 169, 87, 0.16);
-      }
-      50% {
-        box-shadow: 0 6px 0 #066432, 0 14px 25px rgba(24, 169, 87, 0.29), 0 0 20px rgba(24, 169, 87, 0.22);
-      }
+    .qr-card p {
+      font-size: 0.85rem;
+      color: var(--gray);
     }
 
     section {
-      padding: 82px 0;
+      padding: 4.5rem 0;
     }
 
-    .section-head {
-      max-width: 760px;
-      margin-bottom: 34px;
+    .bg-light {
+      background-color: var(--light-bg);
     }
 
-    .section-head p {
-      color: var(--muted);
+    .section-title {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 3rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title p {
+      color: var(--gray);
       font-size: 1.05rem;
     }
 
-    .hisaab-wrap {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 44px;
-      align-items: center;
-      background: linear-gradient(135deg, #fff 0%, #f7fcf8 100%);
-      border: 1px solid var(--line);
-      border-radius: 32px;
-      padding: 34px;
-      box-shadow: var(--shadow);
-    }
-  .feature-list {
-    display: grid;
-    gap: 12px;
-    align-content: start;
- }
-    
-.feature-btn {
-  position: relative;
-  width: 100%;
-  height: 100px;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  cursor: pointer;
-  perspective: 1000px;
-  text-align: left;
-  transition: height 0.5s ease;
-}
-
-.feature-btn.is-flipped {
-  height: 420px;
-}
-
-.feature-card-inner {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: transform 0.7s ease;
-}
-
-.feature-btn.is-flipped .feature-card-inner {
-  transform: rotateY(180deg);
-}
-
-.feature-card-front,
-.feature-card-back {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  border-radius: 18px;
-  overflow: hidden;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-.feature-card-front {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 16px;
-  background: #ffffff;
-  border: 1px solid rgba(24, 169, 87, 0.25);
-}
-
-.feature-card-back {
-  transform: rotateY(180deg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  background: #102e50;
-}
-
-.feature-card-back img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  padding: 8px;
-  object-fit: contain;
-  object-position: center;
-  background: #102e50;
-}
-
-.feature-card-back-content {
-  position: relative;
-  z-index: 2;
-  width: 75%;
-  padding: 8px;
-  border-radius: 10px;
-  background: rgba(12, 35, 64, 0.76);
-  color: white;
-  text-align: center;
-}
-
-@media (max-width: 700px) {
-  .feature-btn {
-    height: 90px;
-  }
-
-  .feature-btn.is-flipped {
-    height: 330px;
-  }
-}
- @media (hover: hover) and (min-width: 701px) {
-   .feature-btn:hover {
-     height: 520px;
-   }
-
-   .feature-btn:hover .feature-card-inner {
-     transform: rotateY(180deg);
-   }
- }
-    @keyframes borderDraw {
-      from { background-position: 200% 0; }
-      to { background-position: -20% 0; }
+    .mockup-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
     }
 
-    .hisaab-visual {
+    .phone-frame {
+      width: 310px;
+      height: 610px;
+      background: #000;
+      border-radius: 40px;
+      padding: 12px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
       position: relative;
-      border-radius: 26px;
     }
 
-    .hisaab-visual::before {
-      content: "";
-      position: absolute;
-      inset: -2px;
-      border-radius: 28px;
-      background: linear-gradient(120deg, rgba(24, 169, 87, 0.10), rgba(24, 169, 87, 0.44), rgba(147, 255, 195, 0.13), rgba(24, 169, 87, 0.35));
-      background-size: 250% 250%;
-      filter: blur(2px);
-      opacity: 0.40;
-      animation: neonFlow 5s linear infinite;
-      z-index: 0;
-    }
-
-    .hisaab-visual img {
-      position: relative;
-      z-index: 1;
+    .phone-screen {
       width: 100%;
-      display: block;
-      border-radius: 24px;
-      border: 1px solid var(--line);
-      box-shadow: 0 16px 34px rgba(16, 35, 63, 0.13);
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-    }
-
-    .hisaab-visual:hover img {
-      transform: translateY(-5px) scale(1.006);
-      box-shadow: 0 21px 39px rgba(16, 35, 63, 0.18);
-    }
-
-    @keyframes neonFlow {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
-    }
-
-    .caption {
-      margin-top: 14px;
-      background: rgba(12, 35, 64, 0.91);
-      color: #fff;
-      padding: 13px 15px;
-      border-radius: 14px;
-      font-size: 0.88rem;
-      text-align: center;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      position: relative;
+      height: 100%;
+      border-radius: 30px;
       overflow: hidden;
-      background: rgba(232, 247, 238, 0.68);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(172, 220, 190, 0.70);
-      border-radius: 22px;
-      padding: 25px;
-      box-shadow: 0 10px 24px rgba(16, 35, 63, 0.075), inset 0 1px 0 rgba(255, 255, 255, 0.78);
-      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+      background: #ffffff;
     }
 
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.48), transparent 48%, rgba(24, 169, 87, 0.05));
+    .phone-screen video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    .card > * {
-      position: relative;
+    .swiper {
+      width: 100%;
+      padding-bottom: 3.5rem !important;
     }
 
-    .card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(24, 169, 87, 0.42);
-      box-shadow: 0 20px 32px rgba(16, 35, 63, 0.13), 0 0 17px rgba(24, 169, 87, 0.11), inset 0 1px 0 rgba(255, 255, 255, 0.88);
+    .slide-card {
+      background: #ffffff;
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
     }
 
-    .card .ico {
-      font-size: 28px;
-      margin-bottom: 12px;
+    .slide-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
     }
 
-    .card h3 {
-      margin: 0 0 7px;
-      font-size: 1.12rem;
-      color: #123656;
+    .slide-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.6rem;
     }
 
-    .card p {
-      margin: 0;
-      color: #50627a;
+    .slide-card p {
+      color: var(--gray);
       font-size: 0.95rem;
     }
 
-    .security {
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(135deg, #102e50, #164263);
-      color: #fff;
-      border: 1px solid rgba(160, 255, 202, 0.16);
-      border-radius: 34px;
-      padding: 44px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 38px;
-      align-items: center;
-      box-shadow: 0 20px 45px rgba(12, 35, 64, 0.19);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .security::before {
-      content: "";
-      position: absolute;
-      width: 230px;
-      height: 230px;
-      right: -105px;
-      top: -110px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(80, 232, 145, 0.17), transparent 68%);
-    }
-
-    .security > * {
-      position: relative;
-    }
-
-    .security:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 26px 52px rgba(12, 35, 64, 0.24), 0 0 18px rgba(24, 169, 87, 0.11);
-    }
-
-    .security p {
-      color: #d2dfeb;
-    }
-
-    .security-list {
-      display: grid;
-      gap: 13px;
-    }
-
-    .security-item {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      padding: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.13);
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.065);
-      backdrop-filter: blur(7px);
-    }
-
-    .check {
-      color: #71e8a0;
-      font-weight: 900;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .step {
-      position: relative;
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 26px;
-    }
-
-    .num {
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      background: var(--navy);
-      color: #fff;
-      display: grid;
-      place-items: center;
-      font-weight: 900;
-      margin-bottom: 17px;
-    }
-
-    .step h3 {
-      margin: 0 0 7px;
-    }
-
-    .step p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .talk {
+    .contact-section {
+      background: var(--light-bg);
+      border-radius: var(--radius);
       text-align: center;
-      background: linear-gradient(135deg, #eefbf3, #fff);
-      border: 1px solid #d3ecdc;
-      border-radius: 32px;
-      padding: 56px 24px;
+      padding: 4rem 2rem;
     }
 
-    .talk p {
-      max-width: 680px;
-      margin: 0 auto;
-      color: var(--muted);
-    }
-
-    .talk-actions {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 26px;
+    .contact-subtext {
+      margin-bottom: 2rem;
+      color: var(--gray);
     }
 
     footer {
-      padding: 35px 0;
-      color: #6a778a;
-      font-size: 0.88rem;
+      border-top: 1px solid var(--card-border);
+      padding: 2rem 0;
+      color: var(--gray);
+      font-size: 0.9rem;
+      text-align: center;
     }
 
-    .footer-inner {
+    .floating-wa {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: var(--primary);
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
       display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-      border-top: 1px solid var(--line);
-      padding-top: 24px;
-    }
-
-    .toast {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      z-index: 50;
-      background: var(--navy);
-      color: #fff;
-      padding: 13px 16px;
-      border-radius: 13px;
-      box-shadow: var(--shadow);
-      display: none;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.72s ease, transform 0.72s cubic-bezier(.2, .8, .2, 1);
-    }
-
-    .reveal.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .cards .card:nth-child(2) {
-      transition-delay: 0.12s;
-    }
-
-    .cards .card:nth-child(3) {
-      transition-delay: 0.24s;
-    }
-
-    @media (max-width: 900px) {
-      nav {
-        display: none;
-        position: absolute;
-        top: 76px;
-        left: 0;
-        right: 0;
-        background: var(--cream);
-        padding: 18px 4%;
-        border-bottom: 1px solid var(--line);
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      nav.open {
-        display: flex;
-      }
-
-      .menu-btn {
-        display: block;
-      }
-
-      .hero-grid,
-      .hisaab-wrap,
-      .security {
-        grid-template-columns: 1fr;
-      }
-
-      .cards,
-      .steps {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .feature-heading {
-        transform: none;
-      }
-
-      .quick-panel {
-        max-width: 460px;
-      }
-
-      h1 {
-        letter-spacing: -2px;
-      }
-    }
-
-    @media (max-width: 620px) {
-      .hero {
-        padding-top: 55px;
-      }
-
-      .cards,
-      .steps {
-        grid-template-columns: 1fr;
-      }
-
-      .hisaab-wrap,
-      .security {
-        padding: 22px;
-        border-radius: 24px;
-      }
-
-      section {
-        padding: 62px 0;
-      }
-
-      .quick-btn {
-        padding: 12px 14px;
-      }
-     } 
-    
-    .home-image-modal {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      display: none;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      font-size: 2rem;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+      z-index: 1000;
+      text-decoration: none;
+      transition: transform 0.2s;
     }
 
-    .home-image-modal.show {
-      display: flex;
+    .floating-wa:hover {
+      transform: scale(1.1);
     }
 
-    .home-image-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(8, 25, 46, 0.72);
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
-    }
-
-    .home-image-popup {
-      position: relative;
-      z-index: 1;
-      width: min(700px, 100%);
-      max-height: 90vh;
-      overflow: auto;
-      padding: 14px;
-      border-radius: 24px;
-      background: #ffffff;
-      border: 1px solid rgba(24, 169, 87, 0.35);
-      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
-    }
-
-    .home-image-popup img {
-      display: block;
-      width: 100%;
-      max-height: 78vh;
-      object-fit: contain;
-      border-radius: 16px;
-      background: #edf9f1;
-    }
-
-    .home-image-close {
-      position: absolute;
-      top: -12px;
-      right: -12px;
-      z-index: 2;
-      width: 40px;
-      height: 40px;
-      border: 2px solid #ffffff;
-      border-radius: 50%;
-      background: #0c2340;
-      color: #ffffff;
-      font-size: 29px;
-      line-height: 34px;
-      cursor: pointer;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
-    }
-
-    .home-image-close:hover {
-      background: #159451;
-    }
-
-    body.home-popup-open {
-      overflow: hidden;
-    }
-
-    @media (max-width: 620px) {
-      .home-image-modal {
-        padding: 14px;
+    @media (max-width: 850px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
       }
-
-      .home-image-popup {
-        padding: 10px;
-        border-radius: 18px;
+      .hero-btns {
+        justify-content: center;
       }
-
-      .home-image-popup img {
-        max-height: 75vh;
-        border-radius: 12px;
+      .feature-pills {
+        justify-content: center;
+        flex-wrap: wrap;
       }
-
-      .home-image-close {
-        top: -9px;
-        right: -7px;
+      h1 {
+        font-size: 2.1rem;
+      }
+      nav {
+        display: none;
       }
     }
   </style>
 </head>
-
 <body>
+
+  <!-- Header -->
   <header>
-    <div class="container nav">
-      <a class="brand" href="#home" aria-label="WhatsMyHisaab home">
-        <img class="brand-logo" src="./logo.jpg" alt="WhatsMyHisaab Logo">
-        <span>Whats<span style="color:var(--green)">My</span>Hisaab</span>
+    <div class="container nav-wrapper">
+      <a href="#home" class="logo">
+        <img src="./logo.jpg" alt="WhatsMyHisaab Logo" onerror="this.src='https://placehold.co/80x80?text=WMH'" />
+        <span>Whats<span>My</span>Hisaab</span>
       </a>
-
-      <button class="menu-btn" aria-label="Open menu" onclick="toggleMenu()">☰</button>
-
-      <nav id="nav">
-        <a href="#home" data-i18n="navHome">Home</a>
-        <a href="#hisaab" data-i18n="navHisaab">WhatsMyHisaab</a>
-        <a href="#about" data-i18n="navAbout">About</a>
-        <a href="#talk" data-i18n="navTalk">Talk to us</a>
-        <button class="lang" onclick="toggleLanguage()" id="langBtn">हिंदी</button>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#demo">Live Demo</a>
+        <a href="#features">Features</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
@@ -969,330 +379,117 @@
   <main>
     <section class="hero" id="home">
       <div class="container hero-grid">
-        <div class="reveal">
-          <div class="eyebrow">● <span data-i18n="eyebrow">Your Business Hisaab, Simplified</span></div>
-
-          <h1 data-i18n="heroTitle">
-            You Focus On Your, <span class="accent">Business</span> We Take Care Of The Accounts.
-          </h1>
-
-          <p class="lead" data-i18n="heroLead">
-            Keep your daily business hisaab in one place. Add sales, expenses, customer dues, purchases and stock by typing or speaking — then get clear reports when you need them.
+        <div>
+          <span class="badge">● Your Business Hisaab, Simplified</span>
+          <h1>You Focus On Your Business, <span>We Take Care Of The Accounts.</span></h1>
+          <p class="lead">
+            Keep your daily hisaab in one place. Record sales, expenses, and dues simply by typing or sending a voice note on WhatsApp.
           </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="https://wa.me/919109134201?text=Hello%20WhatsMyHisaab%2C%20I%20want%20to%20manage%20my%20business%20hisaab." target="_blank" rel="noopener">
-              💬 <span data-i18n="openWhatsapp">Start Free on WhatsApp</span>
+          <div class="hero-btns">
+            <a href="https://wa.me/919109134201?text=Hello%20WhatsMyHisaab%2C%20I%20want%20to%20manage%20my%20business%20hisaab." class="btn-primary" target="_blank" rel="noopener">
+              💬 Start Free on WhatsApp
             </a>
-
-            <a class="btn btn-secondary" href="#hisaab">
-              ↘ <span data-i18n="seeHow">See how it works</span>
+            <a href="#demo" class="btn-secondary">
+              ↘ Watch Live Demo
             </a>
           </div>
-
-          <div class="hero-note">
-            <span>✓ <span data-i18n="note1">Text or voice</span></span>
-            <span>✓ <span data-i18n="note2">Business reports</span></span>
-            <span>✓ <span data-i18n="note3">Simple &amp; organised</span></span>
+          <div class="feature-pills">
+            <span>✓ Voice or text</span>
+            <span>✓ PDF reports</span>
+            <span>✓ 100% Private</span>
           </div>
         </div>
 
-        <aside class="quick-panel reveal">
-          <h2 class="quick-panel-title" data-i18n="quickTitle">Start your business hisaab</h2>
-          <p class="quick-panel-text" data-i18n="quickText">Choose an option and connect directly on WhatsApp.</p>
-
-          <div class="quick-actions">
-
-  <a class="quick-btn quick-btn-free" href="https://wa.me/919109134201?text=Hello%20WhatsMyHisaab%2C%20I%20want%20to%20try%20it%20for%20free." target="_blank" rel="noopener">
-    <span class="quick-btn-icon whatsapp-icon" aria-hidden="true">
-      <svg viewBox="0 0 32 32">
-        <path fill="currentColor" d="M16 3.1a12.7 12.7 0 0 0-10.9 19.2L3.5 28.5l6.4-1.7A12.8 12.8 0 1 0 16 3.1Zm0 23.2a10.5 10.5 0 0 1-5.4-1.5l-.4-.2-3.8 1 1-3.7-.3-.4A10.6 10.6 0 1 1 16 26.3Zm5.8-7.9c-.3-.2-1.8-.9-2.1-1s-.5-.2-.8.2-.9 1-1.1 1.2-.4.3-.7.1a8.5 8.5 0 0 1-2.5-1.5 9.6 9.6 0 0 1-1.8-2.3c-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6s0-.5 0-.7c-.1-.2-.8-1.9-1-2.6-.3-.7-.5-.6-.8-.6h-.7c-.2 0-.7.1-1 .5s-1.4 1.3-1.4 3.3 1.4 3.9 1.6 4.2 2.8 4.3 6.8 6c1 .4 1.8.6 2.4.7 1 .3 1.9.2 2.6.1.8-.1 2.5-1 2.8-2s.4-1.9.3-2.1-.2-.3-.6-.5Z"/>
-      </svg>
-    </span>
-    <span data-i18n="freeTry">Free Try</span>
-  </a>
-
-  <button
-    class="quick-btn"
-    type="button"
-    onclick="openHomeImagePopup('./voice.jpg', 'Voice Message')">
-    <span class="quick-btn-icon">🎙️</span>
-    <span data-i18n="voiceMessage">Voice Message</span>
-  </button>
-
-  <button
-    class="quick-btn"
-    type="button"
-    onclick="openHomeImagePopup('./text.png', 'Text Message')">
-    <span class="quick-btn-icon">💬</span>
-    <span data-i18n="textMessage">Text Message</span>
-  </button>
-
-  <button
-    class="quick-btn"
-    type="button"
-    onclick="openHomeImagePopup('./pdf.jpg', 'PDF Generate')">
-    <span class="quick-btn-icon">📄</span>
-    <span data-i18n="pdfGenerate">PDF Generate</span>
-  </button>
-
-  <button
-    class="quick-btn"
-    type="button"
-    onclick="openHomeImagePopup('./stock.jpg', 'Stock')">
-    <span class="quick-btn-icon">📦</span>
-    <span data-i18n="stock">Stock</span>
-  </button>
-
-</div>
-        </aside>
+        <div class="qr-card">
+          <img 
+            src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://wa.me/919109134201?text=Hello%20WhatsMyHisaab" 
+            alt="Scan QR to Chat on WhatsApp" 
+          />
+          <h3>Scan to Try Instantly</h3>
+          <p>Scan with your phone camera to start hisaab directly on WhatsApp.</p>
+        </div>
       </div>
     </section>
-  <section id="hisaab">
-  <div class="container">
 
-    <div class="section-head reveal">
-      <div class="eyebrow">WhatsMyHisaab</div>
-
-      <h2 data-i18n="hisaabTitle">
-        Everything your business notebook did — now on WhatsApp, smarter and easier.
-      </h2>
-
-      <p data-i18n="hisaabLead">
-        Track what matters to your business. Keep every record organised and access it easily through WhatsApp.
-      </p>
-    </div>
-
-    <div class="hisaab-wrap">
-
-      <div class="feature-list">
-        <div class="feature-heading" data-i18n="featureHeading">
-          Your Business. Your Hisaab. Your WhatsApp.
-        </div>
-
-        <button 
-          class="feature-btn" 
-          type="button"
-          onclick="toggleFeatureFlip(this)"
-          aria-pressed="false">
-          
-          <span class="feature-card-inner">
-             <span class="feature-card-front">
-                <span class="feature-icon">📒</span>
-                <span data-i18n="sales">Sales-Record</span>
-             </span>
-
-            <span class="feature-card-back">
-              <img src="./sales.jpg" alt="Sales-Record">
-              <span class="features-card-back-content">
-                Sales Record
-             </span>
-          </span>
-       </span>
-        </button>
-
-        <button 
-          class="feature-btn" 
-          type="button"
-          onclick="toggleFeatureFlip(this)"
-          aria-pressed="false">
-          
-          <span class="feature-card-inner">
-            <span class="feature-card-front">
-               <span class="feature-icon">🛒</span>
-               <span>Purchase Record</span>
-            </span>
-
-             <span class="feature-card-back">
-               <img src="./purchase.jpg" alt="Purchase-Record">
-               <span class="features-card-back-content">
-                 Purchase Record
-               </span>
-            </span>       
-          </span>
-        </button>
-
-        <button 
-          class="feature-btn"
-          type="button"
-          onclick="toggleFeatureFlip(this)"
-          aria-pressed="false">
-          
-          <span class="feature-card-inner">
-            <span class="feature-card-front">
-               <span class="feature-icon">👥</span>
-               <span>Hisab</Span>
-            </span>
-
-             <span class="feature-card-back">
-              <img src="./hisab.jpg" alt="Hisab">
-              <span class="features-card-back-content">
-                Hisab
-             </span>
-           </span>
-          </span>
-        </button>
-
-        <button
-           class="feature-btn"
-          type="button"
-         onclick="toggleFeatureFlip(this)"
-         aria-pressed="false">
-   
-          <span class="feature-card-inner">         
-            <span class="feature-card-front">
-               <span class="feature-icon">💰</span>
-               <span>Cash-Flow</span>
-            </span>
-
-             <span class="feature-card-back">
-               <img src="./cash flow.jpg" alt="Cash-Flow">
-               <span class="features-card-back-content'>
-                 Cash Flow
-               </span>
-             </span>
-          </span>
-        </button>
-  
-   <button
-     class="feature-btn"
-     type="button"
-     onclick="toggleFeatureFlip(this)"
-     aria-pressed="false">
-  
-   <span class="feature-card-inner">
-     <span class="feature-card-front">
-       <span class="feature-icon">📦</span>
-       <span>Stock-Management</span>
-     </span>
-
-    <span class="feature-card-back">
-      <img src="./stock management.jpg" alt="Stock Management">
-      <span class="feature-card-back-content'>
-        Stock Management
-      </span>
-    </span>
-  </span>
-</button>
-
-   <button
-     class="feature-btn"
-     type="button"
-     onclick="toggleFeatureFlip(this)"
-    aria-pressed="false">
-
-  <span class="feature-card-inner">
-    <span class="feature-card-front">
-      <span class="feature-icon">📊</span>
-      <span>Smart Reports</span>
-    </span>
-
-    <span class="feature-card-back">
-      <img src="./smart reports.jpg" alt="Smart Reports">
-
-      <span class="feature-card-back-content">
-        Smart Reports
-      </span>
-    </span>
-  </span>
-</button>
-                 
-      </div>
-              
-      <div class="reveal">
-        <div class="hisaab-visual">
-          <img src="./screenshot.jpg" alt="WhatsMyHisaab Screenshot">
-        </div>
-
-        <div class="caption" data-i18n="caption">
-          Your business hisaab, connected with WhatsApp.
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-    
-    <section id="about">
+    <!-- Live Demo Video Section -->
+    <section id="demo">
       <div class="container">
-        <div class="section-head reveal">
-          <div class="eyebrow" data-i18n="aboutEyebrow">About WhatsMyHisaab</div>
-          <h2 data-i18n="aboutTitle">Built for the way businesses manage their daily hisaab — simply, reliably, and on WhatsApp.</h2>
-          <p data-i18n="aboutLead">Say goodbye to searching through old notebooks and scattered notes. WhatsMyHisaab makes daily record-keeping simple, organised, and efficient.</p>
+        <div class="section-title">
+          <h2>See WhatsMyHisaab In Action</h2>
+          <p>Watch how effortless it is to enter expenses and pull reports in seconds.</p>
         </div>
-
-        <div class="cards">
-          <article class="card reveal">
-            <div class="ico">🎙️</div>
-            <h3 data-i18n="voiceTitle">Voice Feature</h3>
-            <p data-i18n="voiceText">Send your business transaction details through a voice message and let WhatsMyHisaab record them for you.</p>
-          </article>
-
-          <article class="card reveal">
-            <div class="ico">✍️</div>
-            <h3 data-i18n="writeTitle">Written Feature</h3>
-            <p data-i18n="writeText">Send your business details as a WhatsApp message and turn every entry into a clear, organised digital record.</p>
-          </article>
-
-          <article class="card reveal">
-            <div class="ico">📄</div>
-            <h3 data-i18n="pdfTitle">PDF Reports</h3>
-            <p data-i18n="pdfText">Your complete business hisaab is available in a detailed PDF report.</p>
-          </article>
-        </div>
-
-        <div style="height:22px"></div>
-
-        <div class="security reveal">
-          <div>
-            <div class="eyebrow" style="background:rgba(85,220,145,.12);border-color:rgba(85,220,145,.25);color:#8df0b4" data-i18n="privacyBadge">Privacy first</div>
-            <h2 data-i18n="securityTitle">Your Business Data, Protected.</h2>
-            <p data-i18n="securityText">Your business data deserves protection. WhatsMyHisaab is designed to keep every record private, secure, and confidential.</p>
-          </div>
-
-          <div class="security-list">
-            <div class="security-item"><span class="check">✓</span><span data-i18n="secure1">Keep business records organised in one dedicated experience.</span></div>
-            <div class="security-item"><span class="check">✓</span><span data-i18n="secure2">Use text or voice instead of maintaining a physical notebook.</span></div>
-            <div class="security-item"><span class="check">✓</span><span data-i18n="secure3">Get your recorded hisaab in a clear report format.</span></div>
-            <div class="security-item"><span class="check">✓</span><span data-i18n="secure4">Your information is intended to remain confidential and protected.</span></div>
+        <div class="mockup-container">
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <video autoplay loop muted playsinline poster="./screenshot.jpg">
+                <source src="demo-video.mp4" type="video/mp4">
+                Your browser does not support video.
+              </video>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section>
+    <!-- Features Carousel (Slideshow) -->
+    <section id="features" class="bg-light">
       <div class="container">
-        <div class="section-head reveal">
-          <div class="eyebrow" data-i18n="stepsEyebrow">Simple flow</div>
-          <h2 data-i18n="stepsTitle">From WhatsApp message to organised hisaab.</h2>
+        <div class="section-title">
+          <h2>Built for Busy Business Owners</h2>
+          <p>Everything your notebook did, now automated directly on WhatsApp.</p>
         </div>
 
-        <div class="steps">
-          <div class="step reveal"><div class="num">01</div><h3 data-i18n="step1Title">Send it</h3><p data-i18n="step1Text">Write a business entry or send a voice message through WhatsApp.</p></div>
-          <div class="step reveal"><div class="num">02</div><h3 data-i18n="step2Title">Organise it</h3><p data-i18n="step2Text">Keep sales, expenses, dues, purchases and inventory records structured.</p></div>
-          <div class="step reveal"><div class="num">03</div><h3 data-i18n="step3Title">See it</h3><p data-i18n="step3Text">Check your business picture and generate reports when required.</p></div>
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="slide-card">
+                <div class="slide-icon">🎙️</div>
+                <h3>Voice Note Entry</h3>
+                <p>Send a voice message like: <i>"Ramesh ko 500 udhaar diye"</i> and it records immediately.</p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="slide-card">
+                <div class="slide-icon">✍️</div>
+                <h3>Text Entry</h3>
+                <p>Save daily sales, payments, and expenses via simple WhatsApp text messages.</p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="slide-card">
+                <div class="slide-icon">📄</div>
+                <h3>Instant PDF Reports</h3>
+                <p>Download clean, structured customer khata and month-end PDF reports anytime.</p>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="slide-card">
+                <div class="slide-icon">🔒</div>
+                <h3>Private & Secure</h3>
+                <p>Your business numbers and accounting entries stay completely private and encrypted.</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
         </div>
       </div>
     </section>
 
-    <section id="talk">
+    <!-- Contact Section -->
+    <section id="contact">
       <div class="container">
-        <div class="talk reveal">
-          <div class="eyebrow" data-i18n="talkEyebrow">Talk to us</div>
-          <h2 data-i18n="talkTitle">Ready to make your hisaab simpler?</h2>
-          <p data-i18n="talkText">Choose how you want to connect. For WhatsApp, the button opens a direct WhatsApp conversation.</p>
-          <div class="talk-actions">
-            
-            <a class="btn btn-secondary" href="mailto:susthira.ai.1@gmail.com?
-              subject=WhatsMyHisaab%20Enquiry">
-              🤝 <span data-i18n="contactToUs">Contact To Us</span>
+        <div class="contact-section">
+          <h2>Ready to simplify your business khata?</h2>
+          <p class="contact-subtext">Connect directly with us to get your setup ready in 2 minutes.</p>
+          <div class="hero-btns center-btns">
+            <a href="https://wa.me/919109134201?text=Hello%20WhatsMyHisaab" class="btn-primary" target="_blank" rel="noopener">
+              💬 WhatsApp Us
             </a>
-            <a class="btn btn-primary"
-              href="https://wa.me/919109134201?
-              text=Hello%20WhatsMyHisaab%2C%20I%20want%20to%20talk%20about%20my%20business%20hisaab." 
-              target="_blank" 
-              rel="noopener">
-              💬 <span data-i18n="whatsappUs">WhatsApp to us</span>
+            <a href="mailto:susthira.ai.1@gmail.com?subject=WhatsMyHisaab%20Enquiry" class="btn-secondary">
+              ✉️ Contact Us
             </a>
           </div>
         </div>
@@ -1300,271 +497,68 @@
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <div class="container footer-inner">
-      <div>© <span id="year"></span> WhatsMyHisaab</div>
-      <div data-i18n="footer">Business hisaab, made simpler.</div>
+    <div class="container">
+      <p>© WhatsMyHisaab. Business hisaab, made simpler.</p>
     </div>
   </footer>
 
-  <div class="toast" id="toast"></div>
-  
-  <div class="home-image-modal" id="homeImageModal" aria-hidden="true">
-    
-    <div
-      class="home-image-overlay" 
-      onclick="closeHomeImagePopup()">
-      </div>
+  <!-- Floating Sticky WhatsApp Button -->
+  <a href="https://wa.me/919109134201?text=Hello%20WhatsMyHisaab" class="floating-wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    💬
+  </a>
+ 
 
-    <div
-      class="home-image-popup" 
-      role="dialog" 
-      aria-modal="true" 
-      aria-label="Feature image preview">
-      <button
-        class="home-image-close"
-        type="button"
-        onclick="closeHomeImagePopup()"
-        aria-label="Close popup">
-        ×
-      </button>
-
-      <img
-        id="homePopupImage" 
-        src=""
-        alt="WhatsMyHisaab Feature Preview">
-    </div>
-  </div>
+  <!-- Swiper JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   
   <script>
-    const translations = {
-      en: {
-        navHome: "Home",
-        navHisaab: "WhatsMyHisaab",
-        navAbout: "About",
-        navTalk: "Talk to us",
-        eyebrow: "Your Business Hisaab, Simplified",
-        heroTitle: 'You Focus On Your, <span class="accent">Business</span> We Take Care Of The Accounts.',
-        heroLead: "Keep your daily business hisaab in one place. Add sales, expenses, customer dues, purchases and stock by typing or speaking — then get clear reports when you need them.",
-        openWhatsapp: "Start Free on WhatsApp",
-        seeHow: "See how it works",
-        note1: "Text or voice",
-        note2: "Business reports",
-        note3: "Simple & organised",
-        quickTitle: "Start your business hisaab",
-        quickText: "Choose an option and connect directly on WhatsApp.",
-        freeTry: "Free Try",
-        voiceMessage: "Voice Message",
-        textMessage: "Text Message",
-        pdfGenerate: "PDF Generate",
-        stock: "Stock",
-        hisaabTitle: "Everything your business notebook did — now on WhatsApp, smarter and easier.",
-        hisaabLead: "Track what matters to your business. Keep every record organised and access it easily through WhatsApp.",
-        featureHeading: "Your Business. Your Hisaab. Your WhatsApp.",
-        sales: "Sales Record",
-        purchase: "Purchase Record",
-        hisaab: "Hisaab",
-        cash: "Cash Flow",
-        management: "Stock Management",
-        reports: "Smart Reports",
-        caption: "Your business hisaab, connected with WhatsApp.",
-        aboutEyebrow: "About WhatsMyHisaab",
-        aboutTitle: "Built for the way businesses manage their daily hisaab — simply, reliably, and on WhatsApp.",
-        aboutLead: "Say goodbye to searching through old notebooks and scattered notes. WhatsMyHisaab makes daily record-keeping simple, organised, and efficient.",
-        voiceTitle: "Voice Feature",
-        voiceText: "Send your business transaction details through a voice message and let WhatsMyHisaab record them for you.",
-        writeTitle: "Written Feature",
-        writeText: "Send your business details as a WhatsApp message and turn every entry into a clear, organised digital record.",
-        pdfTitle: "PDF Reports",
-        pdfText: "Your complete business hisaab is available in a detailed PDF report.",
-        privacyBadge: "Privacy first",
-        securityTitle: "Your Business Data, Protected.",
-        securityText: "Your business data deserves protection. WhatsMyHisaab is designed to keep every record private, secure, and confidential.",
-        secure1: "Keep business records organised in one dedicated experience.",
-        secure2: "Use text or voice instead of maintaining a physical notebook.",
-        secure3: "Get your recorded hisaab in a clear report format.",
-        secure4: "Your information is intended to remain confidential and protected.",
-        stepsEyebrow: "Simple flow",
-        stepsTitle: "From WhatsApp message to organised hisaab.",
-        step1Title: "Send it",
-        step1Text: "Write a business entry or send a voice message through WhatsApp.",
-        step2Title: "Organise it",
-        step2Text: "Keep sales, expenses, dues, purchases and inventory records structured.",
-        step3Title: "See it",
-        step3Text: "Check your business picture and generate reports when required.",
-        talkEyebrow: "Talk to us",
-        talkTitle: "Ready to make your hisaab simpler?",
-        talkText: "Choose how you want to connect. For WhatsApp, the button opens a direct WhatsApp conversation.",
-        contactToUs: "Contact To Us",
-        whatsappUs: "WhatsApp to us",
-        footer: "Business hisaab, made simpler."
-      },
-      hi: {
-        navHome: "होम",
-        navHisaab: "WhatsMyHisaab",
-        navAbout: "अबाउट",
-        navTalk: "हमसे बात करें",
-        eyebrow: "आप अपने व्यापार पर ध्यान दें, हिसाब की देखभाल हम करेंगे",                      
-        heroTitle: 'आप अपने व्यापार पर ध्यान दें,<span class="accent">हिसाब की देखभाल हम करेंगे</span>.',
-        heroLead: "अपने रोज़ के व्यापार का पूरा हिसाब एक जगह रखें। बिक्री, खर्च, ग्राहक का उधार, खरीदारी और माल — लिखकर या बोलकर सेव करें और ज़रूरत पर साफ़ रिपोर्ट पाएं।",
-        openWhatsapp: "WhatsApp पर फ्री शुरू करें",
-        seeHow: "कैसे काम करता है",
-        note1: "टेक्स्ट या वॉइस",
-        note2: " व्यापार  रिपोर्ट",
-        note3: "आसान और व्यवस्थित",
-        quickTitle: "अपने  व्यापार  का हिसाब शुरू करें",
-        quickText: "कोई विकल्प चुनें और सीधे WhatsApp पर जुड़ें।",
-        freeTry: "फ्री ट्राय",
-        voiceMessage: "वॉइस मैसेज",
-        textMessage: "टेक्स्ट मैसेज",
-        pdfGenerate: "PDF बनाएं",
-        stock: "माल",
-        hisaabTitle: "आपकी  व्यापार  नोटबुक जो भी काम करती थी — अब वही सब WhatsApp पर, और भी स्मार्ट व आसान।",
-        hisaabLead: "अपने व्यापार के लिए ज़रूरी चीज़ों का हिसाब रखें। हर रिकॉर्ड को व्यवस्थित रखें और उसे WhatsApp के ज़रिए आसानी से कभी भी देखें।",
-        featureHeading: "आपका  व्यापार । आपका हिसाब। आपका WhatsApp।",
-        sales: "बिक्री",
-        purchase: "खरीद",
-        hisaab: "ग्राहक का हिसाब",
-        cash: "आमदनी और खर्च",
-        management: "माल का हिसाब",
-        reports: "हिसाब की रिपोर्ट",
-        caption: "आपके  व्यापार  का हिसाब-किताब, WhatsApp से जुड़ा हुआ।",
-        aboutEyebrow: "WhatsMyHisaab के बारे में",
-        aboutTitle: "आपके रोज़ाना के  व्यापार  हिसाब को आसान और भरोसेमंद तरीके से संभालने के लिए बनाया गया — सीधे WhatsApp पर।",
-        aboutLead: "पुरानी कॉपी और बिखरे हुए नोट्स में ढूँढने की परेशानी को अलविदा कहें। WhatsMyHisaab आपके रोज़ाना के हिसाब-किताब को आसान, व्यवस्थित और प्रभावी बनाता है।",
-        voiceTitle: "वॉइस सुविधा",
-        voiceText: "अपने  व्यापार  लेन-देन की जानकारी वॉइस मैसेज के ज़रिए भेजें और WhatsMyHisaab को उसे आपके लिए रिकॉर्ड करने दें।",
-        writeTitle: "लिखकर सुविधा",
-        writeText: "अपने  व्यापार  की जानकारी WhatsApp मैसेज के तौर पर भेजें और हर एंट्री को एक साफ़-सुथरे, व्यवस्थित डिजिटल रिकॉर्ड में बदलें।",
-        pdfTitle: "PDF रिपोर्ट",
-        pdfText: "आपके पूरे  व्यापार  हिसाब का रिकॉर्ड एक विस्तृत PDF रिपोर्ट में उपलब्ध है।",
-        privacyBadge: "गोपनीयता पहले",
-        securityTitle: "आपके व्यापार का डेटा, सुरक्षित।",
-        securityText: "आपके व्यापार का डेटा सुरक्षा का हक़दार है। WhatsMyHisaab को इस तरह तैयार किया गया है कि आपका हर रिकॉर्ड निजी, सुरक्षित और गोपनीय रहे।",
-        secure1: " व्यापार का हिसाब एक व्यवस्थित जगह पर रखें।",
-        secure2: " भौतिक कॉपी रखने की जगह लिखकर या बोलकर का इस्तेमाल करें।",
-        secure3: "अपने बोलकर किए हुए हिसाब की साफ़ रिपोर्ट पाएं।",
-        secure4: "आपकी जानकारी गोपनीय और सुरक्षित रखने के उद्देश्य से रूपरेखा किया गया अनुभव।",
-        stepsEyebrow: "आसान तरीका",
-        stepsTitle: "WhatsApp मैसेज से व्यवस्थित हिसाब तक।",
-        step1Title: "भेजें",
-        step1Text: "WhatsApp पर व्यापार की हिसाब लिखें या बोलकर मैसेज भेजें।",
-        step2Title: "व्यवस्थित करें",
-        step2Text: "बिक्री, खर्च, उधार, खरीद और माल के रिकॉर्ड को व्यवस्थित रखें।",
-        step3Title: "देखें",
-        step3Text: "अपने व्यापार का हिसाब समझें और जरूरत पड़ने पर रिपोर्ट बनाएं।",
-        talkEyebrow: "हमसे बात करें",
-        talkTitle: "क्या आपका हिसाब और आसान करने के लिए तैयार हैं?",
-        talkText: "जिस तरीके से बात करनी हो, वह चुनें। WhatsApp वाला बटन सीधे WhatsApp बातचीत खोलता है।",
-        contactToUs: "हमसे संपर्क करें",
-        whatsappUs: "WhatsApp पर बात करें",
-        footer: " व्यापार  का हिसाब, अब और आसान।"
-      }
-    };
-
-    let lang = "en";
-
-    function applyLanguage() {
-      document.querySelectorAll("[data-i18n]").forEach((element) => {
-        const key = element.getAttribute("data-i18n");
-
-        if (translations[lang][key]) {
-          element.innerHTML = translations[lang][key];
-        }
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Initialize Swiper Slideshow
+      const swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+          delay: 3500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+        },
       });
 
-      document.getElementById("langBtn").textContent = 
-        lang === "en" ? "हिंदी" : "English";
+      // 2. Smooth Scrolling for Internal Navigation Links
+      const navLinks = document.querySelectorAll('nav a, .hero-btns a[href^="#"]');
       
-      document.documentElement.lang = lang;
-    }
-
-    function toggleLanguage() {
-      lang = lang === "en" ? "hi" : "en";
-      applyLanguage();
-    }
-
-    function toggleMenu() {
-      document.getElementById("nav").classList.toggle("open");
-    }
-
-    function showToast(text) {
-      const toast = document.getElementById("toast");
-
-      toast.textContent = text;
-      toast.style.display = "block";
-
-      clearTimeout(window.__toast);
-
-      window.__toast = setTimeout(() => {
-        toast.style.display = "none";
-      }, 1800);
-    }
-
-    function toggleFeatureFlip(button) {
-     const isFlipped = button.classList.contains("is-flipped");
-
-  document.querySelectorAll(".feature-btn").forEach((card) => {
-    card.classList.remove("is-flipped");
-    card.setAttribute("aria-pressed", "false");
-  });
-
-  if (!isFlipped) {
-    button.classList.add("is-flipped");
-    button.setAttribute("aria-pressed", "true");
-  }
-}
-    function openHomeImagePopup(imagePath, imageAlt) {
-      const modal = document.getElementById("homeImageModal");
-      const image = document.getElementById("homePopupImage");
-
-      image.src = imagePath;
-      image.alt = imageAlt;
-
-      modal.classList.add("show");
-      modal.setAttribute("aria-hidden", "false");
-
-      document.body.classList.add("home-popup-open");
-    }
-
-    function closeHomeImagePopup() {
-      const modal = document.getElementById("homeImageModal");
-
-      modal.classList.remove("show");
-      modal.setAttribute("aria-hidden", "true");
-
-      document.body.classList.remove("home-popup-open");
-    }
-
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") {
-        closeHomeImagePopup();
-      }
-    });
-
-    document.querySelectorAll("nav a").forEach((link) => {
-      link.addEventListener("click", () => {
-        document.getElementById("nav").classList.remove("open");
-      });
-    });
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-            observer.unobserve(entry.target);
+      navLinks.forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          const targetId = this.getAttribute("href");
+          if (targetId.startsWith("#")) {
+            e.preventDefault();
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              targetElement.scrollIntoView({
+                behavior: "smooth",
+              });
+            }
           }
         });
-      },
-      { threshold: 0.12 }
-    );
-
-    document.querySelectorAll(".reveal").forEach((element) => {
-      observer.observe(element);
+      });
     });
   </script>
+
 </body>
 </html>
