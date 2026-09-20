@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;850&display=swap" rel="stylesheet">
-  
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <style>
@@ -68,7 +68,7 @@
       padding: 0 16px;
       margin: 0 auto;
     }
-    
+
     header {
       position: sticky;
       top: 0;
@@ -131,16 +131,16 @@
     nav a:hover {
       color: var(--green-dark);
     }
-
-    .ocr-top-btn {
+    
+    .top-scan-btn {
       border: 1.5px solid var(--green);
       background: #f0fdf4;
       border-radius: 999px;
-      padding: 7px 14px;
+      padding: 7px 15px;
       font-weight: 800;
       color: var(--green-dark);
       cursor: pointer;
-      font-size: 0.85rem;
+      font-size: 0.86rem;
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -148,7 +148,7 @@
       white-space: nowrap;
     }
 
-    .ocr-top-btn:hover {
+    .top-scan-btn:hover {
       background: var(--green);
       color: #fff;
     }
@@ -186,7 +186,7 @@
       padding: 0;
       box-shadow: 0 3px 8px rgba(12, 35, 64, 0.06);
     }
-
+    
     .hero {
       padding: 40px 0;
       width: 100%;
@@ -377,7 +377,7 @@
       0%, 100% { box-shadow: 0 4px 0 #066432, 0 8px 18px rgba(24, 169, 87, 0.24); }
       50% { box-shadow: 0 4px 0 #066432, 0 12px 22px rgba(24, 169, 87, 0.32); }
     }
-    
+
     section {
       padding: 48px 0;
       width: 100%;
@@ -541,126 +541,31 @@
       background: #ffffff;
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 1.8rem 1.2rem;
+      padding: 2rem 1.4rem;
       text-align: center;
       box-shadow: 0 4px 16px rgba(0,0,0,0.03);
-      min-height: 290px;
+      min-height: 270px;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
     .slide-card .ico {
-      font-size: 2.2rem;
-      margin-bottom: 10px;
+      font-size: 2.3rem;
+      margin-bottom: 12px;
     }
 
     .slide-card h3 {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       color: var(--navy);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       font-weight: 800;
     }
 
     .slide-card p {
       color: var(--muted);
-      font-size: 0.88rem;
-    }
-
-    .slide-card-scanner {
-      background: #0f172a;
-      border: 1px solid rgba(37, 211, 102, 0.35);
-      box-shadow: 0 10px 25px rgba(12, 35, 64, 0.18);
-      color: #ffffff;
-      padding: 1.4rem 1.2rem;
-    }
-
-    .slide-card-scanner h3 {
-      color: #ffffff;
-      font-size: 1.15rem;
-    }
-
-    .slide-card-scanner p {
-      color: #94a3b8;
-    }
-
-    .slider-viewfinder {
-      position: relative;
-      width: 100%;
-      height: 125px;
-      background: #020617;
-      border-radius: 14px;
-      margin: 12px 0;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border: 1px dashed rgba(37, 211, 102, 0.4);
-    }
-
-    .corner-mark {
-      position: absolute;
-      width: 16px;
-      height: 16px;
-      border-color: var(--green);
-      border-style: solid;
-    }
-    .top-left { top: 8px; left: 8px; border-width: 2.5px 0 0 2.5px; }
-    .top-right { top: 8px; right: 8px; border-width: 2.5px 2.5px 0 0; }
-    .bottom-left { bottom: 8px; left: 8px; border-width: 0 0 2.5px 2.5px; }
-    .bottom-right { bottom: 8px; right: 8px; border-width: 0 2.5px 2.5px 0; }
-
-    .slider-laser-line {
-      position: absolute;
-      left: 0;
-      right: 0;
-      height: 2.5px;
-      background: linear-gradient(90deg, transparent, #25D366, #55ff99, #25D366, transparent);
-      box-shadow: 0 0 12px #25D366, 0 0 20px #55ff99;
-      animation: scanLaserSlide 2s ease-in-out infinite alternate;
-      z-index: 2;
-    }
-
-    @keyframes scanLaserSlide {
-      0% { top: 8%; opacity: 0.3; }
-      50% { opacity: 1; }
-      100% { top: 90%; opacity: 0.3; }
-    }
-
-    .slider-scan-buttons {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-top: 8px;
-    }
-
-    .slide-act-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 9px 10px;
-      border-radius: 10px;
-      font-weight: 800;
-      font-size: 0.8rem;
-      cursor: pointer;
-      border: none;
-      transition: transform 0.15s ease;
-    }
-
-    .slide-act-btn:active {
-      transform: scale(0.96);
-    }
-
-    .btn-slide-cam {
-      background: var(--green);
-      color: white;
-    }
-
-    .btn-slide-file {
-      background: rgba(255, 255, 255, 0.12);
-      color: white;
+      font-size: 0.92rem;
+      line-height: 1.55;
     }
 
     .security {
@@ -719,7 +624,7 @@
       color: #71e8a0;
       font-weight: 900;
     }
-
+    
     .reviews-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -845,7 +750,7 @@
       max-height: 250px;
       padding: 0 16px 16px 16px;
     }
-    
+
     .talk {
       text-align: center;
       background: linear-gradient(135deg, #eefbf3, #fff);
@@ -912,6 +817,137 @@
     .floating-wa:active {
       transform: scale(0.92);
     }
+    
+    .scanner-popup-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .scanner-popup-modal.show {
+      display: flex;
+    }
+
+    .scanner-popup-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(12, 35, 64, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .scanner-popup-card {
+      position: relative;
+      z-index: 1;
+      width: min(420px, 94vw);
+      background: #0f172a;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 24px;
+      padding: 24px 20px;
+      color: #ffffff;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      text-align: center;
+    }
+
+    .scanner-close-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: #ffffff;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+    }
+
+    .live-viewfinder {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      background: #020617;
+      border-radius: 16px;
+      margin: 16px 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px dashed rgba(37, 211, 102, 0.4);
+    }
+
+    .corner-mark {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-color: var(--green);
+      border-style: solid;
+    }
+    .top-left { top: 10px; left: 10px; border-width: 3px 0 0 3px; }
+    .top-right { top: 10px; right: 10px; border-width: 3px 3px 0 0; }
+    .bottom-left { bottom: 10px; left: 10px; border-width: 0 0 3px 3px; }
+    .bottom-right { bottom: 10px; right: 10px; border-width: 0 3px 3px 0; }
+
+    .laser-scan-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #25D366, #55ff99, #25D366, transparent);
+      box-shadow: 0 0 16px #25D366, 0 0 28px #55ff99;
+      animation: scanLaserAnim 2s ease-in-out infinite alternate;
+      z-index: 2;
+    }
+
+    @keyframes scanLaserAnim {
+      0% { top: 10%; opacity: 0.3; }
+      50% { opacity: 1; }
+      100% { top: 90%; opacity: 0.3; }
+    }
+
+    .scanner-scan-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .scan-act-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 0.88rem;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.15s ease;
+    }
+
+    .scan-act-btn:active {
+      transform: scale(0.97);
+    }
+
+    .btn-cam-green {
+      background: var(--green);
+      color: white;
+    }
+
+    .btn-file-dark {
+      background: rgba(255, 255, 255, 0.12);
+      color: white;
+    }
+    
     .info-modal {
       position: fixed;
       inset: 0;
@@ -1020,7 +1056,7 @@
     body.home-popup-open {
       overflow: hidden;
     }
-    
+
     @media (max-width: 900px) {
       nav {
         display: none;
@@ -1077,15 +1113,14 @@
           <a href="#home" data-i18n="navHome">होम</a>
           <a href="#demo" data-i18n="navDemo">लाइव डेमो</a>
           <a href="#hisaab" data-i18n="navHisaab">फीचर्स</a>
-          <a href="#sliderSection" data-i18n="navSlider">OCR स्कैनर</a>
+          <a href="#sliderSection" data-i18n="navSlider">सुविधाएं</a>
           <a href="#reviews" data-i18n="navReviews">रिव्यूज</a>
           <a href="#faq" data-i18n="navFaq">सवाल-जवाब</a>
           <a href="#talk" data-i18n="navTalk">हमसे बात करें</a>
         </nav>
-
-        <a class="ocr-top-btn" href="#sliderSection" title="Go to OCR Scanner Slider">
-          📸 <span data-i18n="topOcr">OCR स्कैनर</span>
-        </a>
+        <button class="top-scan-btn" onclick="openLiveScannerPopup()" title="Scan Bill / Document">
+          📷 <span data-i18n="topScan">Scan Bill</span>
+        </button>
 
         <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">
           English
@@ -1126,7 +1161,7 @@
             <span>✓ <span data-i18n="note2">व्यापार रिपोर्ट</span></span>
           </div>
         </div>
-        
+
         <aside class="quick-panel">
           <h2 class="quick-panel-title" data-i18n="quickTitle">अपने व्यापार का हिसाब शुरू करें</h2>
           <p class="quick-panel-text" data-i18n="quickText">कोई विकल्प चुनें और सीधे WhatsApp पर जुड़ें।</p>
@@ -1150,7 +1185,7 @@
               <span class="quick-btn-icon">🏪</span>
               <span data-i18n="btnRetailer">Retailers (फुटकर / दुकानदार)</span>
             </button>
-            
+
             <button class="quick-btn" type="button" onclick="openBusinessInfo('services')">
               <span class="quick-btn-icon">🛠️</span>
               <span data-i18n="btnServices">Other Services (अन्य सेवा व काम)</span>
@@ -1179,7 +1214,7 @@
         </div>
       </div>
     </section>
-    
+
     <section id="hisaab">
       <div class="container">
         <div class="section-head">
@@ -1260,42 +1295,25 @@
         </div>
       </div>
     </section>
-    
+
     <section id="sliderSection" style="background: var(--cream);">
       <div class="container">
         <div class="section-head" style="text-align: center; margin: 0 auto 25px;">
-          <div class="eyebrow" data-i18n="carouselEyebrow">मुख्य सुविधाएं एवं स्कैनर</div>
+          <div class="eyebrow" data-i18n="carouselEyebrow">मुख्य सुविधाएं</div>
           <h2 data-i18n="carouselTitle">दुकानदारों और व्यापारियों के लिए विशेष</h2>
-          <p data-i18n="carouselLead">स्लाइडर को स्वाइप करें और सीधा यहीं से बिल स्कैन करें।</p>
+          <p data-i18n="carouselLead">स्लाइडर को स्वाइप करके जाने खाता जेनी की विशेषताएं।</p>
         </div>
 
         <div class="swiper mySwiper">
           <div class="swiper-wrapper">
-            
+   
             <div class="swiper-slide">
-              <div class="slide-card slide-card-scanner">
-                <h3 data-i18n="ocrTitle">📸 OCR बिल स्कैनर</h3>
-                <p data-i18n="ocrText">कैमरा खोलकर पर्ची स्कैन करें, जेनी तुरंत हिसाब लिख लेगी।</p>
-
-                <div class="slider-viewfinder">
-                  <div class="corner-mark top-left"></div>
-                  <div class="corner-mark top-right"></div>
-                  <div class="corner-mark bottom-left"></div>
-                  <div class="corner-mark bottom-right"></div>
-                  <div class="slider-laser-line"></div>
-                  <span style="font-size:0.75rem; color:#94a3b8; z-index:1;" data-i18n="sliderScanHint">रसीद को यहाँ स्कैन करें</span>
-                </div>
-
-                <div class="slider-scan-buttons">
-                  <label class="slide-act-btn btn-slide-cam">
-                    📷 <span data-i18n="btnTakeCam">कैमरा</span>
-                    <input type="file" accept="image/*" capture="environment" style="display:none;" onchange="handleBillCaptured(this)">
-                  </label>
-                  <label class="slide-act-btn btn-slide-file">
-                    📁 <span data-i18n="btnUploadDoc">गैलरी</span>
-                    <input type="file" accept="image/*" style="display:none;" onchange="handleBillCaptured(this)">
-                  </label>
-                </div>
+              <div class="slide-card">
+                <div class="ico">📸</div>
+                <h3 data-i18n="ocrTitle">OCR बिल स्कैनर क्या है?</h3>
+                <p data-i18n="ocrFullDesc">
+                  सप्लायर के पक्के इनवॉइस या कच्ची पर्ची का फोटो खींचकर भेजें। खाता जेनी का OCR सिस्टम उसमें लिखी तारीख, सामान का नाम और कुल रकम अपने आप पढ़कर सीधे खाते में जोड़ देता है।
+                </p>
               </div>
             </div>
 
@@ -1336,7 +1354,7 @@
         </div>
       </div>
     </section>
-    
+
     <section id="about">
       <div class="container">
         <div class="security">
@@ -1439,7 +1457,7 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p data-i18n="a2">हाँ बिल्कुल! खाता जेनी हिंदी, हिंग्लिश और अंग्रेजी वॉइस नोट्स को बहुत आसानी से समझता है। जैसे आप दुकान पर बोलते हैं, वैसे ही बोलें।</p>
+              <p data-i18n="a2">हाँ बिल्कुल! खाता जेनी हिंदी, हिंग्लish और अंग्रेजी वॉइस नोट्स को बहुत आसानी से समझता है। जैसे आप दुकान पर बोलते हैं, वैसे ही बोलें।</p>
             </div>
           </div>
 
@@ -1491,10 +1509,40 @@
       <div data-i18n="footer">व्यापार का हिसाब, अब और आसान।</div>
     </div>
   </footer>
-
+  
   <a href="https://wa.me/919109134201?text=Hello%20Khata%20Jennie" class="floating-wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
     💬
   </a>
+
+  <div class="scanner-popup-modal" id="liveScannerModal" aria-hidden="true">
+    <div class="scanner-popup-overlay" onclick="closeLiveScannerPopup()"></div>
+    <div class="scanner-popup-card" role="dialog" aria-modal="true">
+      <button class="scanner-close-btn" type="button" onclick="closeLiveScannerPopup()" aria-label="Close">×</button>
+      
+      <h3 style="font-size:1.25rem; font-weight:800; margin-bottom:4px;" data-i18n="scannerModalTitle">📸 OCR बिल स्कैनर</h3>
+      <p style="font-size:0.85rem; color:#94a3b8;" data-i18n="scannerModalSubtitle">बिल या पर्ची को फ्रेम के अंदर रखें</p>
+
+      <div class="live-viewfinder">
+        <div class="corner-mark top-left"></div>
+        <div class="corner-mark top-right"></div>
+        <div class="corner-mark bottom-left"></div>
+        <div class="corner-mark bottom-right"></div>
+        <div class="laser-scan-line"></div>
+        <span style="font-size:0.85rem; color:#94a3b8; z-index:1;" data-i18n="scannerFrameHint">यहाँ स्कैन करें</span>
+      </div>
+
+      <div class="scanner-scan-buttons">
+        <label class="scan-act-btn btn-cam-green">
+          📷 <span data-i18n="btnTakeCam">कैमरा खोलें</span>
+          <input type="file" accept="image/*" capture="environment" style="display:none;" onchange="handleBillCaptured(this)">
+        </label>
+        <label class="scan-act-btn btn-file-dark">
+          📁 <span data-i18n="btnUploadDoc">गैलरी / फाइल</span>
+          <input type="file" accept="image/*" style="display:none;" onchange="handleBillCaptured(this)">
+        </label>
+      </div>
+    </div>
+  </div>
 
   <div class="info-modal" id="businessInfoModal" aria-hidden="true">
     <div class="info-modal-overlay" onclick="closeBusinessInfo()"></div>
@@ -1503,10 +1551,9 @@
       
       <span class="info-modal-icon" id="infoIcon">🏢</span>
       <h3 class="info-modal-title" id="infoTitle">Wholesaler</h3>
-      <p class="info-modal-desc" id="infoDesc">Description text will show here in simple language.</p>
+      <p class="info-modal-desc" id="infoDesc">Description</p>
 
-      <div class="info-modal-points" id="infoPoints">
-      </div>
+      <div class="info-modal-points" id="infoPoints"></div>
 
       <a class="info-modal-btn" id="infoWaLink" href="https://wa.me/919109134201" target="_blank" rel="noopener">
         💬 WhatsApp पर बात करें
@@ -1522,11 +1569,11 @@
         navHome: "होम",
         navDemo: "लाइव डेमो",
         navHisaab: "फीचर्स",
-        navSlider: "OCR स्कैनर",
+        navSlider: "सुविधाएं",
         navReviews: "रिव्यूज",
         navFaq: "सवाल-जवाब",
         navTalk: "हमसे बात करें",
-        topOcr: "OCR स्कैनर",
+        topScan: "Scan Bill",
         eyebrow: "हुकुम मेरे आका, बोलो कितना हिसाब लिखना है?",
         heroTitle: 'आप अपने व्यापार पर ध्यान दें, <span class="accent">खाता जेनी हिसाब संभाल लेगा।</span>',
         heroLead: "अपने रोज़ के व्यापार का पूरा हिसाब एक जगह रखें। बिक्री, खर्च, ग्राहक का उधार, खरीदारी और माल — लिखकर, बोलकर या बिल स्कैन करके सेव करें और ज़रूरत पर साफ़ रिपोर्ट पाएं।",
@@ -1551,14 +1598,11 @@
         hisaab: "ग्राहक का हिसाब",
         cash: "आमदनी और खर्च",
         management: "माल का हिसाब",
-        carouselEyebrow: "मुख्य सुविधाएं एवं स्कैनर",
+        carouselEyebrow: "मुख्य सुविधाएं",
         carouselTitle: "दुकानदारों और व्यापारियों के लिए विशेष",
-        carouselLead: "स्लाइडर को स्वाइप करें और सीधा यहीं से बिल स्कैन करें।",
-        ocrTitle: "📸 OCR बिल स्कैनर",
-        ocrText: "कैमरा खोलकर पर्ची स्कैन करें, जेनी तुरंत हिसाब लिख लेगी।",
-        sliderScanHint: "रसीद को यहाँ स्कैन करें",
-        btnTakeCam: "कैमरा",
-        btnUploadDoc: "गैलरी",
+        carouselLead: "स्लाइडर को स्वाइप करके जाने खाता जेनी की विशेषताएं।",
+        ocrTitle: "📸 OCR बिल स्कैनर क्या है?",
+        ocrFullDesc: "सप्लायर के पक्के इनवॉइस या कच्ची पर्ची का फोटो खींचकर भेजें। खाता जेनी का OCR सिस्टम उसमें लिखी तारीख, सामान का नाम और कुल रकम अपने आप पढ़कर सीधे खाते में जोड़ देता है।",
         voiceTitle: "वॉइस सुविधा",
         voiceText: "अपने व्यापार लेन-देन की जानकारी वॉइस मैसेज के ज़रिए भेजें और खाता जेनी को उसे आपके लिए रिकॉर्ड करने दें।",
         writeTitle: "लिखकर सुविधा",
@@ -1599,17 +1643,22 @@
         talkText: "जिस तरीके से बात करनी हो, वह चुनें। WhatsApp वाला बटन सीधे बातचीत खोलता है।",
         contactToUs: "हमसे संपर्क करें",
         whatsappUs: "WhatsApp पर बात करें",
-        footer: "व्यापार का हिसाब, अब और आसान।"
+        footer: "व्यापार का हिसाब, अब और आसान।",
+        scannerModalTitle: "📸 OCR बिल स्कैनर",
+        scannerModalSubtitle: "बिल या पर्ची को फ्रेम के अंदर रखें",
+        scannerFrameHint: "यहाँ स्कैन करें",
+        btnTakeCam: "कैमरा खोलें",
+        btnUploadDoc: "गैलरी / फाइल"
       },
       en: {
         navHome: "Home",
         navDemo: "Live Demo",
         navHisaab: "Features",
-        navSlider: "OCR Scanner",
+        navSlider: "Services",
         navReviews: "Reviews",
         navFaq: "FAQ",
         navTalk: "Talk to us",
-        topOcr: "OCR Scanner",
+        topScan: "Scan Bill",
         eyebrow: "Your Business Hisaab, Simplified",
         heroTitle: 'You Focus On Your Business, <span class="accent">Khata Jennie Manages Accounts.</span>',
         heroLead: "Keep your daily business hisaab in one place. Add sales, expenses, dues, purchases and stock by typing, speaking, or scanning bills — then get clear reports anytime.",
@@ -1634,14 +1683,11 @@
         hisaab: "Hisaab",
         cash: "Cash Flow",
         management: "Stock Management",
-        carouselEyebrow: "Highlights & Scanner",
+        carouselEyebrow: "Features Highlight",
         carouselTitle: "Built for Busy Business Owners",
-        carouselLead: "Swipe the slider and scan your bills directly from here.",
-        ocrTitle: "📸 OCR Bill Scanner",
-        ocrText: "Open camera to scan receipts, Jennie records it immediately.",
-        sliderScanHint: "Scan Receipt Here",
-        btnTakeCam: "Camera",
-        btnUploadDoc: "Gallery",
+        carouselLead: "Swipe the slider to explore smart bookkeeping features.",
+        ocrTitle: "📸 What is OCR Bill Scanner?",
+        ocrFullDesc: "Snap a photo of any printed invoice or handwritten paper slip. Khata Jennie's OCR automatically reads dates, items, and total amount to log the entry directly.",
         voiceTitle: "Voice Feature",
         voiceText: "Send your business transaction details through a voice message and let Khata Jennie record them for you.",
         writeTitle: "Written Feature",
@@ -1682,7 +1728,12 @@
         talkText: "Choose how you want to connect. For WhatsApp, the button opens a direct WhatsApp conversation.",
         contactToUs: "Contact Us",
         whatsappUs: "WhatsApp to us",
-        footer: "Business hisaab, made simpler."
+        footer: "Business hisaab, made simpler.",
+        scannerModalTitle: "📸 OCR Bill Scanner",
+        scannerModalSubtitle: "Position invoice or receipt within the frame",
+        scannerFrameHint: "Scan receipt here",
+        btnTakeCam: "Open Camera",
+        btnUploadDoc: "Gallery / Files"
       }
     };
 
@@ -1797,6 +1848,28 @@
       });
     });
 
+    function openLiveScannerPopup() {
+      const modal = document.getElementById("liveScannerModal");
+      modal.classList.add("show");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("home-popup-open");
+    }
+
+    function closeLiveScannerPopup() {
+      const modal = document.getElementById("liveScannerModal");
+      modal.classList.remove("show");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("home-popup-open");
+    }
+
+    function handleBillCaptured(input) {
+      if (input.files && input.files[0]) {
+        closeLiveScannerPopup();
+        const waUrl = "https://wa.me/919109134201?text=" + encodeURIComponent("Hello Khata Jennie, maine bill scan kiya hai. Kripya iska hisaab note karein.");
+        window.open(waUrl, "_blank");
+      }
+    }
+    
     function openBusinessInfo(type) {
       currentSelectedBiz = type;
       updateModalContent(type);
@@ -1830,13 +1903,6 @@
       document.body.classList.remove("home-popup-open");
     }
 
-    function handleBillCaptured(input) {
-      if (input.files && input.files[0]) {
-        const waUrl = "https://wa.me/919109134201?text=" + encodeURIComponent("Hello Khata Jennie, maine bill scan kiya hai. Kripya iska hisaab note karein.");
-        window.open(waUrl, "_blank");
-      }
-    }
-
     function toggleFeatureFlip(button) {
       const isFlipped = button.classList.contains("is-flipped");
       document.querySelectorAll(".feature-btn").forEach((card) => {
@@ -1863,7 +1929,10 @@
     }
 
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") closeBusinessInfo();
+      if (e.key === "Escape") {
+        closeBusinessInfo();
+        closeLiveScannerPopup();
+      }
     });
 
     document.getElementById("year").textContent = new Date().getFullYear();
@@ -1879,9 +1948,10 @@
         breakpoints: {
           640: { slidesPerView: 2, spaceBetween: 16 },
           1024: { slidesPerView: 3, spaceBetween: 24 }
-        } 
-       });
-     });
-</script>
+        }
+      });
+    });
+  </script>
 </body>
 </html>
+  
