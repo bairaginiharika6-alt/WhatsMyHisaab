@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;850&display=swap" rel="stylesheet">
-
+  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <style>
@@ -68,7 +68,7 @@
       padding: 0 16px;
       margin: 0 auto;
     }
-
+    
     header {
       position: sticky;
       top: 0;
@@ -377,7 +377,7 @@
       0%, 100% { box-shadow: 0 4px 0 #066432, 0 8px 18px rgba(24, 169, 87, 0.24); }
       50% { box-shadow: 0 4px 0 #066432, 0 12px 22px rgba(24, 169, 87, 0.32); }
     }
-
+    
     section {
       padding: 48px 0;
       width: 100%;
@@ -534,7 +534,7 @@
 
     .swiper {
       width: 100%;
-      padding-bottom: 3.2rem !important;
+      padding-bottom: 3.5rem !important;
     }
 
     .slide-card {
@@ -544,7 +544,10 @@
       padding: 1.8rem 1.2rem;
       text-align: center;
       box-shadow: 0 4px 16px rgba(0,0,0,0.03);
-      min-height: 190px;
+      min-height: 290px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .slide-card .ico {
@@ -562,6 +565,102 @@
     .slide-card p {
       color: var(--muted);
       font-size: 0.88rem;
+    }
+
+    .slide-card-scanner {
+      background: #0f172a;
+      border: 1px solid rgba(37, 211, 102, 0.35);
+      box-shadow: 0 10px 25px rgba(12, 35, 64, 0.18);
+      color: #ffffff;
+      padding: 1.4rem 1.2rem;
+    }
+
+    .slide-card-scanner h3 {
+      color: #ffffff;
+      font-size: 1.15rem;
+    }
+
+    .slide-card-scanner p {
+      color: #94a3b8;
+    }
+
+    .slider-viewfinder {
+      position: relative;
+      width: 100%;
+      height: 125px;
+      background: #020617;
+      border-radius: 14px;
+      margin: 12px 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px dashed rgba(37, 211, 102, 0.4);
+    }
+
+    .corner-mark {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-color: var(--green);
+      border-style: solid;
+    }
+    .top-left { top: 8px; left: 8px; border-width: 2.5px 0 0 2.5px; }
+    .top-right { top: 8px; right: 8px; border-width: 2.5px 2.5px 0 0; }
+    .bottom-left { bottom: 8px; left: 8px; border-width: 0 0 2.5px 2.5px; }
+    .bottom-right { bottom: 8px; right: 8px; border-width: 0 2.5px 2.5px 0; }
+
+    .slider-laser-line {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 2.5px;
+      background: linear-gradient(90deg, transparent, #25D366, #55ff99, #25D366, transparent);
+      box-shadow: 0 0 12px #25D366, 0 0 20px #55ff99;
+      animation: scanLaserSlide 2s ease-in-out infinite alternate;
+      z-index: 2;
+    }
+
+    @keyframes scanLaserSlide {
+      0% { top: 8%; opacity: 0.3; }
+      50% { opacity: 1; }
+      100% { top: 90%; opacity: 0.3; }
+    }
+
+    .slider-scan-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .slide-act-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 9px 10px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 0.8rem;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.15s ease;
+    }
+
+    .slide-act-btn:active {
+      transform: scale(0.96);
+    }
+
+    .btn-slide-cam {
+      background: var(--green);
+      color: white;
+    }
+
+    .btn-slide-file {
+      background: rgba(255, 255, 255, 0.12);
+      color: white;
     }
 
     .security {
@@ -746,7 +845,7 @@
       max-height: 250px;
       padding: 0 16px 16px 16px;
     }
-
+    
     .talk {
       text-align: center;
       background: linear-gradient(135deg, #eefbf3, #fff);
@@ -791,7 +890,7 @@
       border-top: 1px solid var(--line);
       padding-top: 20px;
     }
-    
+
     .floating-wa {
       position: fixed;
       bottom: 20px;
@@ -813,69 +912,115 @@
     .floating-wa:active {
       transform: scale(0.92);
     }
-    
-    .home-image-modal {
+    .info-modal {
       position: fixed;
       inset: 0;
-      z-index: 9999;
+      z-index: 10000;
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 16px;
+      padding: 18px;
     }
 
-    .home-image-modal.show {
+    .info-modal.show {
       display: flex;
     }
 
-    .home-image-overlay {
+    .info-modal-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(8, 25, 46, 0.78);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
+      background: rgba(12, 35, 64, 0.78);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
     }
 
-    .home-image-popup {
+    .info-modal-popup {
       position: relative;
       z-index: 1;
-      width: min(550px, 94vw);
-      max-height: 85vh;
-      padding: 10px;
-      border-radius: 20px;
+      width: min(500px, 94vw);
       background: #ffffff;
-      border: 1px solid rgba(24, 169, 87, 0.35);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      border-radius: 24px;
+      padding: 26px 22px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.28);
+      border: 1px solid var(--line);
     }
 
-    .home-image-popup img {
-      width: 100%;
-      max-height: 70vh;
-      object-fit: contain;
-      border-radius: 14px;
-      background: #edf9f1;
-    }
-
-    .home-image-close {
+    .info-modal-close {
       position: absolute;
-      top: -10px;
-      right: -10px;
-      z-index: 2;
+      top: 14px;
+      right: 14px;
       width: 34px;
       height: 34px;
-      border: 2px solid #ffffff;
       border-radius: 50%;
-      background: #0c2340;
-      color: #ffffff;
-      font-size: 22px;
-      line-height: 28px;
+      background: #f1f5f9;
+      border: none;
+      font-size: 20px;
       cursor: pointer;
+      color: var(--navy);
+      display: grid;
+      place-items: center;
+    }
+
+    .info-modal-icon {
+      font-size: 2.4rem;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+
+    .info-modal-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .info-modal-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+
+    .info-modal-points {
+      background: var(--mint);
+      border: 1px solid #cfead9;
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .info-modal-points p {
+      font-size: 0.88rem;
+      color: var(--green-dark);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .info-modal-points p:last-child {
+      margin-bottom: 0;
+    }
+
+    .info-modal-btn {
+      width: 100%;
+      background: var(--green);
+      color: white;
+      padding: 12px;
+      border-radius: 12px;
+      font-weight: 800;
+      text-align: center;
+      display: block;
+      transition: background 0.2s;
+    }
+
+    .info-modal-btn:hover {
+      background: var(--green-dark);
     }
 
     body.home-popup-open {
       overflow: hidden;
     }
-
+    
     @media (max-width: 900px) {
       nav {
         display: none;
@@ -932,15 +1077,16 @@
           <a href="#home" data-i18n="navHome">होम</a>
           <a href="#demo" data-i18n="navDemo">लाइव डेमो</a>
           <a href="#hisaab" data-i18n="navHisaab">फीचर्स</a>
+          <a href="#sliderSection" data-i18n="navSlider">OCR स्कैनर</a>
           <a href="#reviews" data-i18n="navReviews">रिव्यूज</a>
           <a href="#faq" data-i18n="navFaq">सवाल-जवाब</a>
           <a href="#talk" data-i18n="navTalk">हमसे बात करें</a>
         </nav>
 
-        <button class="ocr-top-btn" onclick="openHomeImagePopup('./sales.jpg', 'OCR Document Scanner')" title="Scan Bill / Document">
+        <a class="ocr-top-btn" href="#sliderSection" title="Go to OCR Scanner Slider">
           📸 <span data-i18n="topOcr">OCR स्कैनर</span>
-        </button>
-        
+        </a>
+
         <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">
           English
         </button>
@@ -995,29 +1141,19 @@
               <span data-i18n="freeTry">फ्री ट्राय</span>
             </a>
 
-            <button class="quick-btn" type="button" onclick="openHomeImagePopup('./sales.jpg', 'OCR Bill Scanner')">
-              <span class="quick-btn-icon">📸</span>
-              <span data-i18n="ocrScanBtn">बिल स्कैन (OCR)</span>
+            <button class="quick-btn" type="button" onclick="openBusinessInfo('wholesaler')">
+              <span class="quick-btn-icon">🏢</span>
+              <span data-i18n="btnWholesaler">Wholesaler (थोक व्यापारी)</span>
             </button>
 
-            <button class="quick-btn" type="button" onclick="openHomeImagePopup('./voice.jpg', 'Voice Message')">
-              <span class="quick-btn-icon">🎙️</span>
-              <span data-i18n="voiceMessage">वॉइस मैसेज</span>
+            <button class="quick-btn" type="button" onclick="openBusinessInfo('retailer')">
+              <span class="quick-btn-icon">🏪</span>
+              <span data-i18n="btnRetailer">Retailers (फुटकर / दुकानदार)</span>
             </button>
-
-            <button class="quick-btn" type="button" onclick="openHomeImagePopup('./text.png', 'Text Message')">
-              <span class="quick-btn-icon">💬</span>
-              <span data-i18n="textMessage">टेक्स्ट मैसेज</span>
-            </button>
-
-            <button class="quick-btn" type="button" onclick="openHomeImagePopup('./pdf.jpg', 'PDF Generate')">
-              <span class="quick-btn-icon">📄</span>
-              <span data-i18n="pdfGenerate">PDF बनाएं</span>
-            </button>
-
-            <button class="quick-btn" type="button" onclick="openHomeImagePopup('./stock.jpg', 'Stock')">
-              <span class="quick-btn-icon">📦</span>
-              <span data-i18n="stock">माल का हिसाब</span>
+            
+            <button class="quick-btn" type="button" onclick="openBusinessInfo('services')">
+              <span class="quick-btn-icon">🛠️</span>
+              <span data-i18n="btnServices">Other Services (अन्य सेवा व काम)</span>
             </button>
           </div>
         </aside>
@@ -1043,7 +1179,7 @@
         </div>
       </div>
     </section>
-
+    
     <section id="hisaab">
       <div class="container">
         <div class="section-head">
@@ -1057,19 +1193,6 @@
         </div>
 
         <div class="feature-grid-clean">
-          <button class="feature-btn" type="button" onclick="toggleFeatureFlip(this)" aria-pressed="false">
-            <span class="feature-card-inner">
-              <span class="feature-card-front">
-                <span class="feature-icon">📸</span>
-                <span data-i18n="ocrFlip">OCR बिल स्कैनर</span>
-              </span>
-              <span class="feature-card-back">
-                <img src="./sales.jpg" alt="OCR Bill Scanner">
-                <span class="feature-card-back-content">OCR Bill Scanner</span>
-              </span>
-            </span>
-          </button>
-
           <button class="feature-btn" type="button" onclick="toggleFeatureFlip(this)" aria-pressed="false">
             <span class="feature-card-inner">
               <span class="feature-card-front">
@@ -1137,22 +1260,42 @@
         </div>
       </div>
     </section>
-
-    <section style="background: var(--cream);">
+    
+    <section id="sliderSection" style="background: var(--cream);">
       <div class="container">
         <div class="section-head" style="text-align: center; margin: 0 auto 25px;">
-          <div class="eyebrow" data-i18n="carouselEyebrow">मुख्य सुविधाएं</div>
+          <div class="eyebrow" data-i18n="carouselEyebrow">मुख्य सुविधाएं एवं स्कैनर</div>
           <h2 data-i18n="carouselTitle">दुकानदारों और व्यापारियों के लिए विशेष</h2>
-          <p data-i18n="carouselLead">पुरानी डायरी छोड़ें, व्हाट्सएप को बनाएं अपना पर्सनल मुनीम।</p>
+          <p data-i18n="carouselLead">स्लाइडर को स्वाइप करें और सीधा यहीं से बिल स्कैन करें।</p>
         </div>
 
         <div class="swiper mySwiper">
           <div class="swiper-wrapper">
+            
             <div class="swiper-slide">
-              <div class="slide-card">
-                <div class="ico">📸</div>
-                <h3 data-i18n="ocrTitle">OCR बिल स्कैनर</h3>
-                <p data-i18n="ocrText">सप्लायर या खरीद का बिल/पर्ची फोटो खींचकर भेजें। खाता जेनी टेक्स्ट और अमाउंट पढ़कर खुद एंट्री कर लेगा।</p>
+              <div class="slide-card slide-card-scanner">
+                <h3 data-i18n="ocrTitle">📸 OCR बिल स्कैनर</h3>
+                <p data-i18n="ocrText">कैमरा खोलकर पर्ची स्कैन करें, जेनी तुरंत हिसाब लिख लेगी।</p>
+
+                <div class="slider-viewfinder">
+                  <div class="corner-mark top-left"></div>
+                  <div class="corner-mark top-right"></div>
+                  <div class="corner-mark bottom-left"></div>
+                  <div class="corner-mark bottom-right"></div>
+                  <div class="slider-laser-line"></div>
+                  <span style="font-size:0.75rem; color:#94a3b8; z-index:1;" data-i18n="sliderScanHint">रसीद को यहाँ स्कैन करें</span>
+                </div>
+
+                <div class="slider-scan-buttons">
+                  <label class="slide-act-btn btn-slide-cam">
+                    📷 <span data-i18n="btnTakeCam">कैमरा</span>
+                    <input type="file" accept="image/*" capture="environment" style="display:none;" onchange="handleBillCaptured(this)">
+                  </label>
+                  <label class="slide-act-btn btn-slide-file">
+                    📁 <span data-i18n="btnUploadDoc">गैलरी</span>
+                    <input type="file" accept="image/*" style="display:none;" onchange="handleBillCaptured(this)">
+                  </label>
+                </div>
               </div>
             </div>
 
@@ -1187,12 +1330,13 @@
                 <p data-i18n="securityText">आपके व्यापार का डेटा सुरक्षा का हक़दार है। खाता जेनी में आपका हर रिकॉर्ड निजी, सुरक्षित और गोपनीय रहता है।</p>
               </div>
             </div>
+
           </div>
           <div class="swiper-pagination"></div>
         </div>
       </div>
     </section>
-
+    
     <section id="about">
       <div class="container">
         <div class="security">
@@ -1352,11 +1496,21 @@
     💬
   </a>
 
-  <div class="home-image-modal" id="homeImageModal" aria-hidden="true">
-    <div class="home-image-overlay" onclick="closeHomeImagePopup()"></div>
-    <div class="home-image-popup" role="dialog" aria-modal="true" aria-label="Feature image preview">
-      <button class="home-image-close" type="button" onclick="closeHomeImagePopup()" aria-label="Close popup">×</button>
-      <img id="homePopupImage" src="" alt="Feature Preview">
+  <div class="info-modal" id="businessInfoModal" aria-hidden="true">
+    <div class="info-modal-overlay" onclick="closeBusinessInfo()"></div>
+    <div class="info-modal-popup" role="dialog" aria-modal="true">
+      <button class="info-modal-close" type="button" onclick="closeBusinessInfo()" aria-label="Close">×</button>
+      
+      <span class="info-modal-icon" id="infoIcon">🏢</span>
+      <h3 class="info-modal-title" id="infoTitle">Wholesaler</h3>
+      <p class="info-modal-desc" id="infoDesc">Description text will show here in simple language.</p>
+
+      <div class="info-modal-points" id="infoPoints">
+      </div>
+
+      <a class="info-modal-btn" id="infoWaLink" href="https://wa.me/919109134201" target="_blank" rel="noopener">
+        💬 WhatsApp पर बात करें
+      </a>
     </div>
   </div>
 
@@ -1368,6 +1522,7 @@
         navHome: "होम",
         navDemo: "लाइव डेमो",
         navHisaab: "फीचर्स",
+        navSlider: "OCR स्कैनर",
         navReviews: "रिव्यूज",
         navFaq: "सवाल-जवाब",
         navTalk: "हमसे बात करें",
@@ -1383,27 +1538,27 @@
         quickTitle: "अपने व्यापार का हिसाब शुरू करें",
         quickText: "कोई विकल्प चुनें और सीधे WhatsApp पर जुड़ें।",
         freeTry: "फ्री ट्राय",
-        ocrScanBtn: "बिल स्कैन (OCR)",
-        voiceMessage: "वॉइस मैसेज",
-        textMessage: "टेक्स्ट मैसेज",
-        pdfGenerate: "PDF बनाएं",
-        stock: "माल का हिसाब",
+        btnWholesaler: "Wholesaler (थोक व्यापारी)",
+        btnRetailer: "Retailers (फुटकर / दुकानदार)",
+        btnServices: "Other Services (अन्य सेवा व काम)",
         demoEyebrow: "लाइव डेमो",
         demoTitle: "खाता जेनी को काम करते देखें",
         demoLead: "देखें कैसे सिर्फ 30 सेकंड में बोलकर या बिल स्कैन करके एंट्री दर्ज हो जाती है और PDF मिल जाती है।",
         hisaabTitle: "आपकी व्यापार नोटबुक जो भी काम करती थी — अब वही सब WhatsApp पर, और भी स्मार्ट व आसान।",
         hisaabLead: "अपने व्यापार के लिए ज़रूरी चीज़ों का हिसाब रखें। कार्ड पर क्लिक करके देखें।",
-        ocrFlip: "OCR बिल स्कैनर",
         sales: "बिक्री",
         purchase: "खरीद",
         hisaab: "ग्राहक का हिसाब",
         cash: "आमदनी और खर्च",
         management: "माल का हिसाब",
-        carouselEyebrow: "मुख्य सुविधाएं",
+        carouselEyebrow: "मुख्य सुविधाएं एवं स्कैनर",
         carouselTitle: "दुकानदारों और व्यापारियों के लिए विशेष",
-        carouselLead: "पुरानी डायरी छोड़ें, व्हाट्सएप को बनाएं अपना पर्सनल मुनीम।",
-        ocrTitle: "OCR बिल स्कैनर",
-        ocrText: "सप्लायर या खरीद का बिल/पर्ची फोटो खींचकर भेजें। खाता जेनी टेक्स्ट और अमाउंट पढ़कर खुद एंट्री कर लेगा।",
+        carouselLead: "स्लाइडर को स्वाइप करें और सीधा यहीं से बिल स्कैन करें।",
+        ocrTitle: "📸 OCR बिल स्कैनर",
+        ocrText: "कैमरा खोलकर पर्ची स्कैन करें, जेनी तुरंत हिसाब लिख लेगी।",
+        sliderScanHint: "रसीद को यहाँ स्कैन करें",
+        btnTakeCam: "कैमरा",
+        btnUploadDoc: "गैलरी",
         voiceTitle: "वॉइस सुविधा",
         voiceText: "अपने व्यापार लेन-देन की जानकारी वॉइस मैसेज के ज़रिए भेजें और खाता जेनी को उसे आपके लिए रिकॉर्ड करने दें।",
         writeTitle: "लिखकर सुविधा",
@@ -1450,6 +1605,7 @@
         navHome: "Home",
         navDemo: "Live Demo",
         navHisaab: "Features",
+        navSlider: "OCR Scanner",
         navReviews: "Reviews",
         navFaq: "FAQ",
         navTalk: "Talk to us",
@@ -1465,27 +1621,27 @@
         quickTitle: "Start your business hisaab",
         quickText: "Choose an option and connect directly on WhatsApp.",
         freeTry: "Free Try",
-        ocrScanBtn: "Bill Scan (OCR)",
-        voiceMessage: "Voice Message",
-        textMessage: "Text Message",
-        pdfGenerate: "PDF Generate",
-        stock: "Stock",
+        btnWholesaler: "Wholesalers",
+        btnRetailer: "Retailers & Shops",
+        btnServices: "Other Services",
         demoEyebrow: "Live Demonstration",
         demoTitle: "See Khata Jennie In Action",
         demoLead: "Watch how effortless it is to enter expenses and scan bills in seconds.",
         hisaabTitle: "Everything your business notebook did — now on WhatsApp, smarter and easier.",
         hisaabLead: "Track what matters to your business. Tap cards to view.",
-        ocrFlip: "OCR Bill Scanner",
         sales: "Sales Record",
         purchase: "Purchase Record",
         hisaab: "Hisaab",
         cash: "Cash Flow",
         management: "Stock Management",
-        carouselEyebrow: "Highlights",
+        carouselEyebrow: "Highlights & Scanner",
         carouselTitle: "Built for Busy Business Owners",
-        carouselLead: "Everything your notebook did, now automated directly on WhatsApp.",
-        ocrTitle: "OCR Bill Scanner",
-        ocrText: "Simply snap and send a photo of your supplier bill or invoice. Khata Jennie extracts the details automatically.",
+        carouselLead: "Swipe the slider and scan your bills directly from here.",
+        ocrTitle: "📸 OCR Bill Scanner",
+        ocrText: "Open camera to scan receipts, Jennie records it immediately.",
+        sliderScanHint: "Scan Receipt Here",
+        btnTakeCam: "Camera",
+        btnUploadDoc: "Gallery",
         voiceTitle: "Voice Feature",
         voiceText: "Send your business transaction details through a voice message and let Khata Jennie record them for you.",
         writeTitle: "Written Feature",
@@ -1529,8 +1685,87 @@
         footer: "Business hisaab, made simpler."
       }
     };
-    
+
+    const businessData = {
+      wholesaler: {
+        icon: "🏢",
+        hi: {
+          title: "थोक व्यापारी (Wholesaler) के लिए फायदा",
+          desc: "अगर आपका बड़ा व्यापार या डिस्ट्रीब्यूशन है, तो खाता जेनी आपके बड़े लेन-देन और गोदाम के माल को आसानी से संभालता है।",
+          points: [
+            "✓ सप्लायर और रिटेलर्स की लाखों की उधारी का पूरा हिसाब",
+            "✓ गोदाम (Stock) में कितना माल आया और कितना गया",
+            "✓ सीधे बिल या इनवॉइस की फोटो खींचकर एंट्री दर्ज करें",
+            "✓ पार्टी को WhatsApp पर पेमेंट रिमाइंडर व PDF खाता भेजें"
+          ],
+          waText: "नमस्ते खाता जेनी, मैं एक होलसेलर (Wholesaler) हूँ और अपने व्यापार के लिए खाता शुरू करना चाहता हूँ।"
+        },
+        en: {
+          title: "Benefits for Wholesalers",
+          desc: "Designed for high-volume traders and distributors to effortlessly manage supplier ledgers and warehouse bulk inventory.",
+          points: [
+            "✓ Track bulk credit dues with multiple retailers & vendors",
+            "✓ Seamless warehouse stock tracking (In/Out records)",
+            "✓ Instant entry by capturing photos of purchase bills",
+            "✓ Export professional monthly ledger statements in PDF"
+          ],
+          waText: "Hello Khata Jennie, I am a Wholesaler and want to manage my business accounts."
+        }
+      },
+      retailer: {
+        icon: "🏪",
+        hi: {
+          title: "दुकानदार व फुटकर (Retailer) के लिए फायदा",
+          desc: "किराना, कपड़ा, हार्डवेयर या किसी भी दुकान के लिए पुरानी बही-खाता डायरी को बंद करके WhatsApp को अपना पर्सनल मुनीम बनाएं।",
+          points: [
+            "✓ ग्राहक का नाम और बकाया उधारी सिर्फ बोलकर दर्ज करें",
+            "✓ ग्राहक को WhatsApp पर एक क्लिक में उधारी का तगादा भेजें",
+            "✓ रोज़ की कुल नकद बिक्री (Cash-sale) और गल्ले का हिसाब",
+            "✓ दुकान का महीने भर का नफा-नुकसान (Profit & Loss) देखें"
+          ],
+          waText: "नमस्ते खाता जेनी, मेरी दुकान (Retail Shop) है और मैं अपना हिसाब आसान बनाना चाहता हूँ।"
+        },
+        en: {
+          title: "Benefits for Retailers & Shops",
+          desc: "Perfect for grocery stores, garments, hardware, and local shops to replace physical paper notebooks directly with WhatsApp.",
+          points: [
+            "✓ Record customer dues instantly by typing or speaking",
+            "✓ Send polite payment reminders to customers on WhatsApp",
+            "✓ Maintain daily cash-in-hand and daily shop sales",
+            "✓ Know your exact monthly profit with clean balance sheets"
+          ],
+          waText: "Hello Khata Jennie, I run a Retail Shop and want to manage my daily hisaab."
+        }
+      },
+      services: {
+        icon: "🛠️",
+        hi: {
+          title: "अन्य सेवाएं व काम-धंधा (Other Services)",
+          desc: "सर्विस सेंटर, रिपेयरिंग, ठेकेदारी, ट्रांसपोर्ट, डॉक्टर, कोचिंग या फ्रीलांसर — हर प्रकार की सेवा देने वालों के लिए आसान हिसाब।",
+          points: [
+            "✓ क्लाइंट का सर्विस चार्ज, एडवांस और पेंडिंग पेमेंट का रिकॉर्ड",
+            "✓ कारीगरों, लेबर या स्टाफ की दैनिक दिहाड़ी और खर्चों का हिसाब",
+            "✓ बिना किसी जटिल ऐप के सिर्फ WhatsApp पर काम का लेखा-जोखा",
+            "✓ काम पूरा होने पर तुरंत डिजिटल रसीद PDF में बनाकर दें"
+          ],
+          waText: "नमस्ते खाता जेनी, मेरा सर्विस / काम-धंधा (Service Business) है, मुझे इसका हिसाब शुरू करना है।"
+        },
+        en: {
+          title: "Benefits for Other Services",
+          desc: "Tailored for service providers, repair shops, contractors, transport, consultants, and professionals to log fees and job expenses.",
+          points: [
+            "✓ Record client service charges, advance payments, and dues",
+            "✓ Track staff wages, daily labor payments, and running costs",
+            "✓ No complex accounting software needed — just chat on WhatsApp",
+            "✓ Instantly send professional service bills in PDF format"
+          ],
+          waText: "Hello Khata Jennie, I run a Service Business and want to manage my client accounts."
+        }
+      }
+    };
+
     let lang = "hi";
+    let currentSelectedBiz = null;
 
     function applyLanguage() {
       document.querySelectorAll("[data-i18n]").forEach((element) => {
@@ -1541,6 +1776,10 @@
       });
       document.getElementById("langBtn").textContent = lang === "hi" ? "English" : "हिंदी";
       document.documentElement.lang = lang;
+
+      if (currentSelectedBiz) {
+        updateModalContent(currentSelectedBiz);
+      }
     }
 
     function toggleLanguage() {
@@ -1557,6 +1796,46 @@
         document.getElementById("nav").classList.remove("open");
       });
     });
+
+    function openBusinessInfo(type) {
+      currentSelectedBiz = type;
+      updateModalContent(type);
+      const modal = document.getElementById("businessInfoModal");
+      modal.classList.add("show");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("home-popup-open");
+    }
+
+    function updateModalContent(type) {
+      const biz = businessData[type];
+      const data = biz[lang];
+
+      document.getElementById("infoIcon").textContent = biz.icon;
+      document.getElementById("infoTitle").textContent = data.title;
+      document.getElementById("infoDesc").textContent = data.desc;
+
+      const pointsContainer = document.getElementById("infoPoints");
+      pointsContainer.innerHTML = data.points.map(p => `<p>${p}</p>`).join("");
+
+      const waBtn = document.getElementById("infoWaLink");
+      waBtn.href = "https://wa.me/919109134201?text=" + encodeURIComponent(data.waText);
+      waBtn.innerHTML = lang === "hi" ? "💬 WhatsApp पर शुरू करें" : "💬 Start on WhatsApp";
+    }
+
+    function closeBusinessInfo() {
+      currentSelectedBiz = null;
+      const modal = document.getElementById("businessInfoModal");
+      modal.classList.remove("show");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("home-popup-open");
+    }
+
+    function handleBillCaptured(input) {
+      if (input.files && input.files[0]) {
+        const waUrl = "https://wa.me/919109134201?text=" + encodeURIComponent("Hello Khata Jennie, maine bill scan kiya hai. Kripya iska hisaab note karein.");
+        window.open(waUrl, "_blank");
+      }
+    }
 
     function toggleFeatureFlip(button) {
       const isFlipped = button.classList.contains("is-flipped");
@@ -1583,25 +1862,8 @@
       }
     }
 
-    function openHomeImagePopup(imagePath, imageAlt) {
-      const modal = document.getElementById("homeImageModal");
-      const image = document.getElementById("homePopupImage");
-      image.src = imagePath;
-      image.alt = imageAlt;
-      modal.classList.add("show");
-      modal.setAttribute("aria-hidden", "false");
-      document.body.classList.add("home-popup-open");
-    }
-
-    function closeHomeImagePopup() {
-      const modal = document.getElementById("homeImageModal");
-      modal.classList.remove("show");
-      modal.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("home-popup-open");
-    }
-
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") closeHomeImagePopup();
+      if (e.key === "Escape") closeBusinessInfo();
     });
 
     document.getElementById("year").textContent = new Date().getFullYear();
@@ -1612,14 +1874,14 @@
         slidesPerView: 1,
         spaceBetween: 14,
         loop: true,
-        autoplay: { delay: 3500, disableOnInteraction: false },
+        autoplay: { delay: 4000, disableOnInteraction: false },
         pagination: { el: ".swiper-pagination", clickable: true },
         breakpoints: {
           640: { slidesPerView: 2, spaceBetween: 16 },
           1024: { slidesPerView: 3, spaceBetween: 24 }
-        }
-      });
-    });
-  </script>
+        } 
+       });
+     });
+</script>
 </body>
 </html>
