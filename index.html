@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;850&display=swap" rel="stylesheet">
-  
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <style>
@@ -26,7 +26,7 @@
       --shadow: 0 18px 50px rgba(16, 35, 63, 0.10);
       --radius: 20px;
     }
-    
+
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -85,7 +85,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
     }
 
     .brand {
@@ -93,7 +93,7 @@
       align-items: center;
       gap: 10px;
       font-weight: 850;
-      font-size: 1.2rem;
+      font-size: 1.22rem;
       color: var(--navy);
       white-space: nowrap;
     }
@@ -121,7 +121,7 @@
     }
 
     nav a {
-      font-size: 0.92rem;
+      font-size: 0.94rem;
       font-weight: 650;
       color: #506079;
       transition: 0.2s;
@@ -132,70 +132,59 @@
       color: var(--green-dark);
     }
 
-    .top-action-btn {
-      border: 1px solid var(--line);
-      background: #fff;
+    .ocr-top-btn {
+      border: 1.5px solid var(--green);
+      background: #f0fdf4;
       border-radius: 999px;
-      padding: 6px 12px;
+      padding: 7px 14px;
       font-weight: 800;
-      color: var(--navy);
+      color: var(--green-dark);
       cursor: pointer;
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       display: inline-flex;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
       transition: all 0.2s ease;
       white-space: nowrap;
     }
 
-    .top-action-btn:hover {
-      border-color: var(--green);
-      color: var(--green-dark);
-      background: var(--mint);
+    .ocr-top-btn:hover {
+      background: var(--green);
+      color: #fff;
     }
 
-    .menu-btn {
+    .lang-btn {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-weight: 800;
+      color: var(--navy);
+      cursor: pointer;
+      font-size: 0.82rem;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .lang-btn:hover {
+      background: var(--mint);
+      border-color: var(--green);
+    }
+
+    .menu-dots-btn {
       display: none;
-      border: 0;
-      background: transparent;
-      font-size: 26px;
+      border: 1px solid var(--line);
+      background: #ffffff;
+      border-radius: 12px;
+      font-size: 22px;
       cursor: pointer;
       color: var(--navy);
-      line-height: 1;
-      padding: 4px;
-    }
-
-    .qr-modal {
-      display: none;
-      position: fixed;
-      top: 70px;
-      right: 16px;
-      background: #ffffff;
-      padding: 16px;
-      border-radius: 20px;
-      box-shadow: 0 16px 40px rgba(12, 35, 64, 0.22);
-      border: 1px solid var(--line);
-      z-index: 1000;
+      width: 40px;
+      height: 40px;
+      line-height: 38px;
       text-align: center;
-      width: min(230px, 85vw);
-    }
-
-    .qr-modal.active {
-      display: block;
-      animation: popIn 0.2s ease;
-    }
-
-    @keyframes popIn {
-      from { opacity: 0; transform: translateY(-8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .qr-modal img {
-      width: 140px;
-      height: 140px;
-      margin: 0 auto;
-      border-radius: 12px;
-      border: 1px solid #edf2f7;
+      padding: 0;
+      box-shadow: 0 3px 8px rgba(12, 35, 64, 0.06);
     }
 
     .hero {
@@ -413,7 +402,7 @@
       font-size: 0.95rem;
       word-wrap: break-word;
     }
-    
+
     .mockup-container {
       display: flex;
       justify-content: center;
@@ -445,44 +434,18 @@
       object-fit: cover;
     }
 
-    .hisaab-wrap {
+    .feature-grid-clean {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 28px;
-      align-items: center;
-      background: linear-gradient(135deg, #fff 0%, #f7fcf8 100%);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 20px 14px;
-      box-shadow: var(--shadow);
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
       width: 100%;
-    }
-
-    @media (min-width: 901px) {
-      .hisaab-wrap {
-        grid-template-columns: 0.9fr 1.1fr;
-        padding: 34px;
-        gap: 40px;
-      }
-    }
-
-    .feature-list {
-      display: grid;
-      gap: 10px;
-      width: 100%;
-    }
-
-    .feature-heading {
-      font-weight: 800;
-      font-size: 1rem;
-      color: var(--navy);
-      margin-bottom: 4px;
     }
 
     .feature-btn {
       position: relative;
       width: 100%;
-      height: 74px;
+      height: 80px;
       padding: 0;
       border: 0;
       background: transparent;
@@ -525,16 +488,17 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 12px 14px;
+      padding: 14px 16px;
       background: #ffffff;
       border: 1px solid rgba(24, 169, 87, 0.25);
       font-weight: 700;
       color: var(--navy);
-      font-size: 0.92rem;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 14px rgba(12, 35, 64, 0.04);
     }
 
     .feature-icon {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
     }
 
     .feature-card-back {
@@ -559,36 +523,13 @@
       position: relative;
       z-index: 2;
       width: 80%;
-      padding: 6px;
+      padding: 8px;
       border-radius: 8px;
       background: rgba(12, 35, 64, 0.88);
       color: white;
       text-align: center;
       font-weight: 700;
-      font-size: 0.85rem;
-    }
-
-    .hisaab-visual {
-      position: relative;
-      border-radius: 20px;
-      width: 100%;
-    }
-
-    .hisaab-visual img {
-      width: 100%;
-      border-radius: 20px;
-      border: 1px solid var(--line);
-      box-shadow: 0 10px 24px rgba(16, 35, 63, 0.10);
-    }
-
-    .caption {
-      margin-top: 10px;
-      background: rgba(12, 35, 64, 0.92);
-      color: #fff;
-      padding: 10px 14px;
-      border-radius: 12px;
-      font-size: 0.82rem;
-      text-align: center;
+      font-size: 0.88rem;
     }
 
     .swiper {
@@ -806,51 +747,6 @@
       padding: 0 16px 16px 16px;
     }
 
-    .steps {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-      width: 100%;
-    }
-
-    @media (min-width: 768px) {
-      .steps {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    .step {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 20px 16px;
-    }
-
-    .num {
-      width: 34px;
-      height: 34px;
-      border-radius: 10px;
-      background: var(--navy);
-      color: #fff;
-      display: grid;
-      place-items: center;
-      font-weight: 900;
-      font-size: 0.9rem;
-      margin-bottom: 12px;
-    }
-
-    .step h3 {
-      margin: 0 0 5px;
-      font-size: 1.05rem;
-      color: var(--navy);
-    }
-
-    .step p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
-
     .talk {
       text-align: center;
       background: linear-gradient(135deg, #eefbf3, #fff);
@@ -895,7 +791,7 @@
       border-top: 1px solid var(--line);
       padding-top: 20px;
     }
-
+    
     .floating-wa {
       position: fixed;
       bottom: 20px;
@@ -917,7 +813,7 @@
     .floating-wa:active {
       transform: scale(0.92);
     }
-
+    
     .home-image-modal {
       position: fixed;
       inset: 0;
@@ -990,18 +886,19 @@
         background: #ffffff;
         padding: 18px 20px;
         border-bottom: 1px solid var(--line);
-        box-shadow: 0 10px 30px rgba(12, 35, 64, 0.12);
+        box-shadow: 0 12px 30px rgba(12, 35, 64, 0.15);
         flex-direction: column;
         align-items: flex-start;
         gap: 16px;
+        z-index: 101;
       }
 
       nav.open {
-        display: flex;
+        display: flex !important;
       }
 
-      .menu-btn {
-        display: block;
+      .menu-dots-btn {
+        display: block !important;
       }
 
       .btn {
@@ -1040,28 +937,18 @@
           <a href="#talk" data-i18n="navTalk">हमसे बात करें</a>
         </nav>
 
-        <button class="top-action-btn" onclick="toggleQRModal()" title="Scan WhatsApp QR">
-          📷 <span data-i18n="topScan">स्कैन QR</span>
+        <button class="ocr-top-btn" onclick="openHomeImagePopup('./sales.jpg', 'OCR Document Scanner')" title="Scan Bill / Document">
+          📸 <span data-i18n="topOcr">OCR स्कैनर</span>
         </button>
-
-        <button class="top-action-btn" onclick="toggleLanguage()" id="langBtn">
+        
+        <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">
           English
         </button>
 
-        <button class="menu-btn" aria-label="Open menu" onclick="toggleMenu()">☰</button>
+        <button class="menu-dots-btn" aria-label="Open menu" onclick="toggleMenu()" title="Menu">⋮</button>
       </div>
     </div>
   </header>
-  
-  <div class="qr-modal" id="qrModal">
-    <img 
-      src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://wa.me/919109134201?text=Hello%20Khata%20Jennie" 
-      alt="Khata Jennie WhatsApp QR Code" 
-    />
-    <p style="font-size: 0.8rem; margin-top: 8px; color: var(--muted);" data-i18n="scanDesc">
-      फ़ोन से स्कैन करके सीधे चैट शुरू करें
-    </p>
-  </div>
 
   <main>
     <section class="hero" id="home">
@@ -1070,7 +957,7 @@
           <div class="eyebrow">● <span data-i18n="eyebrow">हुकुम मेरे आका, बोलो कितना हिसाब लिखना है?</span></div>
 
           <h1 data-i18n="heroTitle">
-            आप अपने व्यापार पर ध्यान दें, <span class="accent">खाता जीनीहिसाब संभाल लेगा।</span>
+            आप अपने व्यापार पर ध्यान दें, <span class="accent">खाता जेनी हिसाब संभाल लेगा।</span>
           </h1>
 
           <p class="lead" data-i18n="heroLead">
@@ -1093,7 +980,7 @@
             <span>✓ <span data-i18n="note2">व्यापार रिपोर्ट</span></span>
           </div>
         </div>
-
+        
         <aside class="quick-panel">
           <h2 class="quick-panel-title" data-i18n="quickTitle">अपने व्यापार का हिसाब शुरू करें</h2>
           <p class="quick-panel-text" data-i18n="quickText">कोई विकल्प चुनें और सीधे WhatsApp पर जुड़ें।</p>
@@ -1141,7 +1028,7 @@
       <div class="container">
         <div class="section-head" style="text-align: center; margin: 0 auto 25px;">
           <div class="eyebrow" data-i18n="demoEyebrow">लाइव डेमो</div>
-          <h2 data-i18n="demoTitle">खाता जीनीको काम करते देखें</h2>
+          <h2 data-i18n="demoTitle">खाता जेनी को काम करते देखें</h2>
           <p data-i18n="demoLead">देखें कैसे सिर्फ 30 सेकंड में बोलकर या बिल स्कैन करके एंट्री दर्ज हो जाती है और PDF मिल जाती है।</p>
         </div>
         <div class="mockup-container">
@@ -1156,7 +1043,7 @@
         </div>
       </div>
     </section>
-    
+
     <section id="hisaab">
       <div class="container">
         <div class="section-head">
@@ -1165,103 +1052,88 @@
             आपकी व्यापार नोटबुक जो भी काम करती थी — अब वही सब WhatsApp पर, और भी स्मार्ट व आसान।
           </h2>
           <p data-i18n="hisaabLead">
-            अपने व्यापार के लिए ज़रूरी चीज़ों का हिसाब रखें। हर रिकॉर्ड को व्यवस्थित रखें और उसे WhatsApp के ज़रिए आसानी से कभी भी देखें।
+            अपने व्यापार के लिए ज़रूरी चीज़ों का हिसाब रखें। कार्ड पर क्लिक करके देखें।
           </p>
         </div>
 
-        <div class="hisaab-wrap">
-          <div class="feature-list">
-            <div class="feature-heading" data-i18n="featureHeading">
-              आपका व्यापार। आपका हिसाब। आपका WhatsApp।
-            </div>
-
-            <button class="feature-btn" type="button" onclick="toggleFeatureFlip(this)" aria-pressed="false">
-              <span class="feature-card-inner">
-                <span class="feature-card-front">
-                  <span class="feature-icon">📸</span>
-                  <span data-i18n="ocrFlip">OCR बिल स्कैनर</span>
-                </span>
-                <span class="feature-card-back">
-                  <img src="./sales.jpg" alt="OCR Bill Scanner">
-                  <span class="feature-card-back-content">OCR Bill Scanner</span>
-                </span>
+        <div class="feature-grid-clean">
+          <button class="feature-btn" type="button" onclick="toggleFeatureFlip(this)" aria-pressed="false">
+            <span class="feature-card-inner">
+              <span class="feature-card-front">
+                <span class="feature-icon">📸</span>
+                <span data-i18n="ocrFlip">OCR बिल स्कैनर</span>
               </span>
-            </button>
-
-            <button class="feature-btn" type="button" onclick="toggleFeatureFlip(this)" aria-pressed="false">
-              <span class="feature-card-inner">
-                <span class="feature-card-front">
-                  <span class="feature-icon">📒</span>
-                  <span data-i18n="sales">बिक्री</span>
-                </span>
-                <span class="feature-card-back">
-                  <img src="./sales.jpg" alt="Sales-Record">
-                  <span class="feature-card-back-content">Sales Record</span>
-                </span>
+              <span class="feature-card-back">
+                <img src="./sales.jpg" alt="OCR Bill Scanner">
+                <span class="feature-card-back-content">OCR Bill Scanner</span>
               </span>
-            </button>
+            </span>
+          </button>
 
-            <button class="feature-btn" type="button" onclick="toggleFeatureFlip(this)" aria-pressed="false">
-              <span class="feature-card-inner">
-                <span class="feature-card-front">
-                  <span class="feature-icon">🛒</span>
-                  <span data-i18n="purchase">खरीद</span>
-                </span>
-                <span class="feature-card-back">
-                  <img src="./purchase.jpg" alt="Purchase-Record">
-                  <span class="feature-card-back-content">Purchase Record</span>
-                </span>
+          <button class="feature-btn" type="button" onclick="toggleFeatureFlip(this)" aria-pressed="false">
+            <span class="feature-card-inner">
+              <span class="feature-card-front">
+                <span class="feature-icon">📒</span>
+                <span data-i18n="sales">बिक्री</span>
               </span>
-            </button>
-
-            <button class="feature-btn" type="button" onclick="toggleFeatureFlip(this)" aria-pressed="false">
-              <span class="feature-card-inner">
-                <span class="feature-card-front">
-                  <span class="feature-icon">👥</span>
-                  <span data-i18n="hisaab">ग्राहक का हिसाब</span>
-                </span>
-                <span class="feature-card-back">
-                  <img src="./hisab.jpg" alt="Hisab">
-                  <span class="feature-card-back-content">Hisab</span>
-                </span>
+              <span class="feature-card-back">
+                <img src="./sales.jpg" alt="Sales-Record">
+                <span class="feature-card-back-content">Sales Record</span>
               </span>
-            </button>
+            </span>
+          </button>
 
-            <button class="feature-btn" type="button" onclick="toggleFeatureFlip(this)" aria-pressed="false">
-              <span class="feature-card-inner">
-                <span class="feature-card-front">
-                  <span class="feature-icon">💰</span>
-                  <span data-i18n="cash">आमदनी और खर्च</span>
-                </span>
-                <span class="feature-card-back">
-                  <img src="./cash flow.jpg" alt="Cash-Flow">
-                  <span class="feature-card-back-content">Cash Flow</span>
-                </span>
+          <button class="feature-btn" type="button" onclick="toggleFeatureFlip(this)" aria-pressed="false">
+            <span class="feature-card-inner">
+              <span class="feature-card-front">
+                <span class="feature-icon">🛒</span>
+                <span data-i18n="purchase">खरीद</span>
               </span>
-            </button>
-
-            <button class="feature-btn" type="button" onclick="toggleFeatureFlip(this)" aria-pressed="false">
-              <span class="feature-card-inner">
-                <span class="feature-card-front">
-                  <span class="feature-icon">📦</span>
-                  <span data-i18n="management">माल का हिसाब</span>
-                </span>
-                <span class="feature-card-back">
-                  <img src="./stock management.jpg" alt="Stock Management">
-                  <span class="feature-card-back-content">Stock Management</span>
-                </span>
+              <span class="feature-card-back">
+                <img src="./purchase.jpg" alt="Purchase-Record">
+                <span class="feature-card-back-content">Purchase Record</span>
               </span>
-            </button>
-          </div>
+            </span>
+          </button>
 
-          <div>
-            <div class="hisaab-visual">
-              <img src="./screenshot.jpg" alt="Khata Jennie Screenshot">
-            </div>
-            <div class="caption" data-i18n="caption">
-              आपके व्यापार का हिसाब-किताब, WhatsApp से जुड़ा हुआ।
-            </div>
-          </div>
+          <button class="feature-btn" type="button" onclick="toggleFeatureFlip(this)" aria-pressed="false">
+            <span class="feature-card-inner">
+              <span class="feature-card-front">
+                <span class="feature-icon">👥</span>
+                <span data-i18n="hisaab">ग्राहक का हिसाब</span>
+              </span>
+              <span class="feature-card-back">
+                <img src="./hisab.jpg" alt="Hisab">
+                <span class="feature-card-back-content">Hisab</span>
+              </span>
+            </span>
+          </button>
+
+          <button class="feature-btn" type="button" onclick="toggleFeatureFlip(this)" aria-pressed="false">
+            <span class="feature-card-inner">
+              <span class="feature-card-front">
+                <span class="feature-icon">💰</span>
+                <span data-i18n="cash">आमदनी और खर्च</span>
+              </span>
+              <span class="feature-card-back">
+                <img src="./cash flow.jpg" alt="Cash-Flow">
+                <span class="feature-card-back-content">Cash Flow</span>
+              </span>
+            </span>
+          </button>
+
+          <button class="feature-btn" type="button" onclick="toggleFeatureFlip(this)" aria-pressed="false">
+            <span class="feature-card-inner">
+              <span class="feature-card-front">
+                <span class="feature-icon">📦</span>
+                <span data-i18n="management">माल का हिसाब</span>
+              </span>
+              <span class="feature-card-back">
+                <img src="./stock management.jpg" alt="Stock Management">
+                <span class="feature-card-back-content">Stock Management</span>
+              </span>
+            </span>
+          </button>
         </div>
       </div>
     </section>
@@ -1280,7 +1152,7 @@
               <div class="slide-card">
                 <div class="ico">📸</div>
                 <h3 data-i18n="ocrTitle">OCR बिल स्कैनर</h3>
-                <p data-i18n="ocrText">सप्लायर या खरीद का बिल/पर्ची फोटो खींचकर भेजें। खाता जीनीटेक्स्ट और अमाउंट पढ़कर खुद एंट्री कर लेगा।</p>
+                <p data-i18n="ocrText">सप्लायर या खरीद का बिल/पर्ची फोटो खींचकर भेजें। खाता जेनी टेक्स्ट और अमाउंट पढ़कर खुद एंट्री कर लेगा।</p>
               </div>
             </div>
 
@@ -1288,7 +1160,7 @@
               <div class="slide-card">
                 <div class="ico">🎙️</div>
                 <h3 data-i18n="voiceTitle">वॉइस सुविधा</h3>
-                <p data-i18n="voiceText">अपने व्यापार लेन-देन की जानकारी वॉइस मैसेज के ज़रिए भेजें और खाता जीनीको उसे आपके लिए रिकॉर्ड करने दें।</p>
+                <p data-i18n="voiceText">अपने व्यापार लेन-देन की जानकारी वॉइस मैसेज के ज़रिए भेजें और खाता जेनी को उसे आपके लिए रिकॉर्ड करने दें।</p>
               </div>
             </div>
 
@@ -1312,7 +1184,7 @@
               <div class="slide-card">
                 <div class="ico">🔒</div>
                 <h3 data-i18n="securityTitle">100% डेटा सुरक्षित</h3>
-                <p data-i18n="securityText">आपके व्यापार का डेटा सुरक्षा का हक़दार है। खाता जीनीमें आपका हर रिकॉर्ड निजी, सुरक्षित और गोपनीय रहता है।</p>
+                <p data-i18n="securityText">आपके व्यापार का डेटा सुरक्षा का हक़दार है। खाता जेनी में आपका हर रिकॉर्ड निजी, सुरक्षित और गोपनीय रहता है।</p>
               </div>
             </div>
           </div>
@@ -1320,14 +1192,14 @@
         </div>
       </div>
     </section>
-    
+
     <section id="about">
       <div class="container">
         <div class="security">
           <div>
             <div class="eyebrow" style="background:rgba(85,220,145,.12);border-color:rgba(85,220,145,.25);color:#8df0b4" data-i18n="privacyBadge">गोपनीयता पहले</div>
             <h2 data-i18n="securityTitle">आपके व्यापार का डेटा, सुरक्षित।</h2>
-            <p data-i18n="securityText">आपके व्यापार का डेटा सुरक्षा का हक़दार है। खाता जीनीको इस तरह तैयार किया गया है कि आपका हर रिकॉर्ड निजी, सुरक्षित और गोपनीय रहे।</p>
+            <p data-i18n="securityText">आपके व्यापार का डेटा सुरक्षा का हक़दार है। खाता जेनी को इस तरह तैयार किया गया है कि आपका हर रिकॉर्ड निजी, सुरक्षित और गोपनीय रहे।</p>
           </div>
 
           <div class="security-list">
@@ -1345,7 +1217,7 @@
         <div class="section-head" style="text-align: center; margin: 0 auto 25px;">
           <div class="eyebrow" data-i18n="reviewsEyebrow">ग्राहकों की राय</div>
           <h2 data-i18n="reviewsTitle">व्यापारियों का भरोसा</h2>
-          <p data-i18n="reviewsLead">देखें कैसे भारत के दुकानदार और व्यापारी खाता जीनीसे अपना हिसाब आसान बना रहे हैं।</p>
+          <p data-i18n="reviewsLead">देखें कैसे भारत के दुकानदार और व्यापारी खाता जेनी से अपना हिसाब आसान बना रहे हैं।</p>
         </div>
 
         <div class="reviews-grid">
@@ -1393,7 +1265,7 @@
         <div class="section-head" style="text-align: center; margin: 0 auto 25px;">
           <div class="eyebrow" data-i18n="faqEyebrow">अक्सर पूछे जाने वाले सवाल</div>
           <h2 data-i18n="faqTitle">सवाल और जवाब (FAQ)</h2>
-          <p data-i18n="faqLead">खाता जीनीके बारे में सब कुछ जानें और समझें कि यह आपके लिए कैसे काम करता है।</p>
+          <p data-i18n="faqLead">खाता जेनी के बारे में सब कुछ जानें और समझें कि यह आपके लिए कैसे काम करता है।</p>
         </div>
 
         <div class="faq-container">
@@ -1403,17 +1275,17 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p data-i18n="a_ocr">आपको बस किसी भी बिल, पर्ची या इनवॉइस की फोटो खींचकर WhatsApp पर भेजनी है। खाता जीनीका OCR सिस्टम उसमें से तारीख, आइटम, और कुल रकम अपने आप पढ़कर आपके खाते में अपडेट कर देता है।</p>
+              <p data-i18n="a_ocr">आपको बस किसी भी बिल, पर्ची या इनवॉइस की फोटो खींचकर WhatsApp पर भेजनी है। खाता जेनी का OCR सिस्टम उसमें से तारीख, आइटम, और कुल रकम अपने आप पढ़कर आपके खाते में अपडेट कर देता है।</p>
             </div>
           </div>
 
           <div class="faq-item">
             <button class="faq-question" type="button" onclick="toggleFaq(this)">
-              <span data-i18n="q1">खाता जीनीWhatsApp पर कैसे काम करता है?</span>
+              <span data-i18n="q1">खाता जेनी WhatsApp पर कैसे काम करता है?</span>
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p data-i18n="a1">बस आपको WhatsApp पर सामान्य बोलकर या लिखकर मैसेज भेजना है (जैसे: 'रमेश ने 500 दिए' या '120 का दूध खरीदा')। खाता जीनीका स्मार्ट AI इसे अपने आप सही खाते में दर्ज कर लेता है।</p>
+              <p data-i18n="a1">बस आपको WhatsApp पर सामान्य बोलकर या लिखकर मैसेज भेजना है (जैसे: 'रमेश ने 500 दिए' या '120 का दूध खरीदा')। खाता जेनी का स्मार्ट AI इसे अपने आप सही खाते में दर्ज कर लेता है।</p>
             </div>
           </div>
 
@@ -1423,7 +1295,7 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p data-i18n="a2">हाँ बिल्कुल! खाता जीनीहिंदी, हिंग्लिश और अंग्रेजी वॉइस नोट्स को बहुत आसानी से समझता है। जैसे आप दुकान पर बोलते हैं, वैसे ही बोलें।</p>
+              <p data-i18n="a2">हाँ बिल्कुल! खाता जेनी हिंदी, हिंग्लिश और अंग्रेजी वॉइस नोट्स को बहुत आसानी से समझता है। जैसे आप दुकान पर बोलते हैं, वैसे ही बोलें।</p>
             </div>
           </div>
 
@@ -1443,24 +1315,9 @@
               <span class="faq-icon">+</span>
             </button>
             <div class="faq-answer">
-              <p data-i18n="a4">WhatsApp पर बस 'Report' या 'महीने का हिसाब' लिखकर या बोलकर भेजें। खाता जीनीतुरंत आपके WhatsApp पर सुंदर PDF फाइल भेज देगा।</p>
+              <p data-i18n="a4">WhatsApp पर बस 'Report' या 'महीने का हिसाब' लिखकर या बोलकर भेजें। खाता जेनी तुरंत आपके WhatsApp पर सुंदर PDF फाइल भेज देगा।</p>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow" data-i18n="stepsEyebrow">आसान तरीका</div>
-          <h2 data-i18n="stepsTitle">WhatsApp मैसेज से व्यवस्थित हिसाब तक।</h2>
-        </div>
-
-        <div class="steps">
-          <div class="step"><div class="num">01</div><h3 data-i18n="step1Title">भेजें</h3><p data-i18n="step1Text">WhatsApp पर हिसाब लिखें, बोलें या बिल की फोटो भेजें।</p></div>
-          <div class="step"><div class="num">02</div><h3 data-i18n="step2Title">व्यवस्थित करें</h3><p data-i18n="step2Text">बिक्री, खर्च, उधार, खरीद और माल के रिकॉर्ड को व्यवस्थित रखें।</p></div>
-          <div class="step"><div class="num">03</div><h3 data-i18n="step3Title">देखें</h3><p data-i18n="step3Text">अपने व्यापार का हिसाब समझें और जरूरत पड़ने पर रिपोर्ट बनाएं।</p></div>
         </div>
       </div>
     </section>
@@ -1494,7 +1351,7 @@
   <a href="https://wa.me/919109134201?text=Hello%20Khata%20Jennie" class="floating-wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
     💬
   </a>
-  
+
   <div class="home-image-modal" id="homeImageModal" aria-hidden="true">
     <div class="home-image-overlay" onclick="closeHomeImagePopup()"></div>
     <div class="home-image-popup" role="dialog" aria-modal="true" aria-label="Feature image preview">
@@ -1513,12 +1370,10 @@
         navHisaab: "फीचर्स",
         navReviews: "रिव्यूज",
         navFaq: "सवाल-जवाब",
-        navAbout: "अबाउट",
         navTalk: "हमसे बात करें",
-        topScan: "स्कैन QR",
-        scanDesc: "फ़ोन से स्कैन करके सीधे चैट शुरू करें",
+        topOcr: "OCR स्कैनर",
         eyebrow: "हुकुम मेरे आका, बोलो कितना हिसाब लिखना है?",
-        heroTitle: 'आप अपने व्यापार पर ध्यान दें, <span class="accent">खाता जीनी हिसाब संभाल लेगा।</span>',
+        heroTitle: 'आप अपने व्यापार पर ध्यान दें, <span class="accent">खाता जेनी हिसाब संभाल लेगा।</span>',
         heroLead: "अपने रोज़ के व्यापार का पूरा हिसाब एक जगह रखें। बिक्री, खर्च, ग्राहक का उधार, खरीदारी और माल — लिखकर, बोलकर या बिल स्कैन करके सेव करें और ज़रूरत पर साफ़ रिपोर्ट पाएं।",
         openWhatsapp: "WhatsApp पर फ्री शुरू करें",
         seeDemo: "लाइव डेमो देखें",
@@ -1527,47 +1382,45 @@
         note2: "व्यापार रिपोर्ट",
         quickTitle: "अपने व्यापार का हिसाब शुरू करें",
         quickText: "कोई विकल्प चुनें और सीधे WhatsApp पर जुड़ें।",
-        tryForFree: "मुफ्त में प्रयास करें",
+        freeTry: "फ्री ट्राय",
         ocrScanBtn: "बिल स्कैन (OCR)",
         voiceMessage: "वॉइस मैसेज",
         textMessage: "टेक्स्ट मैसेज",
         pdfGenerate: "PDF बनाएं",
         stock: "माल का हिसाब",
         demoEyebrow: "लाइव डेमो",
-        demoTitle: "खाता जीनी को काम करते देखें",
+        demoTitle: "खाता जेनी को काम करते देखें",
         demoLead: "देखें कैसे सिर्फ 30 सेकंड में बोलकर या बिल स्कैन करके एंट्री दर्ज हो जाती है और PDF मिल जाती है।",
         hisaabTitle: "आपकी व्यापार नोटबुक जो भी काम करती थी — अब वही सब WhatsApp पर, और भी स्मार्ट व आसान।",
-        hisaabLead: "अपने व्यापार के लिए ज़रूरी चीज़ों का हिसाब रखें। हर रिकॉर्ड को व्यवस्थित रखें और उसे WhatsApp के ज़रिए आसानी से कभी भी देखें।",
-        featureHeading: "आपका व्यापार। आपका हिसाब। आपका WhatsApp।",
+        hisaabLead: "अपने व्यापार के लिए ज़रूरी चीज़ों का हिसाब रखें। कार्ड पर क्लिक करके देखें।",
         ocrFlip: "OCR बिल स्कैनर",
         sales: "बिक्री",
         purchase: "खरीद",
         hisaab: "ग्राहक का हिसाब",
         cash: "आमदनी और खर्च",
         management: "माल का हिसाब",
-        caption: "आपके व्यापार का हिसाब-किताब, WhatsApp से जुड़ा हुआ।",
         carouselEyebrow: "मुख्य सुविधाएं",
         carouselTitle: "दुकानदारों और व्यापारियों के लिए विशेष",
         carouselLead: "पुरानी डायरी छोड़ें, व्हाट्सएप को बनाएं अपना पर्सनल मुनीम।",
         ocrTitle: "OCR बिल स्कैनर",
-        ocrText: "सप्लायर या खरीद का बिल/पर्ची फोटो खींचकर भेजें। खाता जीनी टेक्स्ट और अमाउंट पढ़कर खुद एंट्री कर लेगा।",
+        ocrText: "सप्लायर या खरीद का बिल/पर्ची फोटो खींचकर भेजें। खाता जेनी टेक्स्ट और अमाउंट पढ़कर खुद एंट्री कर लेगा।",
         voiceTitle: "वॉइस सुविधा",
-        voiceText: "अपने व्यापार लेन-देन की जानकारी वॉइस मैसेज के ज़रिए भेजें और खाता जीनी को उसे आपके लिए रिकॉर्ड करने दें।",
+        voiceText: "अपने व्यापार लेन-देन की जानकारी वॉइस मैसेज के ज़रिए भेजें और खाता जेनी को उसे आपके लिए रिकॉर्ड करने दें।",
         writeTitle: "लिखकर सुविधा",
         writeText: "अपने व्यापार की जानकारी WhatsApp मैसेज के तौर पर भेजें और हर एंट्री को एक साफ़-सुथरे डिजिटल रिकॉर्ड में बदलें।",
         pdfTitle: "PDF रिपोर्ट",
         pdfText: "आपके पूरे व्यापार हिसाब का रिकॉर्ड एक विस्तृत PDF रिपोर्ट में उपलब्ध है।",
         privacyBadge: "गोपनीयता पहले",
         securityTitle: "आपके व्यापार का डेटा, सुरक्षित।",
-        securityText: "आपके व्यापार का डेटा सुरक्षा का हक़दार है। खाता जीनी में आपका हर रिकॉर्ड निजी, सुरक्षित और गोपनीय रहता है।",
+        securityText: "आपके व्यापार का डेटा सुरक्षा का हक़दार है। खाता जेनी में आपका हर रिकॉर्ड निजी, सुरक्षित और गोपनीय रहता है।",
         secure1: "व्यापार का हिसाब एक व्यवस्थित जगह पर रखें।",
         secure2: "कॉपी की जगह लिखकर, बोलकर या फोटो स्कैन करके हिसाब जोड़ें।",
         secure3: "अपने पूरे हिसाब की साफ़ PDF रिपोर्ट पाएं।",
         secure4: "आपकी जानकारी गोपनीय और सुरक्षित रहती है।",
         reviewsEyebrow: "ग्राहकों की राय",
         reviewsTitle: "व्यापारियों का भरोसा",
-        reviewsLead: "देखें कैसे भारत के दुकानदार और व्यापारी खाता जीनी से अपना हिसाब आसान बना रहे हैं।",
-        r1_text: "\"पहले कॉपी में लिखना भूल जाता था। अब बिल की फोटो भेज देता हूँ या वॉइस नोट, जीनी खुद सब समझकर डायरी में चढ़ा लेती है!\"",
+        reviewsLead: "देखें कैसे भारत के दुकानदार और व्यापारी खाता जेनी से अपना हिसाब आसान बना रहे हैं।",
+        r1_text: "\"पहले कॉपी में लिखना भूल जाता था। अब बिल की फोटो भेज देता हूँ या वॉइस नोट, जेनी खुद सब समझकर डायरी में चढ़ा लेती है!\"",
         r1_biz: "किराना स्टोर, इंदौर",
         r2_text: "\"PDF रिपोर्ट वाला फीचर बहुत काम का है। महीने के अंत में सिर्फ 2 सेकंड में सारी उधारी और सप्लायर का हिसाब साफ मिल जाता है।\"",
         r2_biz: "हार्डवेयर एवं पेंट्स, भोपाल",
@@ -1575,25 +1428,17 @@
         r3_biz: "कपड़ा व्यापारी, नीमच",
         faqEyebrow: "अक्सर पूछे जाने वाले सवाल",
         faqTitle: "सवाल और जवाब (FAQ)",
-        faqLead: "खाता जीनी के बारे में सब कुछ जानें और समझें कि यह आपके लिए कैसे काम करता है।",
+        faqLead: "खाता जेनी के बारे में सब कुछ जानें और समझें कि यह आपके लिए कैसे काम करता है।",
         q_ocr: "OCR बिल स्कैनिंग कैसे काम करती है?",
-        a_ocr: "आपको बस किसी भी बिल, पर्ची या इनवॉइस की फोटो खींचकर WhatsApp पर भेजनी है। खाता जीनी का OCR सिस्टम उसमें से तारीख, आइटम, और कुल रकम अपने आप पढ़कर आपके खाते में अपडेट कर देता है।",
-        q1: "खाता जीनीWhatsApp पर कैसे काम करता है?",
-        a1: "बस आपको WhatsApp पर सामान्य बोलकर या लिखकर मैसेज भेजना है (जैसे: 'रमेश ने 500 दिए' या '120 का दूध खरीदा')। खाता जीनी का स्मार्ट AI इसे अपने आप सही खाते में दर्ज कर लेता है।",
+        a_ocr: "आपको बस किसी भी बिल, पर्ची या इनवॉइस की फोटो खींचकर WhatsApp पर भेजनी है। खाता जेनी का OCR सिस्टम उसमें से तारीख, आइटम, और कुल रकम अपने आप पढ़कर आपके खाते में अपडेट कर देता है।",
+        q1: "खाता जेनी WhatsApp पर कैसे काम करता है?",
+        a1: "बस आपको WhatsApp पर सामान्य बोलकर या लिखकर मैसेज भेजना है (जैसे: 'रमेश ने 500 दिए' या '120 का दूध खरीदा')। खाता जेनी का स्मार्ट AI इसे अपने आप सही खाते में दर्ज कर लेता है।",
         q2: "क्या मैं हिंदी या बोलचाल की भाषा में बोल सकता हूँ?",
-        a2: "हाँ बिल्कुल! खाता जीनी हिंदी, हिंग्लिश और अंग्रेजी वॉइस नोट्स को बहुत आसानी से समझता है। जैसे आप दुकान पर बोलते हैं, वैसे ही बोलें।",
+        a2: "हाँ बिल्कुल! खाता जेनी हिंदी, हिंग्लिश और अंग्रेजी वॉइस नोट्स को बहुत आसानी से समझता है। जैसे आप दुकान पर बोलते हैं, वैसे ही बोलें।",
         q3: "क्या मेरा डेटा और उधारी का हिसाब सुरक्षित है?",
         a3: "हाँ, 100% सुरक्षित है। आपका पूरा डेटा बैंक-ग्रेड एन्क्रिप्शन के साथ सुरक्षित रहता है और केवल आप ही इसे देख सकते हैं।",
         q4: "हिसाब की PDF रिपोर्ट कैसे डाउनलोड होगी?",
-        a4: "WhatsApp पर बस 'Report' या 'महीने का हिसाब' लिखकर या बोलकर भेजें। खाता जीनी तुरंत आपके WhatsApp पर सुंदर PDF फाइल भेज देगा।",
-        stepsEyebrow: "आसान तरीका",
-        stepsTitle: "WhatsApp मैसेज से व्यवस्थित हिसाब तक।",
-        step1Title: "भेजें",
-        step1Text: "WhatsApp पर हिसाब लिखें, बोलें या बिल की फोटो भेजें।",
-        step2Title: "व्यवस्थित करें",
-        step2Text: "बिक्री, खर्च, उधार, खरीद और माल के रिकॉर्ड को व्यवस्थित रखें।",
-        step3Title: "देखें",
-        step3Text: "अपने व्यापार का हिसाब समझें और जरूरत पड़ने पर रिपोर्ट बनाएं।",
+        a4: "WhatsApp पर बस 'Report' या 'महीने का हिसाब' लिखकर या बोलकर भेजें। खाता जेनी तुरंत आपके WhatsApp पर सुंदर PDF फाइल भेज देगा।",
         talkEyebrow: "हमसे बात करें",
         talkTitle: "क्या आपका हिसाब और आसान करने के लिए तैयार हैं?",
         talkText: "जिस तरीके से बात करनी हो, वह चुनें। WhatsApp वाला बटन सीधे बातचीत खोलता है।",
@@ -1607,10 +1452,8 @@
         navHisaab: "Features",
         navReviews: "Reviews",
         navFaq: "FAQ",
-        navAbout: "About",
         navTalk: "Talk to us",
-        topScan: "Scan QR",
-        scanDesc: "Scan with phone camera to chat",
+        topOcr: "OCR Scanner",
         eyebrow: "Your Business Hisaab, Simplified",
         heroTitle: 'You Focus On Your Business, <span class="accent">Khata Jennie Manages Accounts.</span>',
         heroLead: "Keep your daily business hisaab in one place. Add sales, expenses, dues, purchases and stock by typing, speaking, or scanning bills — then get clear reports anytime.",
@@ -1621,7 +1464,7 @@
         note2: "Business reports",
         quickTitle: "Start your business hisaab",
         quickText: "Choose an option and connect directly on WhatsApp.",
-        tryForFree: "Try For Free",
+        freeTry: "Free Try",
         ocrScanBtn: "Bill Scan (OCR)",
         voiceMessage: "Voice Message",
         textMessage: "Text Message",
@@ -1631,15 +1474,13 @@
         demoTitle: "See Khata Jennie In Action",
         demoLead: "Watch how effortless it is to enter expenses and scan bills in seconds.",
         hisaabTitle: "Everything your business notebook did — now on WhatsApp, smarter and easier.",
-        hisaabLead: "Track what matters to your business. Keep every record organised and access it easily through WhatsApp.",
-        featureHeading: "Your Business. Your Hisaab. Your WhatsApp.",
+        hisaabLead: "Track what matters to your business. Tap cards to view.",
         ocrFlip: "OCR Bill Scanner",
         sales: "Sales Record",
         purchase: "Purchase Record",
         hisaab: "Hisaab",
         cash: "Cash Flow",
         management: "Stock Management",
-        caption: "Your business hisaab, connected with WhatsApp.",
         carouselEyebrow: "Highlights",
         carouselTitle: "Built for Busy Business Owners",
         carouselLead: "Everything your notebook did, now automated directly on WhatsApp.",
@@ -1680,14 +1521,6 @@
         a3: "Absolutely. All transactions are securely stored with end-to-end industry-standard encryption. Your customer details and profit figures remain completely private to you.",
         q4: "How do I download my Hisaab PDF report?",
         a4: "Simply type or speak 'Report' or 'Monthly PDF' on WhatsApp. Khata Jennie will instantly generate and send a branded, formatted PDF directly in your chat.",
-        stepsEyebrow: "Simple flow",
-        stepsTitle: "From WhatsApp message to organised hisaab.",
-        step1Title: "Send it",
-        step1Text: "Write a business entry, speak a voice note, or send a bill photo.",
-        step2Title: "Organise it",
-        step2Text: "Keep sales, expenses, dues, purchases and inventory records structured.",
-        step3Title: "See it",
-        step3Text: "Check your business picture and generate reports when required.",
         talkEyebrow: "Talk to us",
         talkTitle: "Ready to make your hisaab simpler?",
         talkText: "Choose how you want to connect. For WhatsApp, the button opens a direct WhatsApp conversation.",
@@ -1696,7 +1529,7 @@
         footer: "Business hisaab, made simpler."
       }
     };
-
+    
     let lang = "hi";
 
     function applyLanguage() {
@@ -1719,16 +1552,10 @@
       document.getElementById("nav").classList.toggle("open");
     }
 
-    function toggleQRModal() {
-      document.getElementById('qrModal').classList.toggle('active');
-    }
-
-    document.addEventListener('click', (e) => {
-      const modal = document.getElementById('qrModal');
-      const btn = document.querySelector('.top-action-btn');
-      if (modal.classList.contains('active') && !modal.contains(e.target) && !btn.contains(e.target)) {
-        modal.classList.remove('active');
-      }
+    document.querySelectorAll("nav a").forEach((link) => {
+      link.addEventListener("click", () => {
+        document.getElementById("nav").classList.remove("open");
+      });
     });
 
     function toggleFeatureFlip(button) {
@@ -1775,12 +1602,6 @@
 
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape") closeHomeImagePopup();
-    });
-
-    document.querySelectorAll("nav a").forEach((link) => {
-      link.addEventListener("click", () => {
-        document.getElementById("nav").classList.remove("open");
-      });
     });
 
     document.getElementById("year").textContent = new Date().getFullYear();
