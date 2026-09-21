@@ -15,15 +15,17 @@
   <style>
     :root {
       --ink: #10233f;
-      --muted: #5b6e8a;
+      --muted: #536785;
       --green: #159451;
       --green-dark: #08783b;
       --mint: #edf9f1;
       --cream: #fbfaf6;
       --white: #ffffff;
-      --line: #dce8e1;
+      --line: #d2e4d9;
       --navy: #0c2340;
-      --shadow: 0 16px 45px rgba(16, 35, 63, 0.08);
+      --box-border: rgba(21, 148, 81, 0.22);
+      --box-shadow: 0 8px 24px rgba(12, 35, 64, 0.06), 0 2px 6px rgba(21, 148, 81, 0.05);
+      --box-hover-shadow: 0 12px 30px rgba(12, 35, 64, 0.10), 0 4px 12px rgba(21, 148, 81, 0.12);
       --radius: 18px;
     }
 
@@ -43,8 +45,8 @@
     body {
       color: var(--ink);
       background:
-        radial-gradient(circle at 85% 12%, rgba(24, 169, 87, 0.05), transparent 28%),
-        radial-gradient(circle at 8% 32%, rgba(16, 35, 63, 0.03), transparent 25%),
+        radial-gradient(circle at 85% 12%, rgba(24, 169, 87, 0.06), transparent 30%),
+        radial-gradient(circle at 8% 32%, rgba(16, 35, 63, 0.04), transparent 28%),
         var(--cream);
       line-height: 1.6;
       font-family: 'Plus Jakarta Sans', Inter, system-ui, sans-serif;
@@ -77,7 +79,7 @@
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       background: rgba(251, 250, 246, 0.98);
-      border-bottom: 1px solid rgba(223, 232, 227, 0.85);
+      border-bottom: 1.5px solid rgba(210, 228, 217, 0.9);
       width: 100%;
     }
 
@@ -138,7 +140,7 @@
       border: 1.5px solid var(--green);
       background: #f0fdf4;
       border-radius: 999px;
-      padding: clamp(6px, 0.8vw, 9px) clamp(11px, 1.2vw, 17px);
+      padding: clamp(6px, 0.8vw, 9px) clamp(12px, 1.2vw, 18px);
       font-weight: 800;
       color: var(--green-dark);
       cursor: pointer;
@@ -150,7 +152,7 @@
       transition: all 0.2s;
       position: relative;
       z-index: 10;
-      box-shadow: 0 2px 8px rgba(21, 148, 81, 0.18);
+      box-shadow: 0 2px 8px rgba(21, 148, 81, 0.16);
     }
 
     .top-scan-btn:hover {
@@ -160,10 +162,10 @@
     }
 
     .lang-btn {
-      border: 1px solid var(--line);
+      border: 1.5px solid #cadcd1;
       background: #fff;
       border-radius: 999px;
-      padding: clamp(6px, 0.8vw, 9px) clamp(10px, 1.1vw, 15px);
+      padding: clamp(6px, 0.8vw, 9px) clamp(11px, 1.1vw, 16px);
       font-weight: 800;
       color: var(--navy);
       cursor: pointer;
@@ -172,7 +174,7 @@
       transition: all 0.2s;
       position: relative;
       z-index: 10;
-      box-shadow: 0 2px 6px rgba(12, 35, 64, 0.06);
+      box-shadow: 0 2px 6px rgba(12, 35, 64, 0.05);
     }
 
     .lang-btn:hover {
@@ -212,7 +214,7 @@
 
     @media (min-width: 960px) {
       .hero-grid {
-        grid-template-columns: 1.1fr 0.9fr;
+        grid-template-columns: 1.12fr 0.88fr;
       }
     }
 
@@ -226,7 +228,8 @@
       color: var(--green-dark);
       font-size: clamp(0.76rem, 0.9vw, 0.9rem);
       font-weight: 800;
-      border: 1px solid #cfead9;
+      border: 1px solid #c2e5cf;
+      box-shadow: 0 2px 6px rgba(21, 148, 81, 0.06);
       max-width: 100%;
       word-break: break-word;
     }
@@ -294,20 +297,20 @@
     .btn-primary {
       background: linear-gradient(135deg, #159451, #08783b);
       color: #fff;
-      box-shadow: 0 6px 20px rgba(21, 148, 81, 0.35);
-      border: 1px solid #1be074;
+      box-shadow: 0 6px 18px rgba(21, 148, 81, 0.32);
+      border: 1.5px solid #2cf282;
     }
 
     .btn-primary:hover {
-      box-shadow: 0 8px 25px rgba(21, 148, 81, 0.48);
+      box-shadow: 0 8px 24px rgba(21, 148, 81, 0.44);
       transform: translateY(-2px);
     }
 
     .btn-secondary {
       background: #fff;
-      border-color: #c7ded1;
+      border: 1.5px solid #c2ded0;
       color: var(--navy);
-      box-shadow: 0 4px 14px rgba(12, 35, 64, 0.06);
+      box-shadow: 0 4px 14px rgba(12, 35, 64, 0.05);
     }
 
     .btn-secondary:hover {
@@ -334,11 +337,17 @@
     .quick-panel {
       position: relative;
       padding: clamp(20px, 2.8vw, 28px) clamp(16px, 2.5vw, 22px);
-      border: 1.5px solid #cce5d5;
+      border: 1.8px solid var(--box-border);
       border-radius: clamp(20px, 2.5vw, 28px);
-      background: linear-gradient(145deg, #ffffff, #f2faf5);
-      box-shadow: 0 14px 34px rgba(12, 35, 64, 0.08);
+      background: linear-gradient(150deg, #ffffff, #f3faf5);
+      box-shadow: var(--box-shadow);
       width: 100%;
+      transition: all 0.3s ease;
+    }
+
+    .quick-panel:hover {
+      border-color: rgba(21, 148, 81, 0.38);
+      box-shadow: var(--box-hover-shadow);
     }
 
     .quick-panel-title {
@@ -369,15 +378,15 @@
       border-radius: 999px;
       color: #fff !important;
       background: linear-gradient(135deg, #098a44, #159451) !important;
-      border: 1.5px solid #2df585 !important;
-      box-shadow: 0 5px 18px rgba(21, 148, 81, 0.35);
+      border: 1.5px solid #33f789 !important;
+      box-shadow: 0 5px 16px rgba(21, 148, 81, 0.32);
       font-weight: 800;
       font-size: clamp(0.92rem, 1.1vw, 1.05rem);
       transition: all 0.25s ease;
     }
 
     .quick-btn-free:hover {
-      box-shadow: 0 8px 24px rgba(21, 148, 81, 0.5);
+      box-shadow: 0 8px 22px rgba(21, 148, 81, 0.45);
       transform: translateY(-2px);
     }
 
@@ -396,150 +405,148 @@
       height: 18px;
     }
 
-    .biz-flip-card {
-      position: relative;
+    .biz-card {
       width: 100%;
-      min-height: 60px;
-      perspective: 1200px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1.5px solid var(--box-border);
+      background: #ffffff;
+      box-shadow: 0 3px 10px rgba(12, 35, 64, 0.04);
+      transition: all 0.25s ease;
       cursor: pointer;
     }
 
-    .biz-flip-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transform-style: preserve-3d;
-      transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
-      border-radius: 18px;
+    .biz-card:hover {
+      border-color: var(--green);
+      box-shadow: 0 6px 18px rgba(21, 148, 81, 0.14);
     }
 
-    @media (hover: hover) and (min-width: 901px) {
-      .biz-flip-card:hover .biz-flip-inner {
-        transform: rotateY(180deg);
-      }
-    }
-
-    .biz-flip-card.is-flipped .biz-flip-inner {
-      transform: rotateY(180deg);
-    }
-
-    .biz-flip-front,
-    .biz-flip-back {
-      width: 100%;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      border-radius: 18px;
-    }
-
-    .biz-flip-front {
+    .biz-card-head {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 10px;
-      padding: clamp(12px, 1.4vw, 15px) clamp(16px, 1.8vw, 20px);
+      padding: clamp(12px, 1.4vw, 14px) clamp(14px, 1.8vw, 18px);
       background: #ffffff;
-      border: 1.5px solid #d3e7dc;
       color: var(--navy);
       font-weight: 800;
-      font-size: clamp(0.9rem, 1.1vw, 1rem);
-      box-shadow: 0 4px 14px rgba(12, 35, 64, 0.05);
-      transition: all 0.25s ease;
+      font-size: clamp(0.9rem, 1.1vw, 0.98rem);
     }
 
-    .biz-flip-card:hover .biz-flip-front {
-      border-color: var(--green);
-      box-shadow: 0 6px 18px rgba(21, 148, 81, 0.16);
-    }
-
-    .biz-front-left {
+    .biz-head-left {
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
-    .biz-front-icon {
-      font-size: 1.3rem;
+    .biz-head-icon {
+      font-size: 1.25rem;
       display: grid;
       place-items: center;
       width: 34px;
       height: 34px;
       background: var(--mint);
       border-radius: 50%;
+      border: 1px solid #c9ebd6;
     }
 
-    .flip-indicator {
+    .biz-toggle-btn {
       font-size: 0.76rem;
       font-weight: 800;
-      color: var(--green);
-      background: #f0fdf4;
-      padding: 4px 9px;
+      color: var(--green-dark);
+      background: #ebfcf0;
+      padding: 4px 10px;
       border-radius: 999px;
-      border: 1px solid #c9ebd6;
+      border: 1px solid #bee8cd;
       white-space: nowrap;
+      transition: all 0.2s ease;
     }
 
-    .biz-flip-back {
-      position: absolute;
-      inset: 0;
-      transform: rotateY(180deg);
-      background: linear-gradient(145deg, #0c2340, #14355a);
+    .biz-card-details {
+      display: none;
+      background: linear-gradient(150deg, #0b213b, #123459);
       color: #ffffff;
-      border: 1.5px solid #23d470;
-      box-shadow: 0 12px 28px rgba(12, 35, 64, 0.25);
-      padding: 16px 14px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 200px;
-      z-index: 10;
+      border-top: 2px solid #25d366;
+      padding: 14px 16px;
     }
 
-    .biz-back-title {
-      font-size: 0.96rem;
+    .biz-card.active .biz-card-details {
+      display: block;
+      animation: smoothFade 0.25s ease-in-out;
+    }
+
+    .biz-card.active .biz-toggle-btn {
+      background: var(--green);
+      color: #fff;
+      border-color: var(--green);
+      transform: rotate(180deg);
+    }
+
+    @media (hover: hover) and (min-width: 901px) {
+      .biz-card:hover .biz-card-details {
+        display: block;
+        animation: smoothFade 0.25s ease-in-out;
+      }
+      .biz-card:hover .biz-toggle-btn {
+        background: var(--green);
+        color: #fff;
+        border-color: var(--green);
+        transform: rotate(180deg);
+      }
+    }
+
+    @keyframes smoothFade {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .biz-details-title {
+      font-size: 0.95rem;
       font-weight: 850;
       color: #6eed9f;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
       display: flex;
       align-items: center;
       gap: 6px;
     }
 
-    .biz-back-desc {
-      font-size: 0.78rem;
+    .biz-details-desc {
+      font-size: 0.81rem;
       color: #e2e8f0;
-      line-height: 1.42;
-      margin-bottom: 8px;
-    }
-
-    .biz-back-points {
-      font-size: 0.74rem;
-      color: #c9f8dc;
-      line-height: 1.35;
+      line-height: 1.45;
       margin-bottom: 10px;
     }
 
-    .biz-back-points div {
-      margin-bottom: 3px;
+    .biz-details-points {
+      font-size: 0.78rem;
+      color: #c9f8dc;
+      line-height: 1.42;
+      margin-bottom: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .biz-back-btn {
+    .biz-details-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
       background: var(--green);
       color: #ffffff;
-      padding: 8px 12px;
+      padding: 9px 14px;
       border-radius: 999px;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 800;
       transition: background 0.2s;
       border: none;
       width: 100%;
+      box-shadow: 0 4px 12px rgba(21, 148, 81, 0.35);
     }
 
-    .biz-back-btn:hover {
-      background: #117841;
+    .biz-details-btn:hover {
+      background: #0f7a3f;
     }
 
     section {
@@ -580,7 +587,7 @@
       background: #0c2340;
       border-radius: 36px;
       padding: 10px;
-      box-shadow: 0 16px 36px rgba(12, 35, 64, 0.18);
+      box-shadow: 0 16px 36px rgba(12, 35, 64, 0.18), 0 0 0 2px rgba(21, 148, 81, 0.3);
       margin: 0 auto;
     }
 
@@ -597,11 +604,11 @@
       height: 100%;
       object-fit: cover;
     }
-
+    
     .feature-grid-clean {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-      gap: clamp(16px, 2vw, 26px);
+      gap: clamp(16px, 2vw, 24px);
       margin-top: 20px;
       width: 100%;
     }
@@ -660,17 +667,17 @@
       gap: 14px;
       padding: 14px 20px;
       background: #ffffff;
-      border: 2px solid #bce1ca;
+      border: 1.8px solid var(--box-border);
       font-weight: 800;
       color: var(--navy);
       font-size: clamp(0.95rem, 1.1vw, 1.08rem);
-      box-shadow: 0 4px 16px rgba(21, 148, 81, 0.10);
+      box-shadow: var(--box-shadow);
       transition: all 0.25s ease;
     }
 
     .feature-btn:hover .feature-card-front {
       border-color: var(--green);
-      box-shadow: 0 8px 24px rgba(21, 148, 81, 0.22);
+      box-shadow: var(--box-hover-shadow);
       transform: translateY(-2px);
     }
 
@@ -680,9 +687,9 @@
       place-items: center;
       width: 42px;
       height: 42px;
-      background: #ebfaf1;
+      background: #eefbf3;
       border-radius: 12px;
-      border: 1px solid #c0ebd0;
+      border: 1px solid #c2ebd1;
     }
 
     .feature-card-back {
@@ -690,14 +697,14 @@
       background: #020617;
       border: 2px solid #16a34a;
       box-shadow: 0 14px 34px rgba(12, 35, 64, 0.22);
-      padding: 0; /* No padding for 100% full fill */
+      padding: 0;
     }
 
     .feature-card-back img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* Fully covers entire box without white border */
-      object-position: center 38%; /* Perfectly crops out the top 'Khata Genie' header */
+      object-fit: cover;
+      object-position: center 38%;
       border-radius: 16px;
       display: block;
       background: #020617;
@@ -710,15 +717,21 @@
 
     .slide-card {
       background: #ffffff;
-      border: 1.5px solid var(--line);
+      border: 1.8px solid var(--box-border);
       border-radius: var(--radius);
       padding: clamp(1.8rem, 3vw, 2.4rem) clamp(1.3rem, 2.5vw, 1.8rem);
       text-align: center;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+      box-shadow: var(--box-shadow);
       min-height: clamp(230px, 25vw, 270px);
       display: flex;
       flex-direction: column;
       justify-content: center;
+      transition: all 0.25s ease;
+    }
+
+    .slide-card:hover {
+      border-color: rgba(21, 148, 81, 0.4);
+      box-shadow: var(--box-hover-shadow);
     }
 
     .slide-card .ico {
@@ -744,7 +757,7 @@
       overflow: hidden;
       background: linear-gradient(135deg, #102e50, #164263);
       color: #fff;
-      border: 1px solid rgba(160, 255, 202, 0.16);
+      border: 1.8px solid rgba(85, 220, 145, 0.35);
       border-radius: clamp(20px, 2.5vw, 28px);
       padding: clamp(24px, 3.5vw, 42px) clamp(18px, 3vw, 36px);
       display: grid;
@@ -752,6 +765,7 @@
       gap: clamp(20px, 3vw, 36px);
       align-items: center;
       width: 100%;
+      box-shadow: 0 16px 40px rgba(12, 35, 64, 0.2);
     }
 
     @media (min-width: 850px) {
@@ -782,9 +796,9 @@
       gap: 10px;
       align-items: flex-start;
       padding: 10px 14px;
-      border: 1px solid rgba(255, 255, 255, 0.13);
+      border: 1px solid rgba(255, 255, 255, 0.16);
       border-radius: 13px;
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.08);
       font-size: clamp(0.84rem, 1vw, 0.94rem);
     }
 
@@ -809,10 +823,17 @@
 
     .review-card {
       background: #ffffff;
-      border: 1px solid var(--line);
+      border: 1.8px solid var(--box-border);
       border-radius: var(--radius);
       padding: clamp(18px, 2.2vw, 24px) clamp(16px, 2vw, 20px);
-      box-shadow: 0 4px 14px rgba(12, 35, 64, 0.04);
+      box-shadow: var(--box-shadow);
+      transition: all 0.25s ease;
+    }
+
+    .review-card:hover {
+      border-color: rgba(21, 148, 81, 0.38);
+      box-shadow: var(--box-hover-shadow);
+      transform: translateY(-2px);
     }
 
     .review-stars {
@@ -847,6 +868,7 @@
       display: grid;
       place-items: center;
       font-size: 0.95rem;
+      border: 1px solid #cce9d8;
     }
 
     .reviewer-name {
@@ -864,15 +886,22 @@
       max-width: 860px;
       margin: 0 auto;
       display: grid;
-      gap: 11px;
+      gap: 12px;
       width: 100%;
     }
 
     .faq-item {
       background: #ffffff;
-      border: 1px solid var(--line);
+      border: 1.8px solid var(--box-border);
       border-radius: 14px;
       overflow: hidden;
+      box-shadow: 0 3px 8px rgba(12, 35, 64, 0.03);
+      transition: all 0.25s ease;
+    }
+
+    .faq-item:hover, .faq-item.active {
+      border-color: var(--green);
+      box-shadow: var(--box-hover-shadow);
     }
 
     .faq-question {
@@ -921,11 +950,17 @@
 
     .talk {
       text-align: center;
-      background: linear-gradient(135deg, #eefbf3, #fff);
-      border: 1px solid #d3ecdc;
+      background: linear-gradient(145deg, #eefbf3, #ffffff);
+      border: 1.8px solid var(--box-border);
       border-radius: clamp(20px, 3vw, 30px);
       padding: clamp(32px, 5vw, 54px) clamp(16px, 3vw, 28px);
       width: 100%;
+      box-shadow: var(--box-shadow);
+    }
+
+    .talk:hover {
+      border-color: rgba(21, 148, 81, 0.4);
+      box-shadow: var(--box-hover-shadow);
     }
 
     .talk h2 {
@@ -960,7 +995,7 @@
       justify-content: space-between;
       gap: 12px;
       flex-wrap: wrap;
-      border-top: 1px solid var(--line);
+      border-top: 1.5px solid var(--line);
       padding-top: 20px;
     }
 
@@ -1235,69 +1270,57 @@
               <span data-i18n="tryForFree">मुफ्त में प्रयास करें</span>
             </a>
 
-            <div class="biz-flip-card" onclick="toggleBizCard(this)">
-              <div class="biz-flip-inner">
-                <div class="biz-flip-front">
-                  <div class="biz-front-left">
-                    <span class="biz-front-icon">🏢</span>
-                    <span data-i18n="btnWholesaler">Wholesaler (थोक व्यापारी)</span>
-                  </div>
-                  <span class="flip-indicator">देखें ↻</span>
+            <div class="biz-card" onclick="toggleBizItem(this)">
+              <div class="biz-card-head">
+                <div class="biz-head-left">
+                  <span class="biz-head-icon">🏢</span>
+                  <span data-i18n="btnWholesaler">Wholesaler (थोक व्यापारी)</span>
                 </div>
-                <div class="biz-flip-back">
-                  <div>
-                    <div class="biz-back-title">🏢 <span data-i18n="w_title">थोक व्यापारी के लिए फायदा</span></div>
-                    <div class="biz-back-desc" data-i18n="w_desc">लाखों की उधारी, गोदाम का माल और बिलों की सीधी एंट्री का आसान समाधान।</div>
-                    <div class="biz-back-points" data-i18n="w_points">✓ सप्लायर और रिटेलर्स की उधारी<br>✓ स्टॉक इन/आउट रिकॉर्ड<br>✓ PDF खाता रिमाइंडर</div>
-                  </div>
-                  <a class="biz-back-btn" href="https://wa.me/919109134201?text=Hello%20Khata%20Genie%2C%20I%20am%20a%20Wholesaler%20and%20want%20to%20manage%20my%20business." target="_blank" rel="noopener">
-                    💬 WhatsApp पर शुरू करें
-                  </a>
-                </div>
+                <span class="biz-toggle-btn">देखें ▾</span>
+              </div>
+              <div class="biz-card-details">
+                <div class="biz-details-title">🏢 <span data-i18n="w_title">थोक व्यापारी के लिए फायदा</span></div>
+                <div class="biz-details-desc" data-i18n="w_desc">लाखों की उधारी, गोदाम का माल और बिलों की सीधी एंट्री का आसान समाधान।</div>
+                <div class="biz-details-points" data-i18n="w_points">✓ सप्लायर और रिटेलर्स की उधारी<br>✓ स्टॉक इन/आउट रिकॉर्ड<br>✓ PDF खाता रिमाइंडर</div>
+                <a class="biz-details-btn" href="https://wa.me/919109134201?text=Hello%20Khata%20Genie%2C%20I%20am%20a%20Wholesaler%20and%20want%20to%20manage%20my%20business." target="_blank" rel="noopener">
+                  💬 WhatsApp पर शुरू करें
+                </a>
               </div>
             </div>
 
-            <div class="biz-flip-card" onclick="toggleBizCard(this)">
-              <div class="biz-flip-inner">
-                <div class="biz-flip-front">
-                  <div class="biz-front-left">
-                    <span class="biz-front-icon">🏪</span>
-                    <span data-i18n="btnRetailer">Retailers (फुटकर / दुकानदार)</span>
-                  </div>
-                  <span class="flip-indicator">देखें ↻</span>
+            <div class="biz-card" onclick="toggleBizItem(this)">
+              <div class="biz-card-head">
+                <div class="biz-head-left">
+                  <span class="biz-head-icon">🏪</span>
+                  <span data-i18n="btnRetailer">Retailers (फुटकर / दुकानदार)</span>
                 </div>
-                <div class="biz-flip-back">
-                  <div>
-                    <div class="biz-back-title">🏪 <span data-i18n="r_title">दुकानदार व फुटकर के लिए</span></div>
-                    <div class="biz-back-desc" data-i18n="r_desc">किराना, कपड़ा, हार्डवेयर हर दुकान के लिए डायरी छोड़ें, WhatsApp को मुनीम बनाएं।</div>
-                    <div class="biz-back-points" data-i18n="r_points">✓ बोलकर ग्राहक की उधारी लिखें<br>✓ गल्ले व दैनिक बिक्री का हिसाब<br>✓ महीने का नफ़ा-नुकसान</div>
-                  </div>
-                  <a class="biz-back-btn" href="https://wa.me/919109134201?text=Hello%20Khata%20Genie%2C%20I%20run%20a%20Retail%20Shop%20and%20want%20to%20manage%20my%20daily%20hisaab." target="_blank" rel="noopener">
-                    💬 WhatsApp पर शुरू करें
-                  </a>
-                </div>
+                <span class="biz-toggle-btn">देखें ▾</span>
+              </div>
+              <div class="biz-card-details">
+                <div class="biz-details-title">🏪 <span data-i18n="r_title">दुकानदार व फुटकर के लिए</span></div>
+                <div class="biz-details-desc" data-i18n="r_desc">किराना, कपड़ा, हार्डवेयर हर दुकान के लिए डायरी छोड़ें, WhatsApp को मुनीम बनाएं।</div>
+                <div class="biz-details-points" data-i18n="r_points">✓ बोलकर ग्राहक की उधारी लिखें<br>✓ गल्ले व दैनिक बिक्री का हिसाब<br>✓ महीने का नफ़ा-नुकसान</div>
+                <a class="biz-details-btn" href="https://wa.me/919109134201?text=Hello%20Khata%20Genie%2C%20I%20run%20a%20Retail%20Shop%20and%20want%20to%20manage%20my%20daily%20hisaab." target="_blank" rel="noopener">
+                  💬 WhatsApp पर शुरू करें
+                </a>
               </div>
             </div>
 
-            <div class="biz-flip-card" onclick="toggleBizCard(this)">
-              <div class="biz-flip-inner">
-                <div class="biz-flip-front">
-                  <div class="biz-front-left">
-                    <span class="biz-front-icon">🛠️</span>
-                    <span data-i18n="btnServices">Other Services (अन्य सेवा व काम)</span>
-                  </div>
-                  <span class="flip-indicator">देखें ↻</span>
+            <div class="biz-card" onclick="toggleBizItem(this)">
+              <div class="biz-card-head">
+                <div class="biz-head-left">
+                  <span class="biz-head-icon">🛠️</span>
+                  <span data-i18n="btnServices">Other Services (अन्य सेवा व काम)</span>
                 </div>
-                <div class="biz-flip-back">
-                  <div>
-                    <div class="biz-back-title">🛠️ <span data-i18n="s_title">अन्य सेवाएं व काम-धंधा</span></div>
-                    <div class="biz-back-desc" data-i18n="s_desc">सर्विस सेंटर, ठेकेदारी, कोचिंग, कारीगर या फ्रीलांस काम के लिए परफेक्ट बहीखाता।</div>
-                    <div class="biz-back-points" data-i18n="s_points">✓ क्लाइंट एडवांस और पेंडिंग पेमेंट<br>✓ लेबर व स्टाफ की दैनिक दिहाड़ी<br>✓ तुरंत डिजिटल PDF रसीद</div>
-                  </div>
-                  <a class="biz-back-btn" href="https://wa.me/919109134201?text=Hello%20Khata%20Genie%2C%20I%20run%20a%20Service%20Business%20and%20want%20to%20manage%20my%20client%20accounts." target="_blank" rel="noopener">
-                    💬 WhatsApp पर शुरू करें
-                  </a>
-                </div>
+                <span class="biz-toggle-btn">देखें ▾</span>
+              </div>
+              <div class="biz-card-details">
+                <div class="biz-details-title">🛠️ <span data-i18n="s_title">अन्य सेवाएं व काम-धंधा</span></div>
+                <div class="biz-details-desc" data-i18n="s_desc">सर्विस सेंटर, ठेकेदारी, कोचिंग, कारीगर या फ्रीलांस काम के लिए परफेक्ट बहीखाता।</div>
+                <div class="biz-details-points" data-i18n="s_points">✓ क्लाइंट एडवांस और पेंडिंग पेमेंट<br>✓ लेबर व स्टाफ की दैनिक दिहाड़ी<br>✓ तुरंत डिजिटल PDF रसीद</div>
+                <a class="biz-details-btn" href="https://wa.me/919109134201?text=Hello%20Khata%20Genie%2C%20I%20run%20a%20Service%20Business%20and%20want%20to%20manage%20my%20client%20accounts." target="_blank" rel="noopener">
+                  💬 WhatsApp पर शुरू करें
+                </a>
               </div>
             </div>
 
@@ -1844,6 +1867,7 @@
         faqLead: "Everything you need to know about Khata Genie and how it handles your accounts.",
         q_ocr: "How does OCR bill scanning work?",
         a_ocr: "Simply capture a photo of your purchase bill or handwritten slip and send it on WhatsApp. Khata Genie's OCR extracts the date, line items, and total amount to update your accounts immediately.",
+        q1: "How does Khata Genie work on WhatsApp?",
         a1: "You just need to send a message or voice note on WhatsApp (e.g., 'Ramesh paid 500' or 'Purchased milk for 120'). Khata Genie's smart AI automatically categorizes and records the transaction into your digital ledger.",
         q2: "Can I speak in Hindi or local language?",
         a2: "Yes! Khata Genie understands natural spoken Hindi, Hinglish, and English voice notes fluently. Speak as you normally talk to customers.",
@@ -1902,14 +1926,12 @@
       });
     });
 
-    function toggleBizCard(card) {
-      // If user tapped on button inside flipped card, ignore
+    function toggleBizItem(card) {
       if (event.target.tagName.toLowerCase() === 'a') return;
-      
-      const isFlipped = card.classList.contains("is-flipped");
-      document.querySelectorAll(".biz-flip-card").forEach(c => c.classList.remove("is-flipped"));
-      if (!isFlipped) {
-        card.classList.add("is-flipped");
+      const isActive = card.classList.contains("active");
+      document.querySelectorAll(".biz-card").forEach(c => c.classList.remove("active"));
+      if (!isActive) {
+        card.classList.add("active");
       }
     }
 
@@ -1930,7 +1952,6 @@
       if (modal) {
         modal.classList.add("show");
         modal.setAttribute("aria-hidden", "false");
-        document.body.classList.add("home-popup-open");
       }
     }
 
@@ -1939,7 +1960,6 @@
       if (modal) {
         modal.classList.remove("show");
         modal.setAttribute("aria-hidden", "true");
-        document.body.classList.remove("home-popup-open");
       }
     }
 
