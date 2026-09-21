@@ -1115,7 +1115,10 @@
           📷 <span data-i18n="topScan">Scan Bill</span>
         </button>
 
-        <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">
+        <button class="lang-btn" 
+          type="button"
+          onclick="toggleLanguage()" 
+          id="langBtn">
           English
         </button>
 
@@ -1826,11 +1829,14 @@
     function applyLanguage() {
       document.querySelectorAll("[data-i18n]").forEach((element) => {
         const key = element.getAttribute("data-i18n");
-        if (translations[lang][key]) {
+        if (translations[lang] && translation[lang][key] ) {
           element.innerHTML = translations[lang][key];
         }
       });
-      document.getElementById("langBtn").textContent = lang === "hi" ? "English" : "हिंदी";
+      const langBtn = document.getElementById("langBtn");
+      if (langBtb) {
+          langBtn.textContent = lang === "hi" ? "English" : "हिंदी";
+      }
       document.documentElement.lang = lang;
 
       if (currentSelectedBiz) {
@@ -1839,10 +1845,13 @@
     }
 
     function toggleLanguage() {
-      lang = lang === "hi" ? "en" : "hi";
+      lang = (lang === "hi") ? "en" : "hi";
       applyLanguage();
     }
-
+      document.addEventListener("DOMContentLoaded"' () => {
+         applyLanguage();
+      });
+              
     function toggleMenu() {
       document.getElementById("nav").classList.toggle("open");
     }
