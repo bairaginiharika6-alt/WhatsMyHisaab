@@ -709,7 +709,13 @@
       display: block;
       background: #020617;
     }
-
+    
+    .feature-card-back 
+    img.hisab-crop-img {
+    object-position: center 55%;
+    transform: scale(1.08);
+    }
+      
     .swiper {
       width: 100%;
       padding-bottom: 3.4rem !important;
@@ -1394,7 +1400,8 @@
                 <span data-i18n="hisaab">ग्राहक का हिसाब</span>
               </span>
               <span class="feature-card-back">
-                <img src="./hisab.jpg" alt="Hisab">
+                <img src="./hisab.jpg" alt="Hisab" 
+                  class="hisab-crop-img">
               </span>
             </span>
           </button>
