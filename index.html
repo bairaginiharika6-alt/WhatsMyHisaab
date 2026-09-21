@@ -138,7 +138,7 @@
       border: 1.5px solid var(--green);
       background: #f0fdf4;
       border-radius: 999px;
-      padding: clamp(5px, 0.8vw, 8px) clamp(10px, 1.2vw, 16px);
+      padding: clamp(6px, 0.8vw, 9px) clamp(11px, 1.2vw, 17px);
       font-weight: 800;
       color: var(--green-dark);
       cursor: pointer;
@@ -150,18 +150,20 @@
       transition: all 0.2s;
       position: relative;
       z-index: 10;
+      box-shadow: 0 2px 8px rgba(21, 148, 81, 0.18);
     }
 
     .top-scan-btn:hover {
       background: var(--green);
       color: #fff;
+      transform: translateY(-1px);
     }
 
     .lang-btn {
       border: 1px solid var(--line);
       background: #fff;
       border-radius: 999px;
-      padding: clamp(5px, 0.8vw, 8px) clamp(9px, 1.1vw, 14px);
+      padding: clamp(6px, 0.8vw, 9px) clamp(10px, 1.1vw, 15px);
       font-weight: 800;
       color: var(--navy);
       cursor: pointer;
@@ -170,11 +172,13 @@
       transition: all 0.2s;
       position: relative;
       z-index: 10;
+      box-shadow: 0 2px 6px rgba(12, 35, 64, 0.06);
     }
 
     .lang-btn:hover {
       background: var(--mint);
       border-color: var(--green);
+      transform: translateY(-1px);
     }
 
     .menu-dots-btn {
@@ -203,12 +207,12 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: clamp(28px, 4vw, 48px);
-      align-items: center;
+      align-items: start;
     }
 
     @media (min-width: 960px) {
       .hero-grid {
-        grid-template-columns: 1.15fr 0.85fr;
+        grid-template-columns: 1.1fr 0.9fr;
       }
     }
 
@@ -271,7 +275,7 @@
       font-weight: 800;
       border: 1px solid transparent;
       cursor: pointer;
-      transition: transform 0.18s, box-shadow 0.18s;
+      transition: all 0.25s ease;
       font-size: clamp(0.92rem, 1.1vw, 1.05rem);
       text-align: center;
       width: 100%;
@@ -288,15 +292,28 @@
     }
 
     .btn-primary {
-      background: var(--green);
+      background: linear-gradient(135deg, #159451, #08783b);
       color: #fff;
-      box-shadow: 0 6px 18px rgba(24, 169, 87, 0.24);
+      box-shadow: 0 6px 20px rgba(21, 148, 81, 0.35);
+      border: 1px solid #1be074;
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 8px 25px rgba(21, 148, 81, 0.48);
+      transform: translateY(-2px);
     }
 
     .btn-secondary {
       background: #fff;
-      border-color: var(--line);
+      border-color: #c7ded1;
       color: var(--navy);
+      box-shadow: 0 4px 14px rgba(12, 35, 64, 0.06);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--green);
+      background: #f8fdfa;
+      transform: translateY(-2px);
     }
 
     .hero-note {
@@ -316,77 +333,213 @@
 
     .quick-panel {
       position: relative;
-      overflow: hidden;
-      padding: clamp(20px, 2.8vw, 32px) clamp(16px, 2.5vw, 26px);
-      border: 1px solid #d1e6d8;
-      border-radius: clamp(18px, 2.5vw, 26px);
-      background: linear-gradient(145deg, #fff, #f4fbf6);
-      box-shadow: 0 12px 30px rgba(12, 35, 64, 0.07);
+      padding: clamp(20px, 2.8vw, 28px) clamp(16px, 2.5vw, 22px);
+      border: 1.5px solid #cce5d5;
+      border-radius: clamp(20px, 2.5vw, 28px);
+      background: linear-gradient(145deg, #ffffff, #f2faf5);
+      box-shadow: 0 14px 34px rgba(12, 35, 64, 0.08);
       width: 100%;
     }
 
     .quick-panel-title {
-      font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+      font-size: clamp(1.15rem, 1.6vw, 1.4rem);
       font-weight: 850;
       color: var(--navy);
       margin: 0 0 6px;
     }
 
     .quick-panel-text {
-      margin: 0 0 clamp(14px, 2vw, 20px);
+      margin: 0 0 clamp(14px, 2vw, 18px);
       color: var(--muted);
-      font-size: clamp(0.84rem, 1vw, 0.96rem);
+      font-size: clamp(0.84rem, 1vw, 0.95rem);
     }
 
     .quick-actions {
       display: grid;
-      gap: clamp(10px, 1.3vw, 14px);
+      gap: 12px;
       width: 100%;
-    }
-
-    .quick-btn {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      gap: clamp(10px, 1.4vw, 14px);
-      text-align: left;
-      border: 1px solid #d8e7de;
-      cursor: pointer;
-      padding: clamp(11px, 1.4vw, 15px) clamp(14px, 1.8vw, 20px);
-      border-radius: 999px;
-      background: #fdfefd;
-      color: var(--navy);
-      font: inherit;
-      font-weight: 750;
-      font-size: clamp(0.88rem, 1.1vw, 1.02rem);
-      box-shadow: 0 2px 0 #d7e5dd, 0 4px 10px rgba(12, 35, 64, 0.05);
-      transition: all 0.15s ease;
-    }
-
-    .quick-btn:active {
-      transform: scale(0.98);
-    }
-
-    .quick-btn-icon {
-      width: clamp(30px, 3.5vw, 38px);
-      height: clamp(30px, 3.5vw, 38px);
-      flex: 0 0 clamp(30px, 3.5vw, 38px);
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-size: clamp(15px, 1.8vw, 19px);
-      background: var(--mint);
     }
 
     .quick-btn-free {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: clamp(12px, 1.4vw, 15px) clamp(16px, 1.8vw, 20px);
+      border-radius: 999px;
       color: #fff !important;
-      background: linear-gradient(135deg, #08783b, #159451) !important;
-      border-color: #08783b !important;
+      background: linear-gradient(135deg, #098a44, #159451) !important;
+      border: 1.5px solid #2df585 !important;
+      box-shadow: 0 5px 18px rgba(21, 148, 81, 0.35);
+      font-weight: 800;
+      font-size: clamp(0.92rem, 1.1vw, 1.05rem);
+      transition: all 0.25s ease;
+    }
+
+    .quick-btn-free:hover {
+      box-shadow: 0 8px 24px rgba(21, 148, 81, 0.5);
+      transform: translateY(-2px);
     }
 
     .quick-btn-free .quick-btn-icon {
-      background: #fff;
+      background: #ffffff;
       color: #08783b;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+    }
+
+    .whatsapp-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .biz-flip-card {
+      position: relative;
+      width: 100%;
+      min-height: 60px;
+      perspective: 1200px;
+      cursor: pointer;
+    }
+
+    .biz-flip-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+      border-radius: 18px;
+    }
+
+    @media (hover: hover) and (min-width: 901px) {
+      .biz-flip-card:hover .biz-flip-inner {
+        transform: rotateY(180deg);
+      }
+    }
+
+    .biz-flip-card.is-flipped .biz-flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    .biz-flip-front,
+    .biz-flip-back {
+      width: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 18px;
+    }
+
+    .biz-flip-front {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: clamp(12px, 1.4vw, 15px) clamp(16px, 1.8vw, 20px);
+      background: #ffffff;
+      border: 1.5px solid #d3e7dc;
+      color: var(--navy);
+      font-weight: 800;
+      font-size: clamp(0.9rem, 1.1vw, 1rem);
+      box-shadow: 0 4px 14px rgba(12, 35, 64, 0.05);
+      transition: all 0.25s ease;
+    }
+
+    .biz-flip-card:hover .biz-flip-front {
+      border-color: var(--green);
+      box-shadow: 0 6px 18px rgba(21, 148, 81, 0.16);
+    }
+
+    .biz-front-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .biz-front-icon {
+      font-size: 1.3rem;
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      background: var(--mint);
+      border-radius: 50%;
+    }
+
+    .flip-indicator {
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: var(--green);
+      background: #f0fdf4;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid #c9ebd6;
+      white-space: nowrap;
+    }
+
+    .biz-flip-back {
+      position: absolute;
+      inset: 0;
+      transform: rotateY(180deg);
+      background: linear-gradient(145deg, #0c2340, #14355a);
+      color: #ffffff;
+      border: 1.5px solid #23d470;
+      box-shadow: 0 12px 28px rgba(12, 35, 64, 0.25);
+      padding: 16px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 200px;
+      z-index: 10;
+    }
+
+    .biz-back-title {
+      font-size: 0.96rem;
+      font-weight: 850;
+      color: #6eed9f;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .biz-back-desc {
+      font-size: 0.78rem;
+      color: #e2e8f0;
+      line-height: 1.42;
+      margin-bottom: 8px;
+    }
+
+    .biz-back-points {
+      font-size: 0.74rem;
+      color: #c9f8dc;
+      line-height: 1.35;
+      margin-bottom: 10px;
+    }
+
+    .biz-back-points div {
+      margin-bottom: 3px;
+    }
+
+    .biz-back-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: var(--green);
+      color: #ffffff;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      transition: background 0.2s;
+      border: none;
+      width: 100%;
+    }
+
+    .biz-back-btn:hover {
+      background: #117841;
     }
 
     section {
@@ -447,32 +600,32 @@
 
     .feature-grid-clean {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: clamp(14px, 2vw, 24px);
-      margin-top: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: clamp(16px, 2vw, 26px);
+      margin-top: 20px;
       width: 100%;
     }
 
     .feature-btn {
       position: relative;
       width: 100%;
-      height: clamp(72px, 8vw, 84px);
+      height: clamp(74px, 8vw, 86px);
       padding: 0;
       border: 0;
       background: transparent;
       cursor: pointer;
-      perspective: 1000px;
+      perspective: 1200px;
       text-align: left;
       transition: height 0.45s ease;
     }
 
     .feature-btn.is-flipped {
-      height: 310px;
+      height: 360px;
     }
 
     @media (min-width: 850px) {
       .feature-btn.is-flipped {
-        height: 430px;
+        height: 480px;
       }
     }
 
@@ -495,7 +648,7 @@
       inset: 0;
       width: 100%;
       height: 100%;
-      border-radius: 16px;
+      border-radius: 18px;
       overflow: hidden;
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
@@ -505,38 +658,49 @@
       display: flex;
       align-items: center;
       gap: 14px;
-      padding: 14px 18px;
+      padding: 14px 20px;
       background: #ffffff;
-      border: 1px solid rgba(24, 169, 87, 0.25);
-      font-weight: 750;
+      border: 2px solid #bce1ca;
+      font-weight: 800;
       color: var(--navy);
-      font-size: clamp(0.92rem, 1.1vw, 1.05rem);
-      box-shadow: 0 3px 10px rgba(12, 35, 64, 0.04);
+      font-size: clamp(0.95rem, 1.1vw, 1.08rem);
+      box-shadow: 0 4px 16px rgba(21, 148, 81, 0.10);
+      transition: all 0.25s ease;
+    }
+
+    .feature-btn:hover .feature-card-front {
+      border-color: var(--green);
+      box-shadow: 0 8px 24px rgba(21, 148, 81, 0.22);
+      transform: translateY(-2px);
     }
 
     .feature-icon {
-      font-size: clamp(1.3rem, 1.6vw, 1.6rem);
+      font-size: clamp(1.4rem, 1.7vw, 1.7rem);
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      background: #ebfaf1;
+      border-radius: 12px;
+      border: 1px solid #c0ebd0;
     }
 
     .feature-card-back {
       transform: rotateY(180deg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #ffffff;
-      border: 1px solid var(--line);
-      box-shadow: 0 8px 24px rgba(12, 35, 64, 0.10);
-      padding: 6px;
+      background: #020617;
+      border: 2px solid #16a34a;
+      box-shadow: 0 14px 34px rgba(12, 35, 64, 0.22);
+      padding: 0; /* No padding for 100% full fill */
     }
 
     .feature-card-back img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
-      object-position: center;
-      border-radius: 12px;
-      background: #ffffff;
+      object-fit: cover; /* Fully covers entire box without white border */
+      object-position: center 38%; /* Perfectly crops out the top 'Khata Jennie' header */
+      border-radius: 16px;
       display: block;
+      background: #020617;
     }
 
     .swiper {
@@ -546,11 +710,11 @@
 
     .slide-card {
       background: #ffffff;
-      border: 1px solid var(--line);
+      border: 1.5px solid var(--line);
       border-radius: var(--radius);
       padding: clamp(1.8rem, 3vw, 2.4rem) clamp(1.3rem, 2.5vw, 1.8rem);
       text-align: center;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
       min-height: clamp(230px, 25vw, 270px);
       display: flex;
       flex-direction: column;
@@ -948,111 +1112,6 @@
       color: white;
     }
 
-    .info-modal {
-      position: fixed;
-      inset: 0;
-      z-index: 10000;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-    }
-
-    .info-modal.show {
-      display: flex;
-    }
-
-    .info-modal-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(12, 35, 64, 0.75);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-    }
-
-    .info-modal-popup {
-      position: relative;
-      z-index: 1;
-      width: min(460px, 94vw);
-      background: #ffffff;
-      border-radius: 22px;
-      padding: 26px 22px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
-      border: 1px solid var(--line);
-    }
-
-    .info-modal-close {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: #f1f5f9;
-      border: none;
-      font-size: 19px;
-      cursor: pointer;
-      color: var(--navy);
-      display: grid;
-      place-items: center;
-    }
-
-    .info-modal-icon {
-      font-size: 2.3rem;
-      margin-bottom: 8px;
-      display: inline-block;
-    }
-
-    .info-modal-title {
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: var(--navy);
-      margin-bottom: 6px;
-    }
-
-    .info-modal-desc {
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.58;
-      margin-bottom: 16px;
-    }
-
-    .info-modal-points {
-      background: var(--mint);
-      border: 1px solid #cfead9;
-      border-radius: 14px;
-      padding: 14px;
-      margin-bottom: 20px;
-      text-align: left;
-    }
-
-    .info-modal-points p {
-      font-size: 0.85rem;
-      color: var(--green-dark);
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
-    .info-modal-points p:last-child {
-      margin-bottom: 0;
-    }
-
-    .info-modal-btn {
-      width: 100%;
-      background: var(--green);
-      color: white;
-      padding: 12px;
-      border-radius: 12px;
-      font-weight: 800;
-      text-align: center;
-      display: block;
-      font-size: 0.94rem;
-    }
-
-    body.home-popup-open {
-      overflow: hidden;
-    }
-
     @media (max-width: 900px) {
       nav {
         display: none;
@@ -1167,7 +1226,7 @@
           <p class="quick-panel-text" data-i18n="quickText">कोई विकल्प चुनें और सीधे WhatsApp पर जुड़ें।</p>
 
           <div class="quick-actions">
-            <a class="quick-btn quick-btn-free" href="https://wa.me/919109134201?text=Hello%20Khata%20Jennie%2C%20I%20want%20to%20try%20it%20for%20free." target="_blank" rel="noopener">
+            <a class="quick-btn-free" href="https://wa.me/919109134201?text=Hello%20Khata%20Jennie%2C%20I%20want%20to%20try%20it%20for%20free." target="_blank" rel="noopener">
               <span class="quick-btn-icon whatsapp-icon" aria-hidden="true">
                 <svg viewBox="0 0 32 32">
                   <path fill="currentColor" d="M16 3.1a12.7 12.7 0 0 0-10.9 19.2L3.5 28.5l6.4-1.7A12.8 12.8 0 1 0 16 3.1Zm0 23.2a10.5 10.5 0 0 1-5.4-1.5l-.4-.2-3.8 1 1-3.7-.3-.4A10.6 10.6 0 1 1 16 26.3Zm5.8-7.9c-.3-.2-1.8-.9-2.1-1s-.5-.2-.8.2-.9 1-1.1 1.2-.4.3-.7.1a8.5 8.5 0 0 1-2.5-1.5 9.6 9.6 0 0 1-1.8-2.3c-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6s0-.5 0-.7c-.1-.2-.8-1.9-1-2.6-.3-.7-.5-.6-.8-.6h-.7c-.2 0-.7.1-1 .5s-1.4 1.3-1.4 3.3 1.4 3.9 1.6 4.2 2.8 4.3 6.8 6c1 .4 1.8.6 2.4.7 1 .3 1.9.2 2.6.1.8-.1 2.5-1 2.8-2s.4-1.9.3-2.1-.2-.3-.6-.5Z"/>
@@ -1176,20 +1235,72 @@
               <span data-i18n="tryForFree">मुफ्त में प्रयास करें</span>
             </a>
 
-            <button class="quick-btn" type="button" onclick="openBusinessInfo('wholesaler')">
-              <span class="quick-btn-icon">🏢</span>
-              <span data-i18n="btnWholesaler">Wholesaler (थोक व्यापारी)</span>
-            </button>
+            <div class="biz-flip-card" onclick="toggleBizCard(this)">
+              <div class="biz-flip-inner">
+                <div class="biz-flip-front">
+                  <div class="biz-front-left">
+                    <span class="biz-front-icon">🏢</span>
+                    <span data-i18n="btnWholesaler">Wholesaler (थोक व्यापारी)</span>
+                  </div>
+                  <span class="flip-indicator">देखें ↻</span>
+                </div>
+                <div class="biz-flip-back">
+                  <div>
+                    <div class="biz-back-title">🏢 <span data-i18n="w_title">थोक व्यापारी के लिए फायदा</span></div>
+                    <div class="biz-back-desc" data-i18n="w_desc">लाखों की उधारी, गोदाम का माल और बिलों की सीधी एंट्री का आसान समाधान।</div>
+                    <div class="biz-back-points" data-i18n="w_points">✓ सप्लायर और रिटेलर्स की उधारी<br>✓ स्टॉक इन/आउट रिकॉर्ड<br>✓ PDF खाता रिमाइंडर</div>
+                  </div>
+                  <a class="biz-back-btn" href="https://wa.me/919109134201?text=Hello%20Khata%20Jennie%2C%20I%20am%20a%20Wholesaler%20and%20want%20to%20manage%20my%20business." target="_blank" rel="noopener">
+                    💬 WhatsApp पर शुरू करें
+                  </a>
+                </div>
+              </div>
+            </div>
 
-            <button class="quick-btn" type="button" onclick="openBusinessInfo('retailer')">
-              <span class="quick-btn-icon">🏪</span>
-              <span data-i18n="btnRetailer">Retailers (फुटकर / दुकानदार)</span>
-            </button>
+            <div class="biz-flip-card" onclick="toggleBizCard(this)">
+              <div class="biz-flip-inner">
+                <div class="biz-flip-front">
+                  <div class="biz-front-left">
+                    <span class="biz-front-icon">🏪</span>
+                    <span data-i18n="btnRetailer">Retailers (फुटकर / दुकानदार)</span>
+                  </div>
+                  <span class="flip-indicator">देखें ↻</span>
+                </div>
+                <div class="biz-flip-back">
+                  <div>
+                    <div class="biz-back-title">🏪 <span data-i18n="r_title">दुकानदार व फुटकर के लिए</span></div>
+                    <div class="biz-back-desc" data-i18n="r_desc">किराना, कपड़ा, हार्डवेयर हर दुकान के लिए डायरी छोड़ें, WhatsApp को मुनीम बनाएं।</div>
+                    <div class="biz-back-points" data-i18n="r_points">✓ बोलकर ग्राहक की उधारी लिखें<br>✓ गल्ले व दैनिक बिक्री का हिसाब<br>✓ महीने का नफ़ा-नुकसान</div>
+                  </div>
+                  <a class="biz-back-btn" href="https://wa.me/919109134201?text=Hello%20Khata%20Jennie%2C%20I%20run%20a%20Retail%20Shop%20and%20want%20to%20manage%20my%20daily%20hisaab." target="_blank" rel="noopener">
+                    💬 WhatsApp पर शुरू करें
+                  </a>
+                </div>
+              </div>
+            </div>
 
-            <button class="quick-btn" type="button" onclick="openBusinessInfo('services')">
-              <span class="quick-btn-icon">🛠️</span>
-              <span data-i18n="btnServices">Other Services (अन्य सेवा व काम)</span>
-            </button>
+            <div class="biz-flip-card" onclick="toggleBizCard(this)">
+              <div class="biz-flip-inner">
+                <div class="biz-flip-front">
+                  <div class="biz-front-left">
+                    <span class="biz-front-icon">🛠️</span>
+                    <span data-i18n="btnServices">Other Services (अन्य सेवा व काम)</span>
+                  </div>
+                  <span class="flip-indicator">देखें ↻</span>
+                </div>
+                <div class="biz-flip-back">
+                  <div>
+                    <div class="biz-back-title">🛠️ <span data-i18n="s_title">अन्य सेवाएं व काम-धंधा</span></div>
+                    <div class="biz-back-desc" data-i18n="s_desc">सर्विस सेंटर, ठेकेदारी, कोचिंग, कारीगर या फ्रीलांस काम के लिए परफेक्ट बहीखाता।</div>
+                    <div class="biz-back-points" data-i18n="s_points">✓ क्लाइंट एडवांस और पेंडिंग पेमेंट<br>✓ लेबर व स्टाफ की दैनिक दिहाड़ी<br>✓ तुरंत डिजिटल PDF रसीद</div>
+                  </div>
+                  <a class="biz-back-btn" href="https://wa.me/919109134201?text=Hello%20Khata%20Jennie%2C%20I%20run%20a%20Service%20Business%20and%20want%20to%20manage%20my%20client%20accounts." target="_blank" rel="noopener">
+                    💬 WhatsApp पर शुरू करें
+                  </a>
+                </div>
+              </div>
+            </div>
+
           </div>
         </aside>
       </div>
@@ -1559,23 +1670,6 @@
     </div>
   </div>
 
-  <div class="info-modal" id="businessInfoModal" aria-hidden="true">
-    <div class="info-modal-overlay" onclick="closeBusinessInfo()"></div>
-    <div class="info-modal-popup" role="dialog" aria-modal="true">
-      <button class="info-modal-close" type="button" onclick="closeBusinessInfo()" aria-label="Close">×</button>
-      
-      <span class="info-modal-icon" id="infoIcon">🏢</span>
-      <h3 class="info-modal-title" id="infoTitle">Wholesaler</h3>
-      <p class="info-modal-desc" id="infoDesc">Description</p>
-
-      <div class="info-modal-points" id="infoPoints"></div>
-
-      <a class="info-modal-btn" id="infoWaLink" href="https://wa.me/919109134201" target="_blank" rel="noopener">
-        💬 WhatsApp पर बात करें
-      </a>
-    </div>
-  </div>
-
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <script>
@@ -1603,6 +1697,15 @@
         btnWholesaler: "Wholesaler (थोक व्यापारी)",
         btnRetailer: "Retailers (फुटकर / दुकानदार)",
         btnServices: "Other Services (अन्य सेवा व काम)",
+        w_title: "थोक व्यापारी के लिए फायदा",
+        w_desc: "लाखों की उधारी, गोदाम का माल और बिलों की सीधी एंट्री का आसान समाधान।",
+        w_points: "✓ सप्लायर और रिटेलर्स की उधारी<br>✓ स्टॉक इन/आउट रिकॉर्ड<br>✓ PDF खाता रिमाइंडर",
+        r_title: "दुकानदार व फुटकर के लिए",
+        r_desc: "किराना, कपड़ा, हार्डवेयर हर दुकान के लिए डायरी छोड़ें, WhatsApp को मुनीम बनाएं।",
+        r_points: "✓ बोलकर ग्राहक की उधारी लिखें<br>✓ गल्ले व दैनिक बिक्री का हिसाब<br>✓ महीने का नफ़ा-नुकसान",
+        s_title: "अन्य सेवाएं व काम-धंधा",
+        s_desc: "सर्विस सेंटर, ठेकेदारी, कोचिंग, कारीगर या फ्रीलांस काम के लिए परफेक्ट बहीखाता।",
+        s_points: "✓ क्लाइंट एडवांस और पेंडिंग पेमेंट<br>✓ लेबर व स्टाफ की दैनिक दिहाड़ी<br>✓ तुरंत डिजिटल PDF रसीद",
         demoEyebrow: "लाइव डेमो",
         demoTitle: "खाता जिनी को काम करते देखें",
         demoLead: "देखें कैसे सिर्फ 30 सेकंड में बोलकर या बिल स्कैन करके एंट्री दर्ज हो जाती है और PDF मिल जाती है।",
@@ -1689,6 +1792,15 @@
         btnWholesaler: "Wholesalers",
         btnRetailer: "Retailers & Shops",
         btnServices: "Other Services",
+        w_title: "Benefits for Wholesalers",
+        w_desc: "Handle bulk credit dues, stock management, and direct bill entries effortlessly.",
+        w_points: "✓ Supplier & retailer dues<br>✓ Bulk warehouse tracking<br>✓ PDF statement reminders",
+        r_title: "Benefits for Retailers",
+        r_desc: "Replace paper registers with WhatsApp for daily sales and customer ledger tracking.",
+        r_points: "✓ Voice entry for customer dues<br>✓ Daily cash register balance<br>✓ Monthly profit and loss",
+        s_title: "Benefits for Other Services",
+        s_desc: "Tailored for workshops, contractors, transport, repair, and freelancers.",
+        s_points: "✓ Client advances & pending bills<br>✓ Labor & staff daily wages<br>✓ Instant digital PDF receipts",
         demoEyebrow: "Live Demonstration",
         demoTitle: "See Khata Jennie In Action",
         demoLead: "Watch how effortless it is to enter expenses and scan bills in seconds.",
@@ -1732,7 +1844,6 @@
         faqLead: "Everything you need to know about Khata Jennie and how it handles your accounts.",
         q_ocr: "How does OCR bill scanning work?",
         a_ocr: "Simply capture a photo of your purchase bill or handwritten slip and send it on WhatsApp. Khata Jennie's OCR extracts the date, line items, and total amount to update your accounts immediately.",
-        q1: "How does Khata Jennie work on WhatsApp?",
         a1: "You just need to send a message or voice note on WhatsApp (e.g., 'Ramesh paid 500' or 'Purchased milk for 120'). Khata Jennie's smart AI automatically categorizes and records the transaction into your digital ledger.",
         q2: "Can I speak in Hindi or local language?",
         a2: "Yes! Khata Jennie understands natural spoken Hindi, Hinglish, and English voice notes fluently. Speak as you normally talk to customers.",
@@ -1754,86 +1865,7 @@
       }
     };
 
-    const businessData = {
-      wholesaler: {
-        icon: "🏢",
-        hi: {
-          title: "थोक व्यापारी (Wholesaler) के लिए फायदा",
-          desc: "अगर आपका बड़ा व्यापार या डिस्ट्रीब्यूशन है, तो खाता जिनी आपके बड़े लेन-देन और गोदाम के माल को आसानी से संभालता है।",
-          points: [
-            "✓ सप्लायर और रिटेलर्स की लाखों की उधारी का पूरा हिसाब",
-            "✓ गोदाम (Stock) में कितना माल आया और कितना गया",
-            "✓ सीधे बिल या इनवॉइस की फोटो खींचकर एंट्री दर्ज करें",
-            "✓ पार्टी को WhatsApp पर पेमेंट रिमाइंडर व PDF खाता भेजें"
-          ],
-          waText: "नमस्ते खाता जिनी, मैं एक होलसेलर (Wholesaler) हूँ और अपने व्यापार के लिए खाता शुरू करना चाहता हूँ।"
-        },
-        en: {
-          title: "Benefits for Wholesalers",
-          desc: "Designed for high-volume traders and distributors to effortlessly manage supplier ledgers and warehouse bulk inventory.",
-          points: [
-            "✓ Track bulk credit dues with multiple retailers & vendors",
-            "✓ Seamless warehouse stock tracking (In/Out records)",
-            "✓ Instant entry by capturing photos of purchase bills",
-            "✓ Export professional monthly ledger statements in PDF"
-          ],
-          waText: "Hello Khata Jennie, I am a Wholesaler and want to manage my business accounts."
-        }
-      },
-      retailer: {
-        icon: "🏪",
-        hi: {
-          title: "दुकानदार व फुटकर (Retailer) के लिए फायदा",
-          desc: "किराना, कपड़ा, हार्डवेयर या किसी भी दुकान के लिए पुरानी बही-खाता डायरी को बंद करके WhatsApp को अपना पर्सनल मुनीम बनाएं।",
-          points: [
-            "✓ ग्राहक का नाम और बकाया उधारी सिर्फ बोलकर दर्ज करें",
-            "✓ ग्राहक को WhatsApp पर एक क्लिक में उधारी का तगादा भेजें",
-            "✓ रोज़ की कुल नकद बिक्री (Cash-sale) और गल्ले का हिसाब",
-            "✓ दुकान का महीने भर का नफा-नुकसान (Profit & Loss) देखें"
-          ],
-          waText: "नमस्ते खाता जिनी, मेरी दुकान (Retail Shop) है और मैं अपना हिसाब आसान बनाना चाहता हूँ।"
-        },
-        en: {
-          title: "Benefits for Retailers & Shops",
-          desc: "Perfect for grocery stores, garments, hardware, and local shops to replace physical paper notebooks directly with WhatsApp.",
-          points: [
-            "✓ Record customer dues instantly by typing or speaking",
-            "✓ Send polite payment reminders to customers on WhatsApp",
-            "✓ Maintain daily cash-inhand and daily shop sales",
-            "✓ Know your exact monthly profit with clean balance sheets"
-          ],
-          waText: "Hello Khata Jennie, I run a Retail Shop and want to manage my daily hisaab."
-        }
-      },
-      services: {
-        icon: "🛠️",
-        hi: {
-          title: "अन्य सेवाएं व काम-धंधा (Other Services)",
-          desc: "सर्विस सेंटर, रिपेयरिंग, ठेकेदारी, ट्रांसपोर्ट, डॉक्टर, कोचिंग या फ्रीलांसर — हर प्रकार की सेवा देने वालों के लिए आसान हिसाब।",
-          points: [
-            "✓ क्लाइंट का सर्विस चार्ज, एडवांस और पेंडिंग पेमेंट का रिकॉर्ड",
-            "✓ कारीगरों, लेबर या स्टाफ की दैनिक दिहाड़ी और खर्चों का हिसाब",
-            "✓ बिना किसी जटिल ऐप के सिर्फ WhatsApp पर काम का लेखा-जोखा",
-            "✓ काम पूरा होने पर तुरंत डिजिटल रसीद PDF में बनाकर दें"
-          ],
-          waText: "नमस्ते खाता जिनी, मेरा सर्विस / काम-धंधा (Service Business) है, मुझे इसका हिसाब शुरू करना है।"
-        },
-        en: {
-          title: "Benefits for Other Services",
-          desc: "Tailored for service providers, repair shops, contractors, transport, consultants, and professionals to log fees and job expenses.",
-          points: [
-            "✓ Record client service charges, advance payments, and dues",
-            "✓ Track staff wages, daily labor payments, and running costs",
-            "✓ No complex accounting software needed — just chat on WhatsApp",
-            "✓ Instantly send professional service bills in PDF format"
-          ],
-          waText: "Hello Khata Jennie, I run a Service Business and want to manage my client accounts."
-        }
-      }
-    };
-
     let lang = "hi";
-    let currentSelectedBiz = null;
 
     function applyLanguage() {
       document.querySelectorAll("[data-i18n]").forEach((element) => {
@@ -1847,10 +1879,6 @@
         langBtn.textContent = (lang === "hi") ? "English" : "हिंदी";
       }
       document.documentElement.lang = lang;
-
-      if (currentSelectedBiz) {
-        updateModalContent(currentSelectedBiz);
-      }
     }
 
     function toggleLanguage() {
@@ -1873,6 +1901,29 @@
         }
       });
     });
+
+    function toggleBizCard(card) {
+      // If user tapped on button inside flipped card, ignore
+      if (event.target.tagName.toLowerCase() === 'a') return;
+      
+      const isFlipped = card.classList.contains("is-flipped");
+      document.querySelectorAll(".biz-flip-card").forEach(c => c.classList.remove("is-flipped"));
+      if (!isFlipped) {
+        card.classList.add("is-flipped");
+      }
+    }
+
+    function toggleFeatureFlip(button) {
+      const isFlipped = button.classList.contains("is-flipped");
+      document.querySelectorAll(".feature-btn").forEach((card) => {
+        card.classList.remove("is-flipped");
+        card.setAttribute("aria-pressed", "false");
+      });
+      if (!isFlipped) {
+        button.classList.add("is-flipped");
+        button.setAttribute("aria-pressed", "true");
+      }
+    }
 
     function openLiveScannerPopup() {
       const modal = document.getElementById("liveScannerModal");
@@ -1900,55 +1951,6 @@
       }
     }
 
-    function openBusinessInfo(type) {
-      currentSelectedBiz = type;
-      updateModalContent(type);
-      const modal = document.getElementById("businessInfoModal");
-      if (modal) {
-        modal.classList.add("show");
-        modal.setAttribute("aria-hidden", "false");
-        document.body.classList.add("home-popup-open");
-      }
-    }
-
-    function updateModalContent(type) {
-      const biz = businessData[type];
-      const data = biz[lang];
-
-      document.getElementById("infoIcon").textContent = biz.icon;
-      document.getElementById("infoTitle").textContent = data.title;
-      document.getElementById("infoDesc").textContent = data.desc;
-
-      const pointsContainer = document.getElementById("infoPoints");
-      pointsContainer.innerHTML = data.points.map(p => `<p>${p}</p>`).join("");
-
-      const waBtn = document.getElementById("infoWaLink");
-      waBtn.href = "https://wa.me/919109134201?text=" + encodeURIComponent(data.waText);
-      waBtn.innerHTML = (lang === "hi") ? "💬 WhatsApp पर शुरू करें" : "💬 Start on WhatsApp";
-    }
-
-    function closeBusinessInfo() {
-      currentSelectedBiz = null;
-      const modal = document.getElementById("businessInfoModal");
-      if (modal) {
-        modal.classList.remove("show");
-        modal.setAttribute("aria-hidden", "true");
-        document.body.classList.remove("home-popup-open");
-      }
-    }
-
-    function toggleFeatureFlip(button) {
-      const isFlipped = button.classList.contains("is-flipped");
-      document.querySelectorAll(".feature-btn").forEach((card) => {
-        card.classList.remove("is-flipped");
-        card.setAttribute("aria-pressed", "false");
-      });
-      if (!isFlipped) {
-        button.classList.add("is-flipped");
-        button.setAttribute("aria-pressed", "true");
-      }
-    }
-
     function toggleFaq(button) {
       const faqItem = button.parentElement;
       const isActive = faqItem.classList.contains('active');
@@ -1964,7 +1966,6 @@
 
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape") {
-        closeBusinessInfo();
         closeLiveScannerPopup();
       }
     });
