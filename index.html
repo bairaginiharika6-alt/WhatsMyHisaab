@@ -713,14 +713,16 @@
     .feature-card-back 
       img.hisab-crop-img {
       width: 100% !important;
-      height: 120% !important;
-      object-fit: cover !important;
+      height: 100% !important;
+      object-fit: contain !important;
       object-position: center top !important;
-      transform: translateY(-9%) translateZ(0) !important;
+      transform: scale(1.12)
+      translateY(-6%) !important;
       border-radius: 16px !important;
-      display: block !important;
       image-rendering: auto !important;
-      transform-style: flat !important
+      transform-style: flat !important 
+      display: block !important;
+      background: #0b141b !important;
        }
       
     .swiper {
