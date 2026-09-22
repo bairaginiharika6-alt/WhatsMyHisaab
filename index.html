@@ -711,20 +711,19 @@
     }
 
 .feature-card-back:has(.hisab-crop-img) {
-  overflow: hidden !important;
   background: #0b141b !important;
+  overflow: hidden !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  -webkit-font-smoothing: antialiased !important;
 }
 
 .feature-card-back img.hisab-crop-img {
   width: 100% !important;
   height: 100% !important;
-  object-fit: fill !important;
+  object-fit: cover !important;
   clip-path: inset(5.2% 0 0 0) !important;
-  transform: translateY(-2.6%) translateZ(0) !important;
+  transform: translateY(1.18) !important;
   border-radius: 16px !important;
   display: block !important;
   image-rendering: -webkit-optimize-contrast !important;
