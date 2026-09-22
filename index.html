@@ -716,10 +716,15 @@
       height: 114% !important;
       object-fit: fill !important;
       object-position: center 30% !important;
-      transform: translateY(-7%) !important;
+      transform: translateY(-7%) translateZ(0) !important;
       border-radius: 16px !important;
       display: block !important;
-    }
+      image-rendering:
+      image-rendering: crisp-edges !important;
+      backface-visibility: hidden !important;
+      -webkit-backface-visibility: hidden !important;
+      filter: contrast(1.06) brightness(1.02) !important;
+       }
       
     .swiper {
       width: 100%;
