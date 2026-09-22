@@ -709,13 +709,14 @@
       display: block;
       background: #020617;
     }
-    
+
 .feature-card-back:has(.hisab-crop-img) {
   overflow: hidden !important;
   background: #0b141b !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  -webkit-font-smoothing: antialiased !important;
 }
 
 .feature-card-back img.hisab-crop-img {
@@ -723,11 +724,16 @@
   height: 100% !important;
   object-fit: fill !important;
   clip-path: inset(5.2% 0 0 0) !important;
-  transform: translateY(-2.6%) !important;
+  transform: translateY(-2.6%) translateZ(0) !important;
   border-radius: 16px !important;
   display: block !important;
+  image-rendering: -webkit-optimize-contrast !important;
+  image-rendering: crisp-edges !important;
+  filter: contrast(1.08) brightness(1.03) !important;
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
 }
-      
+    
     .swiper {
       width: 100%;
       padding-bottom: 3.4rem !important;
