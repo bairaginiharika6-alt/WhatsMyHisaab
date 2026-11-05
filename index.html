@@ -153,6 +153,7 @@
       color: #506079;
       transition: color 0.2s;
       white-space: nowrap;
+      cursor: pointer;
     }
 
     nav a:hover {
@@ -1027,6 +1028,36 @@
       padding-top: 20px;
     }
 
+    /* Social Icons Styling */
+    .footer-socials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin: 10px 0;
+    }
+
+    .social-icon-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+      color: var(--navy);
+      font-size: 1.1rem;
+      box-shadow: 0 2px 6px rgba(12, 35, 64, 0.05);
+      transition: all 0.2s ease;
+    }
+
+    .social-icon-btn:hover {
+      background: var(--green);
+      color: #fff;
+      border-color: var(--green);
+      transform: translateY(-2px);
+    }
+
     .floating-wa {
       position: fixed;
       bottom: 22px;
@@ -1047,6 +1078,92 @@
 
     .floating-wa:active {
       transform: scale(0.92);
+    }
+
+    /* About Us Modal Styles */
+    .about-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 20000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .about-modal.show {
+      display: flex;
+    }
+
+    .about-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(12, 35, 64, 0.85);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    .about-card {
+      position: relative;
+      z-index: 1;
+      width: min(750px, 95vw);
+      max-height: 85vh;
+      background: #ffffff;
+      border-radius: 24px;
+      padding: clamp(24px, 3.5vw, 36px);
+      color: var(--ink);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+      overflow-y: auto;
+      text-align: left;
+    }
+
+    .about-close-btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: #f1f5f9;
+      border: none;
+      color: var(--navy);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: background 0.2s;
+    }
+
+    .about-close-btn:hover {
+      background: #e2e8f0;
+    }
+
+    .about-body h2 {
+      font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+      color: var(--navy);
+      margin-bottom: 14px;
+      font-weight: 850;
+    }
+
+    .about-body h3 {
+      font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+      color: var(--green-dark);
+      margin: 18px 0 8px;
+      font-weight: 800;
+    }
+
+    .about-body p {
+      font-size: clamp(0.9rem, 1.05vw, 1rem);
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 12px;
+    }
+
+    .about-modal-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+      flex-wrap: wrap;
     }
 
     .scanner-popup-modal {
@@ -1221,7 +1338,7 @@
           <a href="#demo" data-i18n="navDemo">सीधा प्रदर्शन</a>
           <a href="#hisaab" data-i18n="navHisaab">फीचर्स</a>
           <a href="#sliderSection" data-i18n="navSlider">सुविधाएं</a>
-          <a href="#about" data-i18n="navAbout">हमारे बारे में</a>
+          <a onclick="openAboutModal()" data-i18n="navAbout">हमारे बारे में</a>
           <a href="#reviews" data-i18n="navReviews">रिव्यूज</a>
           <a href="#faq" data-i18n="navFaq">सवाल-जवाब</a>
           <a href="#talk" data-i18n="navTalk">हमसे बात करें</a>
@@ -1515,26 +1632,6 @@
       </div>
     </section>
 
-    <!-- About Us Section -->
-    <section id="about">
-      <div class="container">
-        <div class="security">
-          <div>
-            <div class="eyebrow" style="background:rgba(85,220,145,.12);border-color:rgba(85,220,145,.25);color:#8df0b4" data-i18n="privacyBadge">गोपनीयता पहले</div>
-            <h2 data-i18n="aboutTitle">आपके व्यापार का डेटा, सुरक्षित।</h2>
-            <p data-i18n="aboutText">आपके व्यापार का डेटा सुरक्षा का हक़दार है। WhatsMyHisaab को इस तरह तैयार किया गया है कि आपका हर रिकॉर्ड निजी, सुरक्षित और गोपनीय रहे।</p>
-          </div>
-
-          <div class="security-list">
-            <div class="security-item"><span class="check">✓</span><span data-i18n="secure1">व्यापार का हिसाब एक व्यवस्थित जगह पर रखें।</span></div>
-            <div class="security-item"><span class="check">✓</span><span data-i18n="secure2">कॉपी की जगह लिखकर, बोलकर या फोटो स्कैन करके हिसाब जोड़ें।</span></div>
-            <div class="security-item"><span class="check">✓</span><span data-i18n="secure3">अपने पूरे हिसाब की साफ़ PDF रिपोर्ट पाएं।</span></div>
-            <div class="security-item"><span class="check">✓</span><span data-i18n="secure4">आपकी जानकारी गोपनीय और सुरक्षित रहती है।</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section id="reviews" style="background: #ffffff;">
       <div class="container">
         <div class="section-head" style="text-align: center; margin: 0 auto 22px;">
@@ -1664,13 +1761,23 @@
     </section>
   </main>
   
-  <!-- Footer with App Logo Icon and Dynamic Language Lines -->
+  <!-- Footer with Social Links & Icons -->
   <footer>
     <div class="container footer-inner" style="text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 25px 0;">
       <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 2px;">
         <img src="logo.jpg" alt="Logo" style="width: 28px; height: 28px; object-fit: contain; border-radius: 6px; border: 1px solid var(--line);">
         <span style="font-weight: 855; color: var(--navy); font-size: 1.05rem;">WhatsMy<span style="color:var(--green)">Hisaab</span></span>
       </div>
+
+      <!-- Social Media Icons -->
+      <div class="footer-socials">
+        <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon-btn" title="Instagram">📸</a>
+        <a href="https://facebook.com" target="_blank" rel="noopener" class="social-icon-btn" title="Facebook">📘</a>
+        <a href="https://twitter.com" target="_blank" rel="noopener" class="social-icon-btn" title="Twitter / X">🐦</a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-icon-btn" title="LinkedIn">🔗</a>
+        <a href="https://youtube.com" target="_blank" rel="noopener" class="social-icon-btn" title="YouTube">▶️</a>
+      </div>
+
       <div style="font-weight: 800; color: var(--navy); font-size: 1rem; letter-spacing: 0.3px;" data-i18n="footerLine1">
         🇮🇳 गल्ले की पाई-पाई और डायरी का हिसाब, अब WhatsApp पर।
       </div>
@@ -1686,6 +1793,49 @@
   <a href="https://wa.me/919109134201?text=नमस्कार!%20WhatsMy%20Hisaab%2C%20में%20आपका%20स्वागत%20है!" class="floating-wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
     💬
   </a>
+
+  <!-- About Us Modal (Popup) -->
+  <div class="about-modal" id="aboutModal" aria-hidden="true">
+    <div class="about-overlay" onclick="closeAboutModal()"></div>
+    <div class="about-card" role="dialog" aria-modal="true">
+      <button class="about-close-btn" type="button" onclick="closeAboutModal()" aria-label="Close">×</button>
+      
+      <div class="about-body">
+        <h2 data-i18n="abMainTitle">हमारे बारे में</h2>
+        
+        <h3 data-i18n="abSub1">आपके कारोबार का हिसाब—अब WhatsApp पर आसान</h3>
+        <p data-i18n="abText1">कारोबार चलाने का मतलब सिर्फ़ बिक्री करना नहीं है। रोज़ की खरीदारी, खर्च, स्टॉक और ग्राहकों के बकाया भुगतान का हिसाब रखना भी उतना ही ज़रूरी है। इन सबका रिकॉर्ड रखना आपके काम को मुश्किल नहीं बनाना चाहिए।</p>
+        <p data-i18n="abText2">WhatsMyHisaab डेयरी संचालकों, दुकानदारों और छोटे कारोबारियों को WhatsApp के ज़रिए रोज़मर्रा का हिसाब संभालने में मदद करता है। आप बोलकर या लिखकर अपने लेन-देन दर्ज कर सकते हैं—एक ऐसे तरीके से, जिससे आप पहले से परिचित हैं।</p>
+
+        <h3 data-i18n="abSub2">WhatsMyHisaab क्या है?</h3>
+        <p data-i18n="abText3">WhatsMyHisaab बोलकर कारोबार का हिसाब दर्ज करने वाला एक डिजिटल टूल है। यह बिक्री, खरीदारी, खर्च, स्टॉक और उधार के रिकॉर्ड को WhatsApp के ज़रिए संभालना आसान बनाता है, ताकि हिसाब लिखने में कम समय लगे और आप अपने कारोबार पर ज़्यादा ध्यान दे सकें।</p>
+        <p data-i18n="abText4">चाहे आप डेयरी चलाते हों या कोई स्थानीय दुकान, हमारा उद्देश्य एक ही है—रोज़ का हिसाब समझना और उसे नियमित रूप से दर्ज करना आसान बनाना।</p>
+
+        <h3 data-i18n="abSub3">यह कैसे काम करता है?</h3>
+        <p><strong data-i18n="abPoint1Title">बोलकर या लिखकर जानकारी दें:</strong> <span data-i18n="abPoint1Desc">अपने लेन-देन की जानकारी WhatsApp पर वॉइस मैसेज या टेक्स्ट के ज़रिए भेजें।</span></p>
+        <p><strong data-i18n="abPoint2Title">रोज़ का लेन-देन दर्ज करें:</strong> <span data-i18n="abPoint2Desc">बिक्री, खरीदारी, खर्च और उधार का हिसाब अपने रोज़मर्रा के काम के साथ दर्ज करते जाएँ।</span></p>
+        <p><strong data-i18n="abPoint3Title">अपने रिकॉर्ड व्यवस्थित रखें:</strong> <span data-i18n="abPoint3Desc">कारोबार का रिकॉर्ड व्यवस्थित रखें, ताकि बकाया भुगतान पर नज़र रखना और स्टॉक व पैसों के आने-जाने को समझना आसान हो।</span></p>
+
+        <h3 data-i18n="abSub4">डेयरी और छोटे कारोबारों की ज़रूरतों को ध्यान में रखकर बनाया गया</h3>
+        <p data-i18n="abText5">डेयरी के काम में हर दिन की बिक्री, खरीदारी, खर्च और ग्राहकों के उधार का हिसाब कागज़ पर संभालना मुश्किल हो सकता है। WhatsMyHisaab इन रोज़मर्रा के लेन-देन को दर्ज करना आसान बनाने के लिए बनाया गया है।</p>
+        <p data-i18n="abText6">यह उन दुकानदारों और छोटे कारोबारियों के लिए भी है, जो बिना किसी जटिल प्रक्रिया के अपना हिसाब व्यवस्थित रखना चाहते हैं।</p>
+
+        <h3 data-i18n="abSub5">हमारा उद्देश्य</h3>
+        <p data-i18n="abText7">हमारा उद्देश्य छोटे कारोबारियों के लिए हिसाब रखना आसान और सुलभ बनाना है—जानी-पहचानी बातचीत, रोज़मर्रा की भाषा और WhatsApp की सुविधा के साथ।</p>
+        <p data-i18n="abText8">हम मानते हैं कि हिसाब अपडेट रखना आपके काम का आसान हिस्सा होना चाहिए, कोई अलग बोझ नहीं।</p>
+
+        <h3 data-i18n="abSub6">आसान हिसाब की शुरुआत करें</h3>
+        <p data-i18n="abText9">जानिए कि WhatsMyHisaab आपके कारोबार के रोज़मर्रा के रिकॉर्ड को व्यवस्थित रखने में कैसे मदद कर सकता है।</p>
+
+        <div class="about-modal-actions">
+          <button class="btn btn-secondary" onclick="closeAboutModal()" style="width: auto; padding: 10px 20px; font-size: 0.9rem;" data-i18n="abBtnWork">यह कैसे काम करता है?</button>
+          <a class="btn btn-primary" href="https://wa.me/919109134201?text=नमस्कार!%20WhatsMy%20Hisaab%2C%20में%20आपका%20स्वागत%20है!" target="_blank" rel="noopener" style="width: auto; padding: 10px 20px; font-size: 0.9rem;">
+            💬 <span data-i18n="abBtnStart">WhatsApp पर शुरुआत करें</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="scanner-popup-modal" id="liveScannerModal" aria-hidden="true">
     <div class="scanner-popup-overlay" onclick="closeLiveScannerPopup()"></div>
@@ -1776,13 +1926,8 @@
         writeText: "अपने व्यापार की जानकारी WhatsApp मैसेज के तौर पर भेजें और हर एंट्री को एक साफ़-सुथरे डिजिटल रिकॉर्ड में बदलें।",
         pdfTitle: "PDF रिपोर्ट",
         pdfText: "आपके पूरे व्यापार हिसाब का रिकॉर्ड एक विस्तृत PDF रिपोर्ट में उपलब्ध है।",
-        privacyBadge: "गोपनीयता पहले",
-        aboutTitle: "आपके व्यापार का डेटा, सुरक्षित।",
-        aboutText: "आपके व्यापार का डेटा सुरक्षा का हक़दार है। WhatsMyHisaab को इस तरह तैयार किया गया है कि आपका हर रिकॉर्ड निजी, सुरक्षित और गोपनीय रहे।",
-        secure1: "व्यापार का हिसाब एक व्यवस्थित जगह पर रखें।",
-        secure2: "कॉपी की जगह लिखकर, बोलकर या फोटो स्कैन करके हिसाब जोड़ें।",
-        secure3: "अपने पूरे हिसाब की साफ़ PDF रिपोर्ट पाएं।",
-        secure4: "आपकी जानकारी गोपनीय और सुरक्षित रहती है।",
+        securityTitle: "100% डेटा सुरक्षित",
+        securityText: "आपके व्यापार का डेटा सुरक्षा का हक़दार है। WhatsMyHisaab में आपका हर रिकॉर्ड निजी, सुरक्षित और गोपनीय रहता है।",
         reviewsEyebrow: "ग्राहकों की राय",
         reviewsTitle: "व्यापारियों का भरोसा",
         reviewsLead: "देखें कैसे भारत के दुकानदार और व्यापारी WhatsMyHisaab से अपना हिसाब आसान बना रहे हैं।",
@@ -1817,7 +1962,32 @@
         scannerModalSubtitle: "बिल या पर्ची को फ्रेम के अंदर रखें",
         scannerFrameHint: "यहाँ स्कैन करें",
         btnTakeCam: "कैमरा खोलें",
-        btnUploadDoc: "गैलरी / फाइल"
+        btnUploadDoc: "गैलरी / फाइल",
+        // About Modal Content HI
+        abMainTitle: "हमारे बारे में",
+        abSub1: "आपके कारोबार का हिसाब—अब WhatsApp पर आसान",
+        abText1: "कारोबार चलाने का मतलब सिर्फ़ बिक्री करना नहीं है। रोज़ की खरीदारी, खर्च, स्टॉक और ग्राहकों के बकाया भुगतान का हिसाब रखना भी उतना ही ज़रूरी है। इन सबका रिकॉर्ड रखना आपके काम को मुश्किल नहीं बनाना चाहिए।",
+        abText2: "WhatsMyHisaab डेयरी संचालकों, दुकानदारों और छोटे कारोबारियों को WhatsApp के ज़रिए रोज़मर्रा का हिसाब संभालने में मदद करता है। आप बोलकर या लिखकर अपने लेन-देन दर्ज कर सकते हैं—एक ऐसे तरीके से, जिससे आप पहले से परिचित हैं।",
+        abSub2: "WhatsMyHisaab क्या है?",
+        abText3: "WhatsMyHisaab बोलकर कारोबार का हिसाब दर्ज करने वाला एक डिजिटल टूल है। यह बिक्री, खरीदारी, खर्च, स्टॉक और उधार के रिकॉर्ड को WhatsApp के ज़रिए संभालना आसान बनाता है, ताकि हिसाब लिखने में कम समय लगे और आप अपने कारोबार पर ज़्यादा ध्यान दे सकें।",
+        abText4: "चाहे आप डेयरी चलाते हों या कोई स्थानीय दुकान, हमारा उद्देश्य एक ही है—रोज़ का हिसाब समझना और उसे नियमित रूप से दर्ज करना आसान बनाना।",
+        abSub3: "यह कैसे काम करता है?",
+        abPoint1Title: "बोलकर या लिखकर जानकारी दें:",
+        abPoint1Desc: "अपने लेन-देन की जानकारी WhatsApp पर वॉइस मैसेज या टेक्स्ट के ज़रिए भेजें।",
+        abPoint2Title: "रोज़ का लेन-देन दर्ज करें:",
+        abPoint2Desc: "बिक्री, खरीदारी, खर्च और उधार का हिसाब अपने रोज़मर्रा के काम के साथ दर्ज करते जाएँ।",
+        abPoint3Title: "अपने रिकॉर्ड व्यवस्थित रखें:",
+        abPoint3Desc: "कारोबार का रिकॉर्ड व्यवस्थित रखें, ताकि बकाया भुगतान पर नज़र रखना और स्टॉक व पैसों के आने-जाने को समझना आसान हो।",
+        abSub4: "डेयरी और छोटे कारोबारों की ज़रूरतों को ध्यान में रखकर बनाया गया",
+        abText5: "डेयरी के काम में हर दिन की बिक्री, खरीदारी, खर्च और ग्राहकों के उधार का हिसाब कागज़ पर संभालना मुश्किल हो सकता है। WhatsMyHisaab इन रोज़मर्रा के लेन-देन को दर्ज करना आसान बनाने के लिए बनाया गया है।",
+        abText6: "यह उन दुकानदारों और छोटे कारोबारियों के लिए भी है, जो बिना किसी जटिल प्रक्रिया के अपना हिसाब व्यवस्थित रखना चाहते हैं।",
+        abSub5: "हमारा उद्देश्य",
+        abText7: "हमारा उद्देश्य छोटे कारोबारियों के लिए हिसाब रखना आसान और सुलभ बनाना है—जानी-पहचानी बातचीत, रोज़मर्रा की भाषा और WhatsApp की सुविधा के साथ।",
+        abText8: "हम मानते हैं कि हिसाब अपडेट रखना आपके काम का आसान हिस्सा होना चाहिए, कोई अलग बोझ नहीं।",
+        abSub6: "आसान हिसाब की शुरुआत करें",
+        abText9: "जानिए कि WhatsMyHisaab आपके कारोबार के रोज़मर्रा के रिकॉर्ड को व्यवस्थित रखने में कैसे मदद कर सकता है।",
+        abBtnWork: "यह कैसे काम करता है?",
+        abBtnStart: "WhatsApp पर शुरुआत करें"
       },
       en: {
         navHome: "Home",
@@ -1874,13 +2044,8 @@
         writeText: "Send your business details as a WhatsApp message and turn every entry into a clear, organised digital record.",
         pdfTitle: "PDF Reports",
         pdfText: "Your complete business hisaab is available in a detailed PDF report.",
-        privacyBadge: "Privacy first",
-        aboutTitle: "Your Business Data, Protected.",
-        aboutText: "Your business data deserves protection. WhatsMyHisaab is designed to keep every record private, secure, and confidential.",
-        secure1: "Keep business records organised in one dedicated experience.",
-        secure2: "Use text, voice, or bill photos instead of paper registers.",
-        secure3: "Get your recorded hisaab in a clear report format.",
-        secure4: "Your information is intended to remain confidential and protected.",
+        securityTitle: "100% Data Protected",
+        securityText: "Your business data deserves protection. WhatsMyHisaab is designed to keep every record private, secure, and confidential.",
         reviewsEyebrow: "Customer Feedback",
         reviewsTitle: "Loved by Business Owners",
         reviewsLead: "See how Indian shopkeepers and traders manage their daily ledger with WhatsMyHisaab.",
@@ -1915,7 +2080,32 @@
         scannerModalSubtitle: "Position invoice or receipt within the frame",
         scannerFrameHint: "Scan receipt here",
         btnTakeCam: "Open Camera",
-        btnUploadDoc: "Gallery / Files"
+        btnUploadDoc: "Gallery / Files",
+        // About Modal Content EN
+        abMainTitle: "About Us",
+        abSub1: "Your Business Hisaab—Now Easy on WhatsApp",
+        abText1: "Running a business is not just about making sales. Keeping track of daily purchases, expenses, stock, and customer dues is equally important. Maintaining records shouldn't make your work difficult.",
+        abText2: "WhatsMyHisaab helps dairy operators, shopkeepers, and small business owners manage daily accounts through WhatsApp. You can record transactions by speaking or typing—in a way you are already familiar with.",
+        abSub2: "What is WhatsMyHisaab?",
+        abText3: "WhatsMyHisaab is a digital tool to record business accounts through voice and text. It makes managing sales, purchases, expenses, stock, and credit records via WhatsApp seamless, saving you time to focus on your business.",
+        abText4: "Whether you run a dairy or a local shop, our goal is one—to make understanding and regularly recording daily accounts simple.",
+        abSub3: "How does it work?",
+        abPoint1Title: "Share via Voice or Text:",
+        abPoint1Desc: "Send transaction details via voice notes or text messages on WhatsApp.",
+        abPoint2Title: "Record Daily Transactions:",
+        abPoint2Desc: "Log sales, purchases, expenses, and credit alongside your daily routine.",
+        abPoint3Title: "Keep Records Organized:",
+        abPoint3Desc: "Keep your business records structured to easily track pending payments, stock, and cash flow.",
+        abSub4: "Built for Dairies and Small Businesses",
+        abText5: "Managing daily sales, purchases, expenses, and customer credit on paper for a dairy can be challenging. WhatsMyHisaab is built to make recording these daily transactions effortless.",
+        abText6: "It is also ideal for shopkeepers and small business owners who want to organize their accounts without complex software.",
+        abSub5: "Our Purpose",
+        abText7: "Our purpose is to make bookkeeping simple and accessible for small business owners—combining familiar conversation, everyday language, and WhatsApp convenience.",
+        abText8: "We believe keeping accounts updated should be an effortless part of your work, not an added burden.",
+        abSub6: "Start Simplified Accounting",
+        abText9: "Discover how WhatsMyHisaab can help keep your business daily records organized.",
+        abBtnWork: "How it works?",
+        abBtnStart: "Start on WhatsApp"
       }
     };
 
@@ -1977,6 +2167,22 @@
       }
     }
 
+    function openAboutModal() {
+      const modal = document.getElementById("aboutModal");
+      if (modal) {
+        modal.classList.add("show");
+        modal.setAttribute("aria-hidden", "false");
+      }
+    }
+
+    function closeAboutModal() {
+      const modal = document.getElementById("aboutModal");
+      if (modal) {
+        modal.classList.remove("show");
+        modal.setAttribute("aria-hidden", "true");
+      }
+    }
+
     function openLiveScannerPopup() {
       const modal = document.getElementById("liveScannerModal");
       if (modal) {
@@ -2017,6 +2223,7 @@
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape") {
         closeLiveScannerPopup();
+        closeAboutModal();
       }
     });
 
