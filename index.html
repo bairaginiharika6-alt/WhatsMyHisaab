@@ -1221,6 +1221,7 @@
           <a href="#demo" data-i18n="navDemo">सीधा प्रदर्शन</a>
           <a href="#hisaab" data-i18n="navHisaab">फीचर्स</a>
           <a href="#sliderSection" data-i18n="navSlider">सुविधाएं</a>
+          <a href="#about" data-i18n="navAbout">हमारे बारे में</a>
           <a href="#reviews" data-i18n="navReviews">रिव्यूज</a>
           <a href="#faq" data-i18n="navFaq">सवाल-जवाब</a>
           <a href="#talk" data-i18n="navTalk">हमसे बात करें</a>
@@ -1514,13 +1515,14 @@
       </div>
     </section>
 
+    <!-- About Us Section -->
     <section id="about">
       <div class="container">
         <div class="security">
           <div>
             <div class="eyebrow" style="background:rgba(85,220,145,.12);border-color:rgba(85,220,145,.25);color:#8df0b4" data-i18n="privacyBadge">गोपनीयता पहले</div>
-            <h2 data-i18n="securityTitle">आपके व्यापार का डेटा, सुरक्षित।</h2>
-            <p data-i18n="securityText">आपके व्यापार का डेटा सुरक्षा का हक़दार है। WhatsMyHisaab को इस तरह तैयार किया गया है कि आपका हर रिकॉर्ड निजी, सुरक्षित और गोपनीय रहे।</p>
+            <h2 data-i18n="aboutTitle">आपके व्यापार का डेटा, सुरक्षित।</h2>
+            <p data-i18n="aboutText">आपके व्यापार का डेटा सुरक्षा का हक़दार है। WhatsMyHisaab को इस तरह तैयार किया गया है कि आपका हर रिकॉर्ड निजी, सुरक्षित और गोपनीय रहे।</p>
           </div>
 
           <div class="security-list">
@@ -1662,8 +1664,13 @@
     </section>
   </main>
   
+  <!-- Footer with App Logo Icon and Dynamic Language Lines -->
   <footer>
-    <div class="container footer-inner" style="text-align: center; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 25px 0;">
+    <div class="container footer-inner" style="text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 25px 0;">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 2px;">
+        <img src="logo.jpg" alt="Logo" style="width: 28px; height: 28px; object-fit: contain; border-radius: 6px; border: 1px solid var(--line);">
+        <span style="font-weight: 855; color: var(--navy); font-size: 1.05rem;">WhatsMy<span style="color:var(--green)">Hisaab</span></span>
+      </div>
       <div style="font-weight: 800; color: var(--navy); font-size: 1rem; letter-spacing: 0.3px;" data-i18n="footerLine1">
         🇮🇳 गल्ले की पाई-पाई और डायरी का हिसाब, अब WhatsApp पर।
       </div>
@@ -1719,6 +1726,7 @@
         navDemo: "सीधा प्रदर्शन",
         navHisaab: "फीचर्स",
         navSlider: "सुविधाएं",
+        navAbout: "हमारे बारे में",
         navReviews: "रिव्यूज",
         navFaq: "सवाल-जवाब",
         navTalk: "हमसे बात करें",
@@ -1769,8 +1777,8 @@
         pdfTitle: "PDF रिपोर्ट",
         pdfText: "आपके पूरे व्यापार हिसाब का रिकॉर्ड एक विस्तृत PDF रिपोर्ट में उपलब्ध है।",
         privacyBadge: "गोपनीयता पहले",
-        securityTitle: "आपके व्यापार का डेटा, सुरक्षित।",
-        securityText: "आपके व्यापार का डेटा सुरक्षा का हक़दार है। WhatsMyHisaab में आपका हर रिकॉर्ड निजी, सुरक्षित और गोपनीय रहता है।",
+        aboutTitle: "आपके व्यापार का डेटा, सुरक्षित।",
+        aboutText: "आपके व्यापार का डेटा सुरक्षा का हक़दार है। WhatsMyHisaab को इस तरह तैयार किया गया है कि आपका हर रिकॉर्ड निजी, सुरक्षित और गोपनीय रहे।",
         secure1: "व्यापार का हिसाब एक व्यवस्थित जगह पर रखें।",
         secure2: "कॉपी की जगह लिखकर, बोलकर या फोटो स्कैन करके हिसाब जोड़ें।",
         secure3: "अपने पूरे हिसाब की साफ़ PDF रिपोर्ट पाएं।",
@@ -1816,6 +1824,7 @@
         navDemo: "Live Demo",
         navHisaab: "Features",
         navSlider: "Services",
+        navAbout: "About Us",
         navReviews: "Reviews",
         navFaq: "FAQ",
         navTalk: "Talk to us",
@@ -1866,8 +1875,8 @@
         pdfTitle: "PDF Reports",
         pdfText: "Your complete business hisaab is available in a detailed PDF report.",
         privacyBadge: "Privacy first",
-        securityTitle: "Your Business Data, Protected.",
-        securityText: "Your business data deserves protection. WhatsMyHisaab is designed to keep every record private, secure, and confidential.",
+        aboutTitle: "Your Business Data, Protected.",
+        aboutText: "Your business data deserves protection. WhatsMyHisaab is designed to keep every record private, secure, and confidential.",
         secure1: "Keep business records organised in one dedicated experience.",
         secure2: "Use text, voice, or bill photos instead of paper registers.",
         secure3: "Get your recorded hisaab in a clear report format.",
@@ -2033,3 +2042,4 @@
   </script>
 </body>
 </html>
+
